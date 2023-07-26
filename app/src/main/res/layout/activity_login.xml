@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="541dp"
+        android:layout_height="938dp"
+        android:src="@drawable/siang"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/orgkemping"
+        android:layout_width="386dp"
+        android:layout_height="303dp"
+        android:layout_marginTop="98dp"
+        android:src="@drawable/pana"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="101dp" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="300sp"
+        android:layout_height="35dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/buttonshape"
+        android:fontFamily="@font/poppinbold"
+        android:gravity="start"
+        android:hint="Username"
+        android:textSize="13dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/pass"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/orgkemping" />
+
+    <EditText
+        android:id="@+id/pass"
+        android:layout_width="300sp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/buttonshape"
+        android:fontFamily="@font/poppinbold"
+        android:gravity="start"
+        android:hint="Password"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/username" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="160sp"
+        android:layout_height="50sp"
+        android:layout_marginBottom="108dp"
+        android:backgroundTint="@color/green"
+        android:fontFamily="@font/poppinbold"
+        android:gravity="center"
+        android:hint="Log In"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/rememberme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="578dp"
+        android:layout_marginBottom="224dp"
+        android:button="@drawable/cekbox"
+        android:paddingLeft="8sp"
+        android:text="Remember me"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

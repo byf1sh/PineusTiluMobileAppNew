@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="Camp" type="id" />
+    <item name="qnez" type="id" />
+    <item name="OR" type="id" />
+    <item name="ig" type="id" />
+    <item name="btncustomersupport" type="id" />
+    <item name="btnFAQ" type="id" />
+    <item name="btnsignout" type="id" />
+    <item name="hasilpencarian" type="id" />
+    <item name="btnbantuan" type="id" />
+    <item name="tanggal" type="id" />
+    <item name="pemilihantanggal" type="id" />
+    <item name="bottomNavigation" type="id" />
+    <item name="close_button" type="id" />
+    <item name="dateimg" type="id" />
+    <item name="dateTitle" type="id" />
+    <item name="date" type="id" />
+    <item name="dateimg1" type="id" />
+    <item name="dateTitle1" type="id" />
+    <item name="date1" type="id" />
+    <item name="btn" type="id" />
+</resources>

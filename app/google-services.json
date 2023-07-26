@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "339454908023",
+    "firebase_url": "https://pineustiludb-default-rtdb.firebaseio.com",
+    "project_id": "pineustiludb",
+    "storage_bucket": "pineustiludb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339454908023:android:70f63c8da08de015b79872",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "339454908023-ve0uufvs9tg6ll3meobkcb0eme1gqen5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKD9BY704P7kor1gIT7yvELf0ThZyAGsE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "339454908023-ve0uufvs9tg6ll3meobkcb0eme1gqen5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

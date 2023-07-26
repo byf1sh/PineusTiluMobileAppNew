@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="729dp"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp"
+    android:fillViewport="true"
+    tools:context=".DetailBookingDeckActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/header_dbd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="43dp"
+            android:fontFamily="@font/raleway"
+            android:text="Title"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/avail_dbd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="43dp"
+            android:fontFamily="@font/raleway"
+            android:text="Title"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@id/header_dbd"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/black"/>
+
+        <ImageView
+            android:id="@+id/threedots_pp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/dot3"
+            app:layout_constraintBottom_toBottomOf="@+id/header_dbd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.874"
+            app:layout_constraintStart_toEndOf="@+id/header_dbd"
+            app:layout_constraintTop_toTopOf="@+id/header_dbd"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/mainpic_dbd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mainpic_dbd"
+            app:layout_constraintTop_toBottomOf="@+id/header_dbd"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="30dp">
+        </ImageView>
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalscr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-16dp"
+            app:layout_constraintTop_toBottomOf="@id/mainpic_dbd"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:src="@drawable/mainpic_dbd"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"/>
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:src="@drawable/mainpic_dbd"
+                    android:layout_marginRight="5dp"/>
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:src="@drawable/mainpic_dbd"
+                    android:layout_marginRight="5dp"/>
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:src="@drawable/mainpic_dbd"
+                    android:layout_marginRight="5dp"/>
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:src="@drawable/mainpic_dbd"
+                    android:layout_marginRight="5dp"/>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/h2_dbd"
+            android:textColor="@color/black"
+            android:text="asdasdsadsad"
+            android:layout_marginTop="42dp"
+            android:fontFamily="@font/raleway"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/horizontalscr"
+            app:layout_constraintBottom_toTopOf="@id/b2_dbd"
+            android:layout_marginStart="29dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/b2_dbd"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/poppins"
+            android:text="FASILITAS PRIVAT:\n
+- 4 Pax Amenities (Foam Matras + Bantal, Sleeping Bag, Default Sarapan)\n
+- Colokan listrik di dalam tenda\n
+- Lampu dalam tenda\n
+- Meja privat dining setiap tenda\n
+- Coffee table di dalam tenda\n
+- Alat BBQ tiap tenda (belum termasuk arang, capitan,\n
+  alat makan &amp; minum)"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/h2_dbd"
+            app:layout_constraintTop_toBottomOf="@+id/h2_dbd" />
+
+        <TextView
+            android:text="Fasilitas"
+            android:fontFamily="@font/raleway"
+            android:id="@+id/fpub_dbd"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/b2_dbd"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="29dp"
+            android:layout_marginEnd="250dp"
+            android:layout_marginTop="15dp"
+            />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cbody2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/fpub_dbd"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <ImageView
+                android:id="@+id/toilet_dbd"
+                android:src="@drawable/toilet_dbd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toStartOf="@id/dtable_dbd"/>
+            <ImageView
+                android:id="@+id/dtable_dbd"
+                android:src="@drawable/diningtable_dbd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/toilet_dbd"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toStartOf="@id/campfire_dbd"/>
+            <ImageView
+                android:id="@+id/campfire_dbd"
+                android:src="@drawable/campfire"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/dtable_dbd"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/bbq_dbd"
+                android:layout_marginTop="10dp" />
+
+            <ImageView
+                android:id="@+id/bbq_dbd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/bbqgrill_dbd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/campfire_dbd"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/toilettext_dbd"
+                android:fontFamily="@font/raleway"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Toilet"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/toilet_dbd"
+                app:layout_constraintStart_toStartOf="@+id/toilet_dbd"
+                />
+            <TextView
+                android:id="@+id/dtabletext_dbd"
+                android:fontFamily="@font/raleway"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dining Table"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/dtable_dbd"
+                app:layout_constraintStart_toStartOf="@+id/dtable_dbd"
+                app:layout_constraintEnd_toEndOf="@+id/dtable_dbd"
+                />
+            <TextView
+                android:id="@+id/campfiretext_dbd"
+                android:fontFamily="@font/raleway"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Campfire"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/campfire_dbd"
+                app:layout_constraintStart_toStartOf="@+id/campfire_dbd"
+                app:layout_constraintEnd_toEndOf="@+id/campfire_dbd"
+                />
+            <TextView
+                android:id="@+id/bbqtext_dbd"
+                android:fontFamily="@font/raleway"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BBQ"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/bbq_dbd"
+                app:layout_constraintStart_toStartOf="@+id/bbq_dbd"
+                app:layout_constraintEnd_toEndOf="@+id/bbq_dbd"
+                />
+            <ImageView
+                android:id="@+id/hammock_dbd"
+                android:src="@drawable/hammock_dbd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/toilet_dbd"
+                android:layout_marginTop="35dp"
+                app:layout_constraintStart_toStartOf="@id/toilet_dbd"
+                app:layout_constraintEnd_toEndOf="@+id/toilet_dbd"/>
+
+            <ImageView
+                android:id="@+id/playpool_dbd"
+                android:src="@drawable/childpool_dbd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/dtable_dbd"
+                android:layout_marginTop="35dp"
+                app:layout_constraintStart_toStartOf="@+id/dtable_dbd"
+                app:layout_constraintEnd_toEndOf="@+id/dtable_dbd" />
+
+            <TextView
+                android:id="@+id/hammocktext_dbd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/raleway"
+                android:text="Hammock"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/hammock_dbd"
+                app:layout_constraintStart_toStartOf="@id/hammock_dbd"
+                app:layout_constraintTop_toBottomOf="@id/hammock_dbd" />
+            <TextView
+                android:id="@+id/playpooltext_dbd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/raleway"
+                android:text="Child pool"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/playpool_dbd"
+                app:layout_constraintStart_toStartOf="@id/playpool_dbd"
+                app:layout_constraintTop_toBottomOf="@id/playpool_dbd" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tglbook_dbd"
+            android:text="Tanggal Booking"
+            android:textSize="14sp"
+            android:fontFamily="@font/raleway"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/cbody2"
+            app:layout_constraintStart_toStartOf="@id/fpub_dbd"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"/>
+
+
+        <LinearLayout
+            android:id="@+id/tglbook2_dbd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@id/tglbook_dbd"
+            app:layout_constraintTop_toBottomOf="@+id/tglbook_dbd"
+            >
+            <TextView
+                android:id="@+id/textViewTanggal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20-06-2023 s/d  21-06-2023"
+                android:fontFamily="@font/raleway"
+                android:textSize="17sp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/harga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Harga : Rp 750.asdasd"
+            app:layout_constraintTop_toBottomOf="@id/tglbook2_dbd"
+            android:textSize="24sp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/raleway"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/tglbook_dbd"/>
+
+        <!--ini yg button kembali        -->
+
+        <androidx.cardview.widget.CardView
+
+            android:id="@+id/btn_kembali_dbd"
+            android:layout_width="178dp"
+            android:layout_height="43dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_book_dbd"
+            android:layout_marginStart="16dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@id/harga"
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_marginTop="20dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/abu"
+            app:cardCornerRadius="10dp"
+            >
+
+            <TextView
+
+                android:id="@+id/kembalitext_dbd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway"
+                android:text="Kembali"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="8dp"
+                ></TextView>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+
+            android:id="@+id/btn_book_dbd"
+            android:layout_width="178dp"
+            android:layout_height="43dp"
+            android:layout_marginBottom="50dp"
+            app:layout_editor_absoluteY="1074dp"
+            app:layout_constraintTop_toTopOf="@id/btn_kembali_dbd"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/green"
+            app:cardCornerRadius="10dp">
+
+            <TextView
+                android:id="@+id/booktext_dbd"
+                android:text="Book"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:fontFamily="@font/raleway"
+                app:layout_editor_absoluteY="70dp"
+                app:layout_editor_absoluteX="70dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="69dp"
+                android:textColor="@color/black"></TextView>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

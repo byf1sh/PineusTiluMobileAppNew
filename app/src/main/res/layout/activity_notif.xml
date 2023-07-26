@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".NotifActivity">
+
+    <TextView
+        android:id="@+id/history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23sp"
+        android:layout_marginTop="36sp"
+        android:fontFamily="@font/poppinsbold"
+        android:text="History"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/namanana"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23sp"
+        android:layout_marginTop="36sp"
+        android:fontFamily="@font/poppinsbold"
+        android:text="History"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@id/dot"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/dot"
+        android:layout_width="24sp"
+        android:layout_height="24sp"
+        android:layout_marginTop="41sp"
+        android:layout_marginEnd="29sp"
+        android:background="@drawable/menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/upcoming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24sp"
+        android:layout_marginTop="121sp"
+        android:fontFamily="@font/poppinsbold"
+        android:text="Upcoming"
+        android:textColor="@color/hijau"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/riwayat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="121sp"
+        android:layout_marginEnd="45sp"
+        android:fontFamily="@font/poppinsbold"
+        android:text="Riwayat"
+        android:textColor="@color/abu"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="wrap_content"
+        android:layout_height="4000dp"
+        android:src="@drawable/summercamp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/upcoming">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl1"
+            android:layout_width="match_parent"
+            android:layout_height="5000dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30sp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/raleway_bold"
+                android:text="July 2023"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/notifpuchased"
+                android:layout_width="347sp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/rectangle2"
+                android:elevation="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="65sp"
+                    android:layout_height="70sp"
+                    android:layout_marginStart="37sp"
+                    android:layout_marginTop="9sp"
+                    android:src="@drawable/checklist"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="100sp"
+                    android:layout_marginTop="15sp"
+                    android:fontFamily="@font/raleway"
+                    android:text="You've purchased"
+                    android:textColor="@color/black"
+                    android:textSize="19sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/bookingid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="102sp"
+                    android:layout_marginTop="40sp"
+                    android:fontFamily="@font/raleway"
+                    android:text="Booking ID 000001"
+                    android:textColor="@color/abu"
+                    android:textSize="19sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/notification"
+                    android:layout_width="match_parent"
+                    android:layout_height="450dp"
+                    android:visibility="gone"
+                    android:layout_marginTop="10sp"
+                    android:background="@drawable/rectangle2"
+                    app:layout_constraintTop_toBottomOf="@id/bookingid">
+
+                    <TextView
+                        android:id="@+id/purchasedon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20sp"
+                        android:layout_marginTop="40sp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="Purchased on"
+                        android:textColor="@color/abu"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tuesday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="60sp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="Tuesday, 04 july 2023"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toEndOf="@+id/purchasedon"
+                        app:layout_constraintTop_toTopOf="@id/purchasedon" />
+
+                    <TextView
+                        android:id="@+id/paymentmethod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25sp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="Payment Method"
+                        android:textColor="@color/abu"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="@id/purchasedon"
+                        app:layout_constraintTop_toBottomOf="@id/purchasedon" />
+
+                    <TextView
+                        android:id="@+id/QRIS"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="36sp"
+                        android:layout_marginTop="25sp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="QRIS"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toEndOf="@id/paymentmethod"
+                        app:layout_constraintTop_toBottomOf="@id/tuesday" />
+
+                    <TextView
+                        android:id="@+id/pricedetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25sp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="Price Details"
+                        android:textColor="@color/abu"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="@id/paymentmethod"
+                        app:layout_constraintTop_toBottomOf="@id/paymentmethod" />
+
+                    <TextView
+                        android:id="@+id/angka"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="65sp"
+                        android:layout_marginTop="23sp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="Rp. 700.000,00"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toEndOf="@id/pricedetails"
+                        app:layout_constraintTop_toBottomOf="@id/QRIS" />
+
+                    <TextView
+                        android:id="@+id/location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25sp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="Location"
+                        android:textColor="@color/abu"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="@id/pricedetails"
+                        app:layout_constraintTop_toBottomOf="@id/pricedetails" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25sp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="Pineus Tilu 3, Deck 1"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="@id/angka"
+                        app:layout_constraintTop_toBottomOf="@id/angka" />
+
+                    <ImageView
+                        android:layout_width="222dp"
+                        android:layout_height="202dp"
+                        android:layout_marginTop="20sp"
+                        android:src="@drawable/pineustilu3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/location" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/notifpuchased2"
+                android:layout_width="347sp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="250dp"
+                android:background="@drawable/rectangle2"
+                android:elevation="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/notifpuchased">
+
+                <ImageView
+                    android:layout_width="65sp"
+                    android:layout_height="70sp"
+                    android:layout_marginStart="37sp"
+                    android:layout_marginTop="9sp"
+                    android:src="@drawable/checklist"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="100sp"
+                    android:layout_marginTop="15sp"
+                    android:fontFamily="@font/raleway"
+                    android:text="You've purchased"
+                    android:textColor="@color/black"
+                    android:textSize="19sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/bookingid1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="102sp"
+                    android:layout_marginTop="40sp"
+                    android:fontFamily="@font/raleway_bold"
+                    android:text="Booking ID 000001"
+                    android:textColor="@color/abu"
+                    android:textSize="19sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/notification1"
+                    android:layout_width="match_parent"
+                    android:layout_height="450dp"
+                    android:visibility="gone"
+                    android:layout_marginTop="10sp"
+                    android:background="@drawable/rectangle2"
+                    app:layout_constraintTop_toBottomOf="@id/bookingid1">
+
+                    <TextView
+                        android:id="@+id/purchasedon1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20sp"
+                        android:layout_marginTop="40sp"
+                        android:fontFamily="@font/raleway"
+                        android:text="Purchased on"
+                        android:textColor="@color/abu"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tuesday1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="60sp"
+                        android:fontFamily="@font/raleway"
+                        android:text="Tuesday, 04 july 2023"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toEndOf="@+id/purchasedon1"
+                        app:layout_constraintTop_toTopOf="@id/purchasedon1" />
+
+                    <TextView
+                        android:id="@+id/paymentmethod1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25sp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="Payment Method"
+                        android:textColor="@color/abu"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="@id/purchasedon1"
+                        app:layout_constraintTop_toBottomOf="@id/purchasedon1" />
+
+                    <TextView
+                        android:id="@+id/QRIS1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="36sp"
+                        android:layout_marginTop="25sp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="QRIS"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toEndOf="@id/paymentmethod1"
+                        app:layout_constraintTop_toBottomOf="@id/tuesday1" />
+
+                    <TextView
+                        android:id="@+id/pricedetails1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25sp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="Price Details"
+                        android:textColor="@color/abu"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="@id/paymentmethod1"
+                        app:layout_constraintTop_toBottomOf="@id/paymentmethod1" />
+
+                    <TextView
+                        android:id="@+id/angka1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="65sp"
+                        android:layout_marginTop="23sp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="Rp. 700.000,00"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toEndOf="@id/pricedetails1"
+                        app:layout_constraintTop_toBottomOf="@id/QRIS1" />
+
+                    <TextView
+                        android:id="@+id/location1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25sp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="Location"
+                        android:textColor="@color/abu"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="@id/pricedetails1"
+                        app:layout_constraintTop_toBottomOf="@id/pricedetails1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25sp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="Pineus Tilu 3, Deck 1"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="@id/angka1"
+                        app:layout_constraintTop_toBottomOf="@id/angka1" />
+
+                    <ImageView
+                        android:layout_width="222dp"
+                        android:layout_height="202dp"
+                        android:layout_marginTop="20sp"
+                        android:src="@drawable/pineustilu3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/location1" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="340dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/upcoming"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/pemandangan"
+            android:layout_width="400sp"
+            android:layout_height="380sp"
+            android:layout_marginTop="-50sp"
+            android:src="@drawable/pemandangan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/romis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="83sp"
+            android:layout_marginBottom="70dp"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Hey Romis !"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@id/pemandangan"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="220sp"
+            android:layout_marginTop="7dp"
+            android:src="@drawable/waving"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/romis" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/raleway"
+            android:text="Sepertinya kamu belum pernah camping\ndengan kami sejauh ini"
+            android:textColor="@color/abu"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/romis"
+            app:layout_constraintTop_toBottomOf="@id/romis" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bottom_background"
+        android:elevation="2dp"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@drawable/item_selector"
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bottom_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
