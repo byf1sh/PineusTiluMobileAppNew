@@ -109,7 +109,7 @@ public class NotifActivity extends AppCompatActivity {
                     finish();
                     return true;
                 case R.id.bottom_history:
-                    Intent intent2 = new Intent(NotifActivity.this,HistoryActivity.class);
+                    Intent intent2 = new Intent(NotifActivity.this,EntertainmentActivity.class);
                     startActivity(intent2);
                     finish();
                     return true;

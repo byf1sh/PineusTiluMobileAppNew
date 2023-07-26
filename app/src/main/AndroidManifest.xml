@@ -21,6 +21,12 @@
             android:name=".DetailBookingDeckActivity"
             android:exported="false" />
         <activity
+            android:name=".EntertainmentDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EntertainmentActivity"
+            android:exported="true" />
+        <activity
             android:name=".NotifActivity"
             android:exported="false" />
         <activity

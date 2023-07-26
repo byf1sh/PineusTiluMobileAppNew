@@ -63,7 +63,7 @@ public class ProfileActivity extends AppCompatActivity {
                     finish();
                     return true;
                 case R.id.bottom_history:
-                    Intent intent1 = new Intent(ProfileActivity.this,HistoryActivity.class);
+                    Intent intent1 = new Intent(ProfileActivity.this,EntertainmentActivity.class);
                     startActivity(intent1);
                     finish();
                     return true;

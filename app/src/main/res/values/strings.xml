@@ -21,4 +21,22 @@
     <string name="b2_atv_entertainment">- Unit ATV\n- Helm\n- Instruktur\n- P3k / Safety Equipments\n-Asuransi\n- Local Transport\n- Tiket Jalur</string>
     <string name="h_atv1">ATV (Single)</string>
     <string name="h_atv2">ATV (Tandem)</string>
+    <string name="header_dbd">Deck 2 Pineus Tilu 1</string>
+    <string name="header2_dbd">Deskripsi Kegiatan</string>
+    <string name="deskripsi">Lorem Ipsumn Lorem Ipsum sir dolor Lorem Ipsumn\nsir dolor Lorem Ipsum sir dolor\nLorem Ipsum sir dolor Lorem Ipsum sir dolor </string>
+    <string name="fasilitas_rafting">&#8226; Safety EquipmentsP3K\n&#8226; Perahu Karet Berisi 4 Orang\n&#8226; Dayung\n&#8226; Guide Rafting\n&#8226; Pemandu\n&#8226; Tempat Bilas\n&#8226; Locacl Transport dan instruktur\n
+    </string>
+    <string name="fasilitas_offroad">&#8226; Unit Offroad Land Rover and Driver\n&#8226; Instruktur\n&#8226; P3K/Safety Equipment\n&#8226; Asuransi\n&#8226; Local Transport\n&#8226; Tiket Jalur
+    </string>
+    <string name="fasilitas_atv">&#8226; Unit Atv Helm\n&#8226; Instruktur\n&#8226; P3K/Safety Equipment\n&#8226; Asuransi\n&#8226; Local Transport\n&#8226; Tiket Jalur
+    </string>
+    <string name="fasilitas_flyingfox">&#8226; Harness Pengaman\n&#8226; Instruktur\n&#8226; P3K/Safety Equipment\n&#8226; Local Transport\n&#8226; Tiket
+    </string>
+    <string name="fasilitas_teambuilding">&#8226; Equipments\n&#8226; Instruktur\n&#8226; P3K/Safety Equipment\n&#8226; Sound System
+    </string>
+    <string name="fasilitas_paintball">&#8226; Seragam\n&#8226; Rompi Pelindung\n&#8226; Masker/Google\n&#8226; Senapan Paintball\n&#8226; Peluru 30 butir\n&#8226; Instruktur\n&#8226; P3K/Safety Equipment\n&#8226; Local Transport\n&#8226; Tiket Jalur
+    </string>
+    <string name="header3_dbd">(*Pemesanan untuk saat ini hanya via admin/resepsionis.\n Laman ini untuk saat ini hanya sebagai media informasi)</string>
+    <string name="body2.1_dbd">&#8226; Safety EquipmentsP3K\n&#8226; Perahu Karet Berisi 5 Orang\n&#8226; Dayung\n&#8226; Guide Rafting\n&#8226; Pemandu\n&#8226; Tempat Bilas\n&#8226; Locacl Transport dan instruktur\n
+    </string>
 </resources>
