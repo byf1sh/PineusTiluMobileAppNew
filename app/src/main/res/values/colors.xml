@@ -18,6 +18,8 @@
     <color name="hitam">#000000</color>
     <color name="hijau">#008746</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="hitam2">#263238</color>
+    <color name="abu2">#515151</color>
     <color name="item">#000000</color>
     <color name="krem">#FEFFB5</color>
     <color name="youngred">#FF6C6C</color>

@@ -100,7 +100,7 @@ public class HomeMainActivity extends AppCompatActivity {
                 case R.id.bottom_home:
                     return true;
                 case R.id.bottom_history:
-                    Intent intent = new Intent(HomeMainActivity.this,HistoryActivity.class);
+                    Intent intent = new Intent(HomeMainActivity.this,EntertainmentActivity.class);
                     startActivity(intent);
                     finish();
                     return true;

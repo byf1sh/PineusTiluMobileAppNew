@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".EntertainmentDetailActivity"
+    android:background="#F7F7F7"
+    android:fillViewport="true">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/header_dbd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="26dp"
+        android:fontFamily="@font/raleway_bold"
+        android:text="Rafting Pineus Tilu"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/hitam"/>
+
+    <ImageView
+        android:id="@+id/threedots_pp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/menu"
+        app:layout_constraintBottom_toBottomOf="@+id/header_dbd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.874"
+        app:layout_constraintStart_toEndOf="@+id/header_dbd"
+        app:layout_constraintTop_toTopOf="@+id/header_dbd"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/mainpic_dbd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/detailpic_entertaindetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_dbd" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalscr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/mainpic_dbd"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="64dp"
+          android:gravity="center"
+          android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="108dp"
+            android:layout_height="55dp"
+            android:background="@drawable/detailpic_entertaindetail"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="5dp"/>
+        <ImageView
+            android:layout_width="108dp"
+            android:layout_height="55dp"
+            android:background="@drawable/detailpic_entertaindetail"
+            android:layout_marginRight="5dp"/>
+        <ImageView
+            android:layout_width="108dp"
+            android:layout_height="55dp"
+            android:background="@drawable/detailpic_entertaindetail"
+            android:layout_marginRight="5dp"/>
+        <ImageView
+            android:layout_width="108dp"
+            android:layout_height="55dp"
+            android:background="@drawable/detailpic_entertaindetail"
+            android:layout_marginRight="5dp"/>
+        <ImageView
+            android:layout_width="108dp"
+            android:layout_height="55dp"
+            android:background="@drawable/detailpic_entertaindetail"
+            android:layout_marginRight="5dp"/>
+
+      </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="#28000000"
+        app:layout_constraintBottom_toBottomOf="@id/horizontalscr"
+        app:layout_constraintEnd_toEndOf="@id/horizontalscr"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@id/horizontalscr"
+        app:layout_constraintTop_toTopOf="@id/horizontalscr"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/h2_dbd"
+        android:textColor="@color/hitam"
+        android:text="@string/header2_dbd"
+        android:layout_marginTop="42dp"
+        android:fontFamily="@font/raleway_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalscr"
+        app:layout_constraintBottom_toTopOf="@+id/deskripsi"
+        android:layout_marginStart="26dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/deskripsi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/raleway_bold"
+        android:text="@string/deskripsi"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.006"
+        app:layout_constraintStart_toStartOf="@id/h2_dbd"
+        app:layout_constraintTop_toBottomOf="@+id/h2_dbd" />
+
+    <TextView
+        android:text="@string/faspub"
+        android:fontFamily="@font/raleway_bold"
+        android:id="@+id/fpub_dbd"
+        android:textSize="14sp"
+        android:textColor="@color/hitam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/deskripsi"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="250dp"
+        android:layout_marginTop="15dp" />
+
+
+    <TextView
+        android:id="@+id/fasilitas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/raleway_bold"
+        android:text="@string/fasilitas_rafting"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/fpub_dbd"
+        app:layout_constraintTop_toBottomOf="@+id/fpub_dbd" />
+
+    <TextView
+        android:id="@+id/tglbook2_dbd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/header3_dbd"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/fasilitas"
+        app:layout_constraintTop_toBottomOf="@+id/fasilitas" />
+
+    <TextView
+        android:id="@+id/harga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppinsbold"
+        android:text="Harga : Rp 600.000"
+        android:textColor="@color/hitam2"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/fasilitas"
+        app:layout_constraintTop_toBottomOf="@+id/tglbook2_dbd" />
+
+
+    <Button
+        android:id="@+id/btn_kembali"
+        android:layout_width="380dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/abu3"
+        android:hint="Kembali"
+        android:orientation="horizontal"
+        android:textColorHint="@color/abu2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/harga" />
+
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
