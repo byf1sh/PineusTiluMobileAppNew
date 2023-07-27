@@ -1,25 +1,41 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NotifActivity extends AppCompatActivity {
 
     TextView riwayat, upcoming, namanana;
-    ConstraintLayout cl1, cl2, notification, notifpurchased, notifpurchased2, notification1;
-
+    ConstraintLayout cl2, nodata, notifpurchased, notifpurchased2, notification1;
+    LinearLayout cl1;
     ImageView background;
+    DatabaseReference databaseReference1, childRef1;
     String getdata;
-
+    NotifAdapter adapter1;
+    List<NotifClass> dataListNotif;
+    RecyclerView NotifRecyclerview;
+    ValueEventListener eventListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +51,13 @@ public class NotifActivity extends AppCompatActivity {
         cl1 = findViewById(R.id.cl1);
         cl2 = findViewById(R.id.cl2);
         background = findViewById(R.id.background);
-        notification = findViewById(R.id.notification);
-        notifpurchased = findViewById(R.id.notifpuchased);
-        notifpurchased2 = findViewById(R.id.notifpuchased2);
-        notification1 = findViewById(R.id.notification1);
         namanana=findViewById(R.id.namanana);
+        NotifRecyclerview=findViewById(R.id.NotifRecyclerview);
+        nodata=findViewById(R.id.nodata);
 
         getData();
+        LinearLayoutManager linearLayoutManager3 = new LinearLayoutManager(NotifActivity.this,LinearLayoutManager.VERTICAL,false);
+        NotifRecyclerview.setLayoutManager(linearLayoutManager3);
 
         upcoming.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,31 +74,6 @@ public class NotifActivity extends AppCompatActivity {
                 }
             }
         });
-
-        notifpurchased.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (notification.getVisibility() == View.GONE){
-                    notification.setVisibility(View.VISIBLE);
-                }
-                else {
-                    notification.setVisibility(View.GONE);
-                }
-            }
-        });
-
-        notifpurchased2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (notification1.getVisibility() == View.GONE){
-                    notification1.setVisibility(View.VISIBLE);
-                }
-                else {
-                    notification1.setVisibility(View.GONE);
-                }
-            }
-        });
-
 
         riwayat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,7 +100,7 @@ public class NotifActivity extends AppCompatActivity {
                     finish();
                     return true;
                 case R.id.bottom_history:
-                    Intent intent2 = new Intent(NotifActivity.this,EntertainmentActivity.class);
+                    Intent intent2 = new Intent(NotifActivity.this,HistoryActivity.class);
                     startActivity(intent2);
                     finish();
                     return true;
@@ -125,6 +116,35 @@ public class NotifActivity extends AppCompatActivity {
             }
             return false;
         });
+        String pathNtf = "users/"+getdata+"/Notif";
+        dataListNotif = new ArrayList<>();
+        adapter1 = new NotifAdapter(NotifActivity.this,dataListNotif);
+        NotifRecyclerview.setAdapter(adapter1);
+
+        databaseReference1 = FirebaseDatabase.getInstance().getReference(pathNtf);
+        childRef1 = databaseReference1.child("NotifPurchased");
+
+        eventListener = childRef1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                dataListNotif.clear();
+                if (snapshot.exists()) {
+                    dataPresent();
+                    for (DataSnapshot itemSnapshot : snapshot.getChildren()) {
+                        NotifClass notifClass = itemSnapshot.getValue(NotifClass.class);
+                        dataListNotif.add(notifClass);
+                    }
+                    adapter1.notifyDataSetChanged();
+                }else {
+                    dataNotPresent();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
     public void getData(){
         Intent intent = getIntent();
@@ -132,5 +152,13 @@ public class NotifActivity extends AppCompatActivity {
         getdata = intent.getStringExtra("username");
         namanana.setText(getdata);
 
+    }
+    public void dataNotPresent(){
+        nodata.setVisibility(View.VISIBLE);
+        NotifRecyclerview.setVisibility(View.GONE);
+    }
+    public void dataPresent(){
+        nodata.setVisibility(View.GONE);
+        NotifRecyclerview.setVisibility(View.VISIBLE);
     }
 }

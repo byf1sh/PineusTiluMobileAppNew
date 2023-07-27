@@ -67,7 +67,7 @@ public class HomeMainActivity extends AppCompatActivity {
 
         myDialog = new Dialog(this,R.style.dialog);
 
-        tanggal.setText("15-4-2023");
+
         getData();
 
 

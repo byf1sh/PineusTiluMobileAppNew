@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_anchorGravity="center"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
+    android:elevation="15dp"
+    android:background="@drawable/rectangle2"
+    android:layout_marginBottom="20dp"
+    android:layout_marginTop="10dp"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Notification"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/notifImg"
+            android:layout_width="65sp"
+            android:layout_height="70sp"
+            android:layout_marginStart="30sp"
+            android:layout_marginTop="9sp"
+            android:src="@drawable/checklist"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/mainNotif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13sp"
+            android:layout_marginTop="20sp"
+            android:text="You've purchased"
+            android:textColor="@color/black"
+            android:textSize="19sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/notifImg" />
+
+        <TextView
+            android:id="@+id/childNotif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24sp"
+            android:text="Booking ID 000001"
+            android:textSize="19sp"
+            app:layout_constraintStart_toStartOf="@id/mainNotif"
+            app:layout_constraintTop_toTopOf="@id/mainNotif" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/onClickConstraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/childNotif"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            
+            <TextView
+                android:id="@+id/purchasedOn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Purchased On"
+                android:layout_marginStart="25dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+            <TextView
+                android:id="@+id/purchasedOnDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Purchased On"
+                android:textStyle="bold"
+                android:layout_marginStart="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="25dp"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/paymentMethod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paymeny Method"
+                app:layout_constraintTop_toBottomOf="@+id/purchasedOn"
+                app:layout_constraintStart_toStartOf="@id/purchasedOn"
+                android:layout_marginTop="14dp"/>
+            <TextView
+                android:id="@+id/paymentMethodDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paymeny Method"
+                android:textStyle="bold"
+                android:layout_marginEnd="25dp"
+                app:layout_constraintTop_toBottomOf="@+id/purchasedOn"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="14dp"/>
+            <TextView
+                android:id="@+id/priceDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price Details"
+                app:layout_constraintTop_toBottomOf="@+id/paymentMethod"
+                app:layout_constraintStart_toStartOf="@id/paymentMethod"
+                android:layout_marginTop="14dp"/>
+            <TextView
+                android:id="@+id/priceDetailsDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price Details"
+                android:textStyle="bold"
+                android:layout_marginEnd="25dp"
+                app:layout_constraintTop_toBottomOf="@+id/paymentMethod"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="14dp"/>
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                app:layout_constraintTop_toBottomOf="@+id/priceDetails"
+                app:layout_constraintStart_toStartOf="@id/priceDetails"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="14dp"/>
+            <TextView
+                android:id="@+id/locationDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:textStyle="bold"
+                android:layout_marginEnd="25dp"
+                app:layout_constraintTop_toBottomOf="@+id/priceDetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="14dp"/>
+
+            <ImageView
+                android:id="@+id/notifimgitem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/notiimg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/location"
+                android:layout_marginTop="20dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/rectangle2"
+                android:backgroundTint="@color/abumuda"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:elevation="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/notifimgitem">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="Rescheadule/cancel"
+                    android:fontFamily="@font/poppins"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

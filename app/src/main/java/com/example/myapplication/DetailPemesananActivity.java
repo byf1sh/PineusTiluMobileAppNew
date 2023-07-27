@@ -20,10 +20,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DetailPemesananActivity extends AppCompatActivity {
-    CardView btn_book_dp,btn_kembali_dp;
+    CardView btn_book_dp, btn_kembali_dp;
     TextView plus_dp, jumlahorang_dp, minus_dp, cekinTgl_dp, deck, fas_dp, harga_dp;
-    String destLokasi, destTitle, title, avail, image, name, jml, Avail, Name, tanggalawal, tanggalakhir;
-    DatabaseReference databaseReference, childRef, childRef2;
+    String destLokasi, destHarga, imageNtf, destTitle, title, avail, image, name, jml, Avail, Name, tanggalawal, tanggalakhir, mainNtf, childNtf;
+    DatabaseReference databaseReference, childRef, childRef1, databaseReference1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,50 +41,56 @@ public class DetailPemesananActivity extends AppCompatActivity {
 
         showData();
 
-        String path = tanggalawal+"/"+destLokasi.trim();
+        String path = tanggalawal + "/" + destLokasi.trim();
         databaseReference = FirebaseDatabase.getInstance().getReference(path);
         childRef = databaseReference.child(destTitle);
+
+        String pathNtf = "users/" + Name + "/Notif/NotifPurchased";
+        databaseReference1 = FirebaseDatabase.getInstance().getReference(pathNtf);
+        childRef1 = databaseReference1.child("notifP");
 
         /*threedots = findViewById(R.id.threedots_pp);*/
 
         btn_book_dp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(DetailPemesananActivity.this, HomeMainActivity.class);
+                Intent intent = new Intent(DetailPemesananActivity.this, HomeMainActivity.class);
                 intent.putExtra("username", Name);
                 intent.putExtra("tanggalawal", tanggalawal);
                 intent.putExtra("tanggalakhir", tanggalakhir);
                 updateData();
+                sendNotification();
                 startActivity(intent);
             }
         });
         btn_kembali_dp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(DetailPemesananActivity.this, DetailBookingDeckActivity.class);
+                Intent intent = new Intent(DetailPemesananActivity.this, DetailBookingDeckActivity.class);
                 startActivity(intent);
             }
         });
     }
 
-    public void showData(){
+    public void showData() {
         Intent intent = getIntent();
 
         destTitle = intent.getStringExtra("deckDBD");
         destLokasi = intent.getStringExtra("lokasiDBD");
         String destTanggal = intent.getStringExtra("tanggal");
         String destFasilites = intent.getStringExtra("fasilities2");
-        String destHarga = intent.getStringExtra("harga");
+        destHarga = intent.getStringExtra("harga");
         Avail = intent.getStringExtra("avail");
         Name = intent.getStringExtra("name");
         tanggalawal = intent.getStringExtra("tanggalawal");
         tanggalakhir = intent.getStringExtra("tanggalakhir");
 
         harga_dp.setText(destHarga);
-        deck.setText(destTitle+" "+destLokasi);
+        deck.setText(destTitle + " " + destLokasi);
         cekinTgl_dp.setText(destTanggal);
         fas_dp.setText(destFasilites);
     }
+
     public void decreaseJumlahOrang(View view) {
         int currentValue = Integer.parseInt(jumlahorang_dp.getText().toString());
 
@@ -96,19 +102,19 @@ public class DetailPemesananActivity extends AppCompatActivity {
 
     public void increaseJumlahOrang(View view) {
         int currentValue = Integer.parseInt(jumlahorang_dp.getText().toString());
-        if (destLokasi.contains("Pineustilu1") || destLokasi.contains("Pineustilu2")){
+        if (destLokasi.contains("Pineustilu1") || destLokasi.contains("Pineustilu2")) {
             // Kurangi nilai TextView2 dan pastikan tidak kurang dari 1
             currentValue = Math.min(currentValue + 1, 6);
 
             jumlahorang_dp.setText(String.valueOf(currentValue));
-        }
-        else {
+        } else {
             currentValue = Math.min(currentValue + 1, 9);
 
             jumlahorang_dp.setText(String.valueOf(currentValue));
         }
     }
-    public void updateData(){
+
+    public void updateData() {
         image = " ";
         jml = jumlahorang_dp.getText().toString().trim();
 
@@ -123,7 +129,31 @@ public class DetailPemesananActivity extends AppCompatActivity {
         childRef.setValue(dataClass).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
+                    Toast.makeText(DetailPemesananActivity.this, "Updated", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(DetailPemesananActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void sendNotification() {
+        mainNtf = "You've purchased";
+        childNtf = "Booking ID 000001";
+        String Lokasi = destLokasi+", "+destTitle;
+        imageNtf = "";
+
+        NotifClass notifClass = new NotifClass(mainNtf, childNtf, imageNtf, tanggalawal, destHarga, Lokasi);
+
+        childRef1.setValue(notifClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
                     Toast.makeText(DetailPemesananActivity.this, "Updated", Toast.LENGTH_SHORT).show();
                     finish();
                 }
