@@ -54,6 +54,15 @@ public class NotifAdapter extends RecyclerView.Adapter<MyViewHolderNotification>
                 }
             }
         });
+        holder.cancellation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String tanggalnotf = dataList.get(holder.getAdapterPosition()).getDataTanggal();
+                Intent intent = new Intent(context, CancelationActivity.class);
+                intent.putExtra("tanggal", tanggalnotf);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -65,11 +74,12 @@ public class NotifAdapter extends RecyclerView.Adapter<MyViewHolderNotification>
 class MyViewHolderNotification extends RecyclerView.ViewHolder{
     ImageView notifImg;
     TextView mainNotif, childNotif, purchasedOnDetails, priceDetailsDetails, locationDetails;
-    ConstraintLayout OnClickconstraint, Notification;
+    ConstraintLayout OnClickconstraint, Notification, cancellation;
 
     public MyViewHolderNotification(@NonNull View itemView) {
         super(itemView);
 
+        cancellation=itemView.findViewById(R.id.cancellation);
         Notification = itemView.findViewById(R.id.Notification);
         OnClickconstraint = itemView.findViewById(R.id.onClickConstraint);
         notifImg = itemView.findViewById(R.id.notifImg);

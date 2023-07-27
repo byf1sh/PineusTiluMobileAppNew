@@ -56,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/childNotif"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -149,6 +149,7 @@
                 android:layout_marginTop="20dp"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cancellation"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 app:layout_constraintStart_toStartOf="parent"

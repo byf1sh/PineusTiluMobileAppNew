@@ -47,7 +47,7 @@ public class DetailPemesananActivity extends AppCompatActivity {
 
         String pathNtf = "users/" + Name + "/Notif/NotifPurchased";
         databaseReference1 = FirebaseDatabase.getInstance().getReference(pathNtf);
-        childRef1 = databaseReference1.child("notifP");
+        childRef1 = databaseReference1.child("notifP"+destTitle+destLokasi);
 
         /*threedots = findViewById(R.id.threedots_pp);*/
 

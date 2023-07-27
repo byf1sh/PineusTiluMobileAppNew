@@ -78,7 +78,7 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="680dp"
         android:fillViewport="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,26 +90,25 @@
             android:layout_height="match_parent"
             android:visibility="visible"
             android:orientation="vertical"
-            android:layout_marginBottom="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:visibility="gone"
+                android:visibility="visible"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="600dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="200dp"
                 android:id="@+id/NotifRecyclerview"
-                android:paddingBottom="10dp"/>
+                android:paddingBottom="40dp"/>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/nodata"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="visible">
+                android:visibility="gone">
                 <ImageView
                     android:id="@+id/upcomingimg"
                     android:layout_width="350dp"

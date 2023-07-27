@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -22,45 +23,33 @@ import java.util.Date;
 public class CancelationActivity extends AppCompatActivity {
 
 
-    TextView tglsekarang, sel;
     int daysDifference;
     CardView stj;
-    EditText etTanggal;
-
+    String tanggalAwalNotf;
     ImageView centang1, centang2, centang3, centang4, centang5, centang6, centang7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cancelation);
-        tglsekarang=findViewById(R.id.tglsekarang);
         centang1=findViewById(R.id.centang1);
-        etTanggal=findViewById(R.id.etTanggal);
         stj=findViewById(R.id.stj);
         centang2=findViewById(R.id.centang2);
         centang3=findViewById(R.id.centang3);
         centang4=findViewById(R.id.centang4);
         centang5=findViewById(R.id.centang5);
         centang6=findViewById(R.id.centang6);
-        sel=findViewById(R.id.sel);
         centang7=findViewById(R.id.centang7);
-
-        stj.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                asd();
-                terserah();
-            }
-        });
-
-
-
+        getData();
+        asd();
+        terserah();
     }
+
+
     public void asd(){
         String currentDateStr = new SimpleDateFormat("dd-MM-yyyy").format(Calendar.getInstance().getTime());
 
         // Tanggal yang ingin dihitung selisihnya (ganti dengan tanggal yang Anda inginkan)
-        String endDateStr = etTanggal.getText().toString();
 
         // Konversi string tanggal menjadi objek Date
         Date currentDate = null;
@@ -69,7 +58,7 @@ public class CancelationActivity extends AppCompatActivity {
 
         try {
             currentDate = format.parse(currentDateStr);
-            endDate = format.parse(endDateStr);
+            endDate = format.parse(tanggalAwalNotf);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -82,8 +71,6 @@ public class CancelationActivity extends AppCompatActivity {
             daysDifference = (int) (diff / (24 * 60 * 60 * 1000));
 
             // Tampilkan selisih tanggal dalam format "hari"
-            String selisih = String.valueOf(daysDifference);
-            sel.setText(selisih);
         }
     }
     public void terserah(){
@@ -127,6 +114,10 @@ public class CancelationActivity extends AppCompatActivity {
         } else {
             centang4.setVisibility(View.GONE);
         }
+    }
+    public void getData(){
+        Intent intent = getIntent();
+        tanggalAwalNotf = intent.getStringExtra("tanggal");
     }
 }
 
