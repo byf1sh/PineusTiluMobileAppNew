@@ -2,10 +2,12 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,8 +24,8 @@ import java.util.Map;
 public class DetailPemesananActivity extends AppCompatActivity {
     CardView btn_book_dp, btn_kembali_dp;
     TextView plus_dp, jumlahorang_dp, minus_dp, cekinTgl_dp, deck, fas_dp, harga_dp;
-    String destLokasi, destHarga, imageNtf, destTitle, title, avail, image, name, jml, Avail, Name, tanggalawal, tanggalakhir, mainNtf, childNtf;
-    DatabaseReference databaseReference, childRef, childRef1, databaseReference1;
+    String destLokasi, destHarga, imageNtf, destTitle, title, avail, image, name, jml, Avail, Name, tanggalawal, tanggalakhir, mainNtf, childNtf, childNtfadm, mainNtfadm, imageNtfadm;
+    DatabaseReference databaseReference, childRef, childRef1, databaseReference1, databaseReference2, childRef2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +49,11 @@ public class DetailPemesananActivity extends AppCompatActivity {
 
         String pathNtf = "users/" + Name + "/Notif/NotifPurchased";
         databaseReference1 = FirebaseDatabase.getInstance().getReference(pathNtf);
-        childRef1 = databaseReference1.child("notifP"+destTitle+destLokasi);
+        childRef1 = databaseReference1.child("notifP" + destTitle + destLokasi);
+
+        String pathNtfAdm = "users/" + Name + "/Notif/NotifPurchased";
+        databaseReference2 = FirebaseDatabase.getInstance().getReference(pathNtfAdm);
+        childRef2 = databaseReference2.child("notifAd" + destTitle + destLokasi);
 
         /*threedots = findViewById(R.id.threedots_pp);*/
 
@@ -145,9 +151,14 @@ public class DetailPemesananActivity extends AppCompatActivity {
     public void sendNotification() {
         mainNtf = "You've purchased";
         childNtf = "Booking ID 000001";
-        String Lokasi = destLokasi+", "+destTitle;
+        String Lokasi = destLokasi + ", " + destTitle;
         imageNtf = "";
 
+        mainNtfadm = "Guest Loyality Program";
+        childNtfadm = "whatever";
+        String Lokasiadm = destLokasi + ", " + destTitle;
+        imageNtfadm = "";
+        //1
         NotifClass notifClass = new NotifClass(mainNtf, childNtf, imageNtf, tanggalawal, destHarga, Lokasi);
 
         childRef1.setValue(notifClass).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -164,6 +175,46 @@ public class DetailPemesananActivity extends AppCompatActivity {
                 Toast.makeText(DetailPemesananActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        //2
+        NotifClass notifClass2 = new NotifClass(mainNtfadm, childNtfadm, imageNtfadm, tanggalawal, destHarga, Lokasiadm);
+
+        childRef2.setValue(notifClass2).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(DetailPemesananActivity.this, "Updated", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(DetailPemesananActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    public void showPopupMenuDP(View view) {
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.inflate(R.menu.popup_menu); // Menu yang ingin ditampilkan di PopupMenu
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                // Tambahkan logika untuk mengatasi setiap item yang dipilih dari menu dropdown
+                switch (item.getItemId()) {
+                    case R.id.menu_item_1:
+                        // Aksi untuk menu item 1
+                        return true;
+                    case R.id.menu_item_2:
+                        // Aksi untuk menu item 2
+                        return true;
+                    // Tambahkan lebih banyak case sesuai dengan kebutuhan Anda
+                    default:
+                        return false;
+                }
+            }
+        });
+        popupMenu.show();
     }
 
 }

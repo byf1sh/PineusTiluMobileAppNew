@@ -50,7 +50,8 @@
             app:layout_constraintHorizontal_bias="0.874"
             app:layout_constraintStart_toEndOf="@+id/header_dbd"
             app:layout_constraintTop_toTopOf="@+id/header_dbd"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            android:onClick="showPopupMenu"/>
 
         <ImageView
             android:id="@+id/mainpic_dbd"

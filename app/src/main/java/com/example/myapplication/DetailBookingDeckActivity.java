@@ -1,17 +1,23 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DetailBookingDeckActivity extends AppCompatActivity {
 
     TextView header_dbd, h2_dbd, b2_dbd, textViewTanggal, harga, avail_dbd;
     CardView btn_book_dbd, btn_kemabali_dbd;
+    ImageView threedot;
     String Lokasi, Deck, Name, tanggalAwal, tanggalAkhir;
 
     @Override
@@ -27,8 +33,10 @@ public class DetailBookingDeckActivity extends AppCompatActivity {
         btn_kemabali_dbd = findViewById(R.id.btn_kembali_dbd);
         harga = findViewById(R.id.harga);
         avail_dbd=findViewById(R.id.avail_dbd);
+        threedot = findViewById(R.id.threedots_pp);
 
         showData();
+
 
         btn_book_dbd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +88,27 @@ public class DetailBookingDeckActivity extends AppCompatActivity {
         h2_dbd.setText(headFas);
         b2_dbd.setText(textFas);
         avail_dbd.setText(Avail);
-
-
+    }
+    public void showPopupMenu(View view) {
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.inflate(R.menu.popup_menu); // Menu yang ingin ditampilkan di PopupMenu
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                // Tambahkan logika untuk mengatasi setiap item yang dipilih dari menu dropdown
+                switch (item.getItemId()) {
+                    case R.id.menu_item_1:
+                        // Aksi untuk menu item 1
+                        return true;
+                    case R.id.menu_item_2:
+                        // Aksi untuk menu item 2
+                        return true;
+                    // Tambahkan lebih banyak case sesuai dengan kebutuhan Anda
+                    default:
+                        return false;
+                }
+            }
+        });
+        popupMenu.show();
     }
 }

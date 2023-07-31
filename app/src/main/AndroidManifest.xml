@@ -12,7 +12,7 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeMainActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity2"
@@ -96,7 +96,7 @@
             android:name=".CancelationActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeMainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

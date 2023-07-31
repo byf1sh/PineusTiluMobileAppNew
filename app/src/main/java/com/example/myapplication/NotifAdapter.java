@@ -44,25 +44,31 @@ public class NotifAdapter extends RecyclerView.Adapter<MyViewHolderNotification>
         holder.priceDetailsDetails.setText(dataList.get(position).getDataHarga());
         holder.locationDetails.setText(dataList.get(position).getDataLokasi());
 
-        holder.Notification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (holder.OnClickconstraint.getVisibility() == View.GONE){
-                    holder.OnClickconstraint.setVisibility(View.VISIBLE);
-                }else {
-                    holder.OnClickconstraint.setVisibility(View.GONE);
+        if ("Guest Loyality Program".equals(dataList.get(position).getDataMain())) {
+            holder.Notification.setBackgroundResource(R.drawable.adminnotifrectangel);
+            holder.notifImg.setImageResource(R.drawable.adminnotification);
+        } else {
+            holder.Notification.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (holder.OnClickconstraint.getVisibility() == View.GONE){
+                        holder.OnClickconstraint.setVisibility(View.VISIBLE);
+                    }else {
+                        holder.OnClickconstraint.setVisibility(View.GONE);
+                    }
                 }
-            }
-        });
-        holder.cancellation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String tanggalnotf = dataList.get(holder.getAdapterPosition()).getDataTanggal();
-                Intent intent = new Intent(context, CancelationActivity.class);
-                intent.putExtra("tanggal", tanggalnotf);
-                context.startActivity(intent);
-            }
-        });
+            });
+            holder.cancellation.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String tanggalnotf = dataList.get(holder.getAdapterPosition()).getDataTanggal();
+                    Intent intent = new Intent(context, CancelationActivity.class);
+                    intent.putExtra("tanggal", tanggalnotf);
+                    context.startActivity(intent);
+                }
+            });
+        }
+
     }
 
     @Override
