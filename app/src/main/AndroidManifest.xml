@@ -39,6 +39,21 @@
             android:name=".TutorialActivity"
             android:exported="false" />
         <activity
+            android:name=".BookingPageList3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".BookingPageList2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".BookingDateTutorialActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BookingDeckTutorialActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BookingPageListActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetailPemesananActivity"
             android:exported="false" />
         <activity

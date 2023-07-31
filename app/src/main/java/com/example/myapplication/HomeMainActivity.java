@@ -45,7 +45,7 @@ public class HomeMainActivity extends AppCompatActivity {
     TextView close_btn;
     TextView Date, Date1, NameUser;
     String tanggalmulai, destContact, destEmail, destPassword;
-    Button Btn;
+    Button Btn,lihatsemua1,lihatsemua2,lihatsemua3;
     DatePickerDialog.OnDateSetListener setListener;
     DatabaseReference sourceRef, sourceRef2, sourceRef3;
     DatabaseReference destinationRef, destinationRef2, destinationRef3;
@@ -59,6 +59,9 @@ public class HomeMainActivity extends AppCompatActivity {
         recyclerView1 = findViewById(R.id.view_deck1);
         recyclerView2 = findViewById(R.id.view_deck2);
         recyclerView3 = findViewById(R.id.view_deck3);
+        lihatsemua1 = findViewById(R.id.lihatsemua1);
+        lihatsemua2 = findViewById(R.id.lihatsemua2);
+        lihatsemua3 = findViewById(R.id.lihatsemua3);
         btnbantuan =findViewById(R.id.btnbantuan);
         setTanggal=findViewById(R.id.setTanggal);
         tanggal = findViewById(R.id.tanggal);
@@ -67,14 +70,51 @@ public class HomeMainActivity extends AppCompatActivity {
 
         myDialog = new Dialog(this,R.style.dialog);
 
-
+        tanggal.setText("15-4-2023");
         getData();
 
 
         btnbantuan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeMainActivity.this,TutorialActivity.class);
+                Intent intent = new Intent(HomeMainActivity.this,BookingDateTutorialActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        lihatsemua1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeMainActivity.this, BookingPageListActivity.class);
+                String username = NameUser.getText().toString();
+                String tanggalend = rangetanggal.getText().toString();
+                intent.putExtra("tanggal",tanggalmulai);
+                intent.putExtra("tanggalakhir",tanggalend);
+                intent.putExtra("username",username);
+                startActivity(intent);
+            }
+        });
+        lihatsemua2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeMainActivity.this, BookingPageList2Activity.class);
+                String username = NameUser.getText().toString();
+                String tanggalend = rangetanggal.getText().toString();
+                intent.putExtra("tanggal",tanggalmulai);
+                intent.putExtra("tanggalakhir",tanggalend);
+                intent.putExtra("username",username);
+                startActivity(intent);
+            }
+        });
+        lihatsemua3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeMainActivity.this, BookingPageList3Activity.class);
+                String username = NameUser.getText().toString();
+                String tanggalend = rangetanggal.getText().toString();
+                intent.putExtra("tanggal",tanggalmulai);
+                intent.putExtra("tanggalakhir",tanggalend);
+                intent.putExtra("username",username);
                 startActivity(intent);
             }
         });
@@ -87,11 +127,6 @@ public class HomeMainActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager3 = new LinearLayoutManager(HomeMainActivity.this,LinearLayoutManager.HORIZONTAL,false);
         recyclerView3.setLayoutManager(linearLayoutManager3);
 
-
-
-
-
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
         bottomNavigationView.setSelectedItemId(R.id.bottom_home);
         String srcName = NameUser.getText().toString().trim();
@@ -101,6 +136,8 @@ public class HomeMainActivity extends AppCompatActivity {
                     return true;
                 case R.id.bottom_history:
                     Intent intent = new Intent(HomeMainActivity.this,EntertainmentActivity.class);
+                    String historyName = NameUser.getText().toString();
+                    intent.putExtra("username",historyName);
                     startActivity(intent);
                     finish();
                     return true;
@@ -131,7 +168,7 @@ public class HomeMainActivity extends AppCompatActivity {
         String destName = intent.getStringExtra("username");
         String tanggalfirst = intent.getStringExtra("tanggalawal");
         String tanggalend = intent.getStringExtra("tanggalakhir");
-        NameUser.setText("adiltaufani");
+        NameUser.setText(destName);
 
         if (tanggalfirst != null) {
             // Jalankan fungsi showData() karena tanggalfirst memiliki isinya
