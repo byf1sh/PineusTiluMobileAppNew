@@ -136,8 +136,13 @@ public class HomeMainActivity extends AppCompatActivity {
                     return true;
                 case R.id.bottom_history:
                     Intent intent = new Intent(HomeMainActivity.this,EntertainmentActivity.class);
+
                     String historyName = NameUser.getText().toString();
                     intent.putExtra("username",historyName);
+
+                    String notifName2 = NameUser.getText().toString().trim();
+                    intent.putExtra("username", notifName2);
+
                     startActivity(intent);
                     finish();
                     return true;

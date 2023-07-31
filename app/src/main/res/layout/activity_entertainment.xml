@@ -1,332 +1,347 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".EntertainmentActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/hasilpencarian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/raleway_extrabold"
+        android:text="Hasil Pencarian"
+        android:textColor="@color/hitam"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/namanana"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/poppins"
+        android:text="Hasil Pencarian"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/abu"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/hasilpencarian"
+        app:layout_constraintTop_toTopOf="@id/hasilpencarian"
+        app:layout_constraintBottom_toBottomOf="@id/hasilpencarian"/>
+
+    <ImageButton
+        android:id="@+id/btnbantuan"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="158dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/menu"
+        app:layout_constraintBottom_toBottomOf="@+id/hasilpencarian"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/hasilpencarian"
+        app:layout_constraintTop_toTopOf="@+id/hasilpencarian" />
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/hasilpencarian"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/raleway_extrabold"
-            android:text="Hasil Pencarian"
-            android:textColor="@color/hitam"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/btnbantuan"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginStart="158dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/menu"
-            app:layout_constraintBottom_toBottomOf="@+id/hasilpencarian"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/hasilpencarian"
-            app:layout_constraintTop_toTopOf="@+id/hasilpencarian" />
-
-
-        <LinearLayout
-            android:id="@+id/layoutdek1"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/hasilpencarian">
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:background="@color/hijau2"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingLeft="16dp"
-            android:paddingTop="36dp"
-            android:paddingBottom="16dp"
-            android:layout_marginTop="26dp"
-            app:layout_constraintTop_toBottomOf="@+id/hasilpencarian">
-
+            android:layout_height="wrap_content">
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:id="@+id/layoutdek1"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:background="@color/hijau2"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingTop="36dp"
+                android:paddingBottom="16dp"
+                android:layout_marginTop="26dp"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:id="@+id/raftingpic"
-                    android:layout_width="86dp"
-                    android:layout_height="86dp"
-                    android:src="@drawable/rafting_entertain" />
-
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppinsbold"
-                    android:text="Rafting"
-                    android:textColor="@color/hitam2"
-                    android:textSize="16sp" />
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/raftingpic"
+                        android:layout_width="86dp"
+                        android:layout_height="86dp"
+                        android:src="@drawable/rafting_entertain" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsbold"
+                        android:text="Rafting"
+                        android:textColor="@color/hitam2"
+                        android:textSize="16sp" />
+
+
+                </LinearLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/entertain_card1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp" />
 
 
             </LinearLayout>
 
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/entertain_card1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layoutdek2"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/hijau2"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingLeft="16dp"
-            android:paddingTop="36dp"
-            android:paddingBottom="16dp"
-            app:layout_constraintTop_toBottomOf="@id/layoutdek1"
-            tools:layout_editor_absoluteX="16dp">
-
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:id="@+id/layoutdek2"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/hijau2"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingTop="36dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@id/layoutdek1"
+                tools:layout_editor_absoluteX="16dp">
 
-                <ImageView
-                    android:id="@+id/atvpic"
-                    android:layout_width="86dp"
-                    android:layout_height="86dp"
-                    android:src="@drawable/atv_entertain" />
-
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppinsbold"
-                    android:text="ATV"
-                    android:textColor="@color/hitam2"
-                    android:textSize="16sp"/>
+                    android:gravity="center"
+                    android:orientation="vertical">
 
+                    <ImageView
+                        android:id="@+id/atvpic"
+                        android:layout_width="86dp"
+                        android:layout_height="86dp"
+                        android:src="@drawable/atv_entertain" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsbold"
+                        android:text="ATV"
+                        android:textColor="@color/hitam2"
+                        android:textSize="16sp"/>
+
+
+                </LinearLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/entertain_card2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp" />
 
             </LinearLayout>
 
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/entertain_card2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layoutdek3"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/hijau2"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingLeft="16dp"
-            android:paddingTop="36dp"
-            android:paddingBottom="16dp"
-            app:layout_constraintTop_toBottomOf="@id/layoutdek2">
-
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:id="@+id/layoutdek3"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/hijau2"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingTop="36dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@id/layoutdek2">
 
-                <ImageView
-                    android:id="@+id/offroadpic"
-                    android:layout_width="86dp"
-                    android:layout_height="86dp"
-                    android:src="@drawable/offroad_entertain" />
-
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppinsbold"
-                    android:text="Offroad"
-                    android:textColor="@color/hitam2"
-                    android:textSize="16sp"/>
+                    android:gravity="center"
+                    android:orientation="vertical">
 
+                    <ImageView
+                        android:id="@+id/offroadpic"
+                        android:layout_width="86dp"
+                        android:layout_height="86dp"
+                        android:src="@drawable/offroad_entertain" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsbold"
+                        android:text="Offroad"
+                        android:textColor="@color/hitam2"
+                        android:textSize="16sp"/>
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/entertain_card3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"/>
 
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/entertain_card3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layoutdek4"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/hijau2"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingLeft="16dp"
-            android:paddingTop="36dp"
-            android:paddingBottom="16dp"
-            app:layout_constraintTop_toBottomOf="@id/layoutdek3">
-
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:id="@+id/layoutdek4"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/hijau2"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingTop="36dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@id/layoutdek3">
 
-                <ImageView
-                    android:id="@+id/flyingfoxpic"
-                    android:layout_width="86dp"
-                    android:layout_height="86dp"
-                    android:src="@drawable/flyingfox_entertain" />
-
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppinsbold"
-                    android:text="Flyingfox"
-                    android:textColor="@color/hitam2"
-                    android:textSize="16sp"/>
+                    android:gravity="center"
+                    android:orientation="vertical">
 
+                    <ImageView
+                        android:id="@+id/flyingfoxpic"
+                        android:layout_width="86dp"
+                        android:layout_height="86dp"
+                        android:src="@drawable/flyingfox_entertain" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsbold"
+                        android:text="Flyingfox"
+                        android:textColor="@color/hitam2"
+                        android:textSize="16sp"/>
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/entertain_card4"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/entertain_card4"
-                android:layout_marginStart="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layoutdek5"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/hijau2"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingLeft="16dp"
-            android:paddingTop="36dp"
-            android:paddingBottom="16dp"
-            app:layout_constraintTop_toBottomOf="@id/layoutdek4">
-
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:id="@+id/layoutdek5"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/hijau2"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingTop="36dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@id/layoutdek4">
 
-                <ImageView
-                    android:id="@+id/paintballpic"
-                    android:layout_width="86dp"
-                    android:layout_height="86dp"
-                    android:src="@drawable/paintball_entertain" />
-
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppinsbold"
-                    android:text="Paintball"
-                    android:textColor="@color/hitam2"
-                    android:textSize="16sp"/>
+                    android:gravity="center"
+                    android:orientation="vertical">
 
+                    <ImageView
+                        android:id="@+id/paintballpic"
+                        android:layout_width="86dp"
+                        android:layout_height="86dp"
+                        android:src="@drawable/paintball_entertain" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsbold"
+                        android:text="Paintball"
+                        android:textColor="@color/hitam2"
+                        android:textSize="16sp"/>
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/entertain_card5"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/entertain_card5"
-                android:layout_marginStart="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layoutdek6"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/hijau2"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingLeft="16dp"
-            android:paddingTop="36dp"
-            android:paddingBottom="16dp"
-            android:layout_marginBottom="92dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layoutdek5">
-
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:id="@+id/layoutdek6"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/hijau2"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingTop="36dp"
+                android:paddingBottom="16dp"
+                android:layout_marginBottom="150dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layoutdek5">
 
-                <ImageView
-                    android:id="@+id/teambuildingpic"
-                    android:layout_width="86dp"
-                    android:layout_height="86dp"
-                    android:src="@drawable/teambuilding_entertain" />
-
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppinsbold"
-                    android:textAlignment="center"
-                    android:text="Team\nBuilding"
-                    android:textColor="@color/hitam2"
-                    android:textSize="16sp"/>
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/teambuildingpic"
+                        android:layout_width="86dp"
+                        android:layout_height="86dp"
+                        android:src="@drawable/teambuilding_entertain" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsbold"
+                        android:textAlignment="center"
+                        android:text="Team\nBuilding"
+                        android:textColor="@color/hitam2"
+                        android:textSize="16sp"/>
 
 
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/entertain_card6"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/entertain_card6"
-                android:layout_marginStart="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/bottom_background"
-            android:elevation="2dp"
-            app:itemIconSize="30dp"
-            app:itemIconTint="@drawable/item_selector"
-            app:itemRippleColor="@android:color/transparent"
-            app:labelVisibilityMode="unlabeled"
-            app:menu="@menu/bottom_menu"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bottom_background"
+        android:elevation="2dp"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@drawable/item_selector"
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bottom_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

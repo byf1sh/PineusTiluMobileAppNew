@@ -7,6 +7,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,6 +29,7 @@ public class ProfileActivity extends AppCompatActivity {
     ValueEventListener eventListener;
     ImageView btnsetting;
     String usernameUser;
+    Animation top_anim, bottom_anim;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -42,6 +45,8 @@ public class ProfileActivity extends AppCompatActivity {
         titleUsername = findViewById(R.id.titleUsername);
         btnsetting = findViewById(R.id.btnsetting);
 
+        top_anim = AnimationUtils.loadAnimation(this, R.anim.top_anim);
+        bottom_anim = AnimationUtils.loadAnimation(this, R.anim.bottom_anim);
         btnsetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,10 +65,13 @@ public class ProfileActivity extends AppCompatActivity {
                     String homeName = profileUsername.getText().toString().trim();
                     intent.putExtra("username", homeName);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.top_anim, R.anim.bottom_anim);
                     finish();
                     return true;
                 case R.id.bottom_history:
                     Intent intent1 = new Intent(ProfileActivity.this,EntertainmentActivity.class);
+                    String notifName2 = profileUsername.getText().toString().trim();
+                    intent1.putExtra("username", notifName2);
                     startActivity(intent1);
                     finish();
                     return true;

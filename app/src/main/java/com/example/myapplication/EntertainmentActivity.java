@@ -34,6 +34,7 @@ public class EntertainmentActivity extends AppCompatActivity {
         card4 = findViewById(R.id.entertain_card4);
         card5 = findViewById(R.id.entertain_card5);
         card6 = findViewById(R.id.entertain_card6);
+        namanana = findViewById(R.id.namanana);
 
         initRecycleView1();
         initRecycleView2();
@@ -41,13 +42,15 @@ public class EntertainmentActivity extends AppCompatActivity {
         initRecycleView4();
         initRecycleView5();
         initRecycleView6();
-
+        getData();
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
-        bottomNavigationView.setSelectedItemId(R.id.bottom_home);
+        bottomNavigationView.setSelectedItemId(R.id.bottom_history);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.bottom_home:
                     Intent intent = new Intent(EntertainmentActivity.this,HomeMainActivity.class);
+                    String namantf = namanana.getText().toString();
+                    intent.putExtra("username",namantf);
                     startActivity(intent);
                     finish();
                     return true;
@@ -55,6 +58,8 @@ public class EntertainmentActivity extends AppCompatActivity {
                     return true;
                 case R.id.bottom_notif:
                     Intent intent2 = new Intent(EntertainmentActivity.this,NotifActivity.class);
+                    String namantf2 = namanana.getText().toString();
+                    intent2.putExtra("username",namantf2);
                     startActivity(intent2);
                     finish();
                     return true;
@@ -120,6 +125,12 @@ public class EntertainmentActivity extends AppCompatActivity {
         card6.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         adaptercard = new MyAdapterEntertain(items);
         card6.setAdapter(adaptercard);
+    }
+    public void getData(){
+        Intent intent = getIntent();
+        String usernameEntertain = intent.getStringExtra("username");
+
+        namanana.setText(usernameEntertain);
     }
 
 
