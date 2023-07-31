@@ -7,6 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -18,6 +19,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,11 +50,12 @@ public class ProfileActivity extends AppCompatActivity {
     TextView titleName, titleUsername;
     DatabaseReference databaseReference, childRef;
     ValueEventListener eventListener;
-    ImageView btnsetting;
+    ImageView btnsetting, imgprofileclone;
     ShapeableImageView profilepic;
     String usernameUser, imageURL;
     Uri uri;
     Animation top_anim, bottom_anim;
+    ConstraintLayout profilePiclyly;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -68,6 +71,8 @@ public class ProfileActivity extends AppCompatActivity {
         titleName = findViewById(R.id.titleName);
         titleUsername = findViewById(R.id.titleUsername);
         btnsetting = findViewById(R.id.btnsetting);
+        profilePiclyly=findViewById(R.id.profilePiclyly);
+        imgprofileclone=findViewById(R.id.imgprofileclone);
 
         top_anim = AnimationUtils.loadAnimation(this, R.anim.top_anim);
         bottom_anim = AnimationUtils.loadAnimation(this, R.anim.bottom_anim);
@@ -90,19 +95,22 @@ public class ProfileActivity extends AppCompatActivity {
                             uri = data.getData();
                             profilepic.setImageURI(uri);
                             saveProfilePic();
+
                         } else {
                             Toast.makeText(ProfileActivity.this, "No Image Selected",Toast.LENGTH_SHORT).show();
+                            imgprofileclone.setVisibility(View.VISIBLE);
                         }
                     }
                 }
         );
 
-        profilepic.setOnClickListener(new View.OnClickListener() {
+        profilePiclyly.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent photoPicker = new Intent(Intent.ACTION_PICK);
                 photoPicker.setType("image/*");
                 activityResultLauncher.launch(photoPicker);
+                imgprofileclone.setVisibility(View.GONE);
             }
         });
 
@@ -215,10 +223,16 @@ public class ProfileActivity extends AppCompatActivity {
                     profileName.setText(helperClass.getName());
                     profilePassword.setText(helperClass.getPassword());
 
+                    if (helperClass.getImageURL() != null && !helperClass.getImageURL().isEmpty()) {
+                        imgprofileclone.setVisibility(View.GONE);
+                    }else {
+                        imgprofileclone.setVisibility(View.VISIBLE);
+                    }
                     // Tampilkan gambar dari URL menggunakan Glide
                     Glide.with(ProfileActivity.this)
                             .load(helperClass.getImageURL())
                             .into(profilepic);
+
                 }
             }
 

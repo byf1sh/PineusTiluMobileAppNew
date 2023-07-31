@@ -13,11 +13,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 public class DetailBookingDeckActivity extends AppCompatActivity {
 
     TextView header_dbd, h2_dbd, b2_dbd, textViewTanggal, harga, avail_dbd;
     CardView btn_book_dbd, btn_kemabali_dbd;
-    ImageView threedot;
+    ImageView threedot,mainpic_dbd;
     String Lokasi, Deck, Name, tanggalAwal, tanggalAkhir;
 
     @Override
@@ -34,6 +36,11 @@ public class DetailBookingDeckActivity extends AppCompatActivity {
         harga = findViewById(R.id.harga);
         avail_dbd=findViewById(R.id.avail_dbd);
         threedot = findViewById(R.id.threedots_pp);
+        mainpic_dbd=findViewById(R.id.mainpic_dbd);
+
+        String imageURL1 = "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/11/18121936/Jenis-Hutan.jpg";
+
+        Glide.with(this).load(imageURL1).into(mainpic_dbd);
 
         showData();
 
