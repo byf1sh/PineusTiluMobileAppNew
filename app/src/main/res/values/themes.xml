@@ -16,4 +16,8 @@
     <style name="dialog" parent="Theme.AppCompat.Dialog">
         <item name="android:windowBackground">@drawable/shape_radius</item>
     </style>
+    <style name="roundedImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

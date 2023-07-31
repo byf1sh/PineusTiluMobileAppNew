@@ -58,7 +58,7 @@ public class SignupActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess(AuthResult authResult) {
 
-                                HelperClass helperClass = new HelperClass(name, email, username, password);
+                                HelperClass helperClass = new HelperClass(name, email, username, password,"");
                                 reference.child(username).setValue(helperClass);
 
                                 Toast.makeText(SignupActivity.this, "You have signup successfully!", Toast.LENGTH_SHORT).show();
