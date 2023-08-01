@@ -43,6 +43,7 @@ public class MyAdapterList2 extends RecyclerView.Adapter<MyViewHolderList2> {
 
         int hijau = ContextCompat.getColor(holder.itemView.getContext(), R.color.hijau);
         int merah = ContextCompat.getColor(holder.itemView.getContext(), R.color.merah);
+        int kuning = ContextCompat.getColor(holder.itemView.getContext(), R.color.yellow);
         TextView textView = holder.itemView.findViewById(R.id.avail_deck);
         Drawable deckcolor = ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.deck_color);
 
@@ -52,7 +53,11 @@ public class MyAdapterList2 extends RecyclerView.Adapter<MyViewHolderList2> {
         if (value.equals("Tersedia")) {
             textView.setTextColor(hijau);
             DrawableCompat.setTint(wrappedDrawable, hijau);
-        } else {
+            textView.setText("Rp. 750.000");
+        } else if (value.equals("Highseason")) {
+            textView.setTextColor(kuning);
+            textView.setText("Rp. 750.000");
+        }else {
             textView.setTextColor(merah);
             DrawableCompat.setTint(wrappedDrawable, merah);
         }
