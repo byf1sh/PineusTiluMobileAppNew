@@ -38,12 +38,17 @@ public class DetailBookingDeckActivity extends AppCompatActivity {
         threedot = findViewById(R.id.threedots_pp);
         mainpic_dbd=findViewById(R.id.mainpic_dbd);
 
-        String imageURL1 = "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/11/18121936/Jenis-Hutan.jpg";
-
-        Glide.with(this).load(imageURL1).into(mainpic_dbd);
-
         showData();
 
+        if (Lokasi.equals("Pineustilu1")){
+            String imageURL1 = "https://th.bing.com/th/id/OIP.5sJtK0gClZzNtKV7nlUkqAHaEK?pid=ImgDet&rs=1";
+
+            Glide.with(this).load(imageURL1).into(mainpic_dbd);
+        } else if (Lokasi.contains("Pineustilu2")) {
+            String imageURL1 = "https://th.bing.com/th/id/OIP.22zeQqg6aP_7WZRpQzPsTAHaE8?w=253&h=180&c=7&r=0&o=5&pid=1.7";
+
+            Glide.with(this).load(imageURL1).into(mainpic_dbd);
+        }
 
         btn_book_dbd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,11 +88,17 @@ public class DetailBookingDeckActivity extends AppCompatActivity {
         Name = intent.getStringExtra("name");
 
         if (Lokasi.contains("Pineustilu1") || Lokasi.contains("Pineustilu2")){
-            harga.setText("Harga : Rp 750.000");
+            if (Avail.equals("Highseason")){
+                harga.setText("Harga : Rp 850.000");
+            }else {
+                harga.setText("Harga : Rp 750.000");
+            }
         } else if (Lokasi.contains("Pineustilu3")) {
-            harga.setText("Harga : Rp 950.000");
-        }else {
-            harga.setText("Harga : Rp 750.ini esle");
+            if (Avail.equals("Highseason")){
+                harga.setText("Harga : Rp 1.050.000");
+            }else {
+                harga.setText("Harga : Rp 950.000");
+            }
         }
 
         textViewTanggal.setText(tanggalAwal + " || " + tanggalAkhir);

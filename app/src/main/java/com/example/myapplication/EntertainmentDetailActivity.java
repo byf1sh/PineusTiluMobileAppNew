@@ -10,13 +10,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class EntertainmentDetailActivity extends AppCompatActivity {
 
-    TextView title,price,desc,facility;
+    TextView title,price,desc,facility, username_12;
     Button kembali;
+    ImageView mainpic_dbd;
+    String usernameENT;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +30,8 @@ public class EntertainmentDetailActivity extends AppCompatActivity {
         price = findViewById(R.id.harga);
         desc = findViewById(R.id.deskripsi);
         facility = findViewById(R.id.fasilitas);
+        mainpic_dbd=findViewById(R.id.mainpic_dbd);
+        username_12=findViewById(R.id.username_12);
 
         showData();
 
@@ -34,8 +39,18 @@ public class EntertainmentDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(EntertainmentDetailActivity.this, EntertainmentActivity.class);
+                intent.putExtra("username",usernameENT);
                 startActivity(intent);
 
+            }
+        });
+
+        mainpic_dbd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EntertainmentDetailActivity.this, FullScreenSliderImageActivity.class);
+                intent.putExtra("username",usernameENT);
+                startActivity(intent);
             }
         });
 
@@ -46,12 +61,14 @@ public class EntertainmentDetailActivity extends AppCompatActivity {
         String Pricesrc = intent.getStringExtra("Price");
         String Descsrc = intent.getStringExtra("Desc");
         String Faciltysrc = intent.getStringExtra("Facility");
+        usernameENT = intent.getStringExtra("username");
 
 
         facility.setText(Faciltysrc);
         desc.setText(Descsrc);
         title.setText(Titlesrc);
         price.setText(Pricesrc);
+        username_12.setText(usernameENT);
 
     }
     public void showPopupMenuEntertainDet(View view) {

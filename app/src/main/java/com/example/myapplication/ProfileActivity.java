@@ -123,7 +123,6 @@ public class ProfileActivity extends AppCompatActivity {
                     String homeName = profileUsername.getText().toString().trim();
                     intent.putExtra("username", homeName);
                     startActivity(intent);
-                    overridePendingTransition(R.anim.top_anim, R.anim.bottom_anim);
                     finish();
                     return true;
                 case R.id.bottom_history:
@@ -228,8 +227,7 @@ public class ProfileActivity extends AppCompatActivity {
                     }else {
                         imgprofileclone.setVisibility(View.VISIBLE);
                     }
-                    // Tampilkan gambar dari URL menggunakan Glide
-                    Glide.with(ProfileActivity.this)
+                    Glide.with(getApplicationContext())
                             .load(helperClass.getImageURL())
                             .into(profilepic);
 

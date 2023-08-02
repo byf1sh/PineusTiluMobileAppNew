@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -73,7 +74,7 @@ public class MyAdapter3 extends RecyclerView.Adapter<MyViewHolder3> {
             textView.setTextColor(kuning);
             holder.highSeasonTV.setText("Remove as Highseason");
             holder.highSeasonTV.setTextColor(merah);
-            textView.setText("Rp. 750.000");
+            textView.setText("Rp. 1.050.000");
         } else {
             textView.setTextColor(merah);
             DrawableCompat.setTint(wrappedDrawable, merah);
@@ -110,31 +111,35 @@ public class MyAdapter3 extends RecyclerView.Adapter<MyViewHolder3> {
         holder.picImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView tanggal = ((HomeMainActivity) context).findViewById(R.id.tanggal);
-                String Tanggalawal = tanggal.getText().toString();
-                TextView name = ((HomeMainActivity) context).findViewById(R.id.NameUser);
-                TextView rangetanggal = ((HomeMainActivity)context).findViewById(R.id.rangetanggal);
-                String Name = name.getText().toString();
-                String tanggalAkhir = rangetanggal.getText().toString();
-                String dataTitle2 = dataList.get(holder.getAdapterPosition()).getDataTitle();
-                String additionalLokasi = "Pineustilu3";
-                String title = dataTitle2 + additionalLokasi;
+                String dataAvailConfirm = dataList.get(holder.getAdapterPosition()).getDataAvail();
+                if (dataAvailConfirm.equals("Penuh")){
+                    Toast.makeText(context, "Penuh", Toast.LENGTH_SHORT).show();
+                }else {
+                    TextView tanggal = ((HomeMainActivity) context).findViewById(R.id.tanggal);
+                    String Tanggalawal = tanggal.getText().toString();
+                    TextView name = ((HomeMainActivity) context).findViewById(R.id.NameUser);
+                    TextView rangetanggal = ((HomeMainActivity)context).findViewById(R.id.rangetanggal);
+                    String Name = name.getText().toString();
+                    String tanggalAkhir = rangetanggal.getText().toString();
+                    String dataTitle2 = dataList.get(holder.getAdapterPosition()).getDataTitle();
+                    String additionalLokasi = "Pineustilu3";
+                    String title = dataTitle2 + additionalLokasi;
 
-                Intent intent = new Intent(context, DetailBookingDeckActivity.class);
-                String fasilities = context.getResources().getString(R.string.DetailFasilitasPt1Pt2);
-                String fasilitiesText = context.getResources().getString(R.string.PineusTilu1Fasilitas);
-                intent.putExtra("deck", dataTitle2);
-                intent.putExtra("lokasi", additionalLokasi);
-                intent.putExtra("title", title);
-                intent.putExtra("avail", dataList.get(holder.getAdapterPosition()).getDataAvail());
-                intent.putExtra("fasilities", fasilities);
-                intent.putExtra("fasilitiesText", fasilitiesText);
-                intent.putExtra("tanggalawal", Tanggalawal);
-                intent.putExtra("tanggalakhir", tanggalAkhir);
-                intent.putExtra("name", Name);
+                    Intent intent = new Intent(context, DetailBookingDeckActivity.class);
+                    String fasilities = context.getResources().getString(R.string.DetailFasilitasPt1Pt2);
+                    String fasilitiesText = context.getResources().getString(R.string.PineusTilu1Fasilitas);
+                    intent.putExtra("deck", dataTitle2);
+                    intent.putExtra("lokasi", additionalLokasi);
+                    intent.putExtra("title", title);
+                    intent.putExtra("avail", dataList.get(holder.getAdapterPosition()).getDataAvail());
+                    intent.putExtra("fasilities", fasilities);
+                    intent.putExtra("fasilitiesText", fasilitiesText);
+                    intent.putExtra("tanggalawal", Tanggalawal);
+                    intent.putExtra("tanggalakhir", tanggalAkhir);
+                    intent.putExtra("name", Name);
 
-                context.startActivity(intent);
-
+                    context.startActivity(intent);
+                }
             }
         });
     }
