@@ -24,7 +24,7 @@
             android:name=".DetailBookingDeckActivity"
             android:exported="false" />
         <activity
-            android:name=".EntertainmentDetailActivity"
+            android:name=".ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".EntertainmentActivity"
@@ -87,13 +87,13 @@
             android:name=".ProfileSettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".HomeMainActivity"
             android:exported="false" />
         <activity
             android:name=".SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeMainActivity"
+            android:name=".EntertainmentDetailActivity"
             android:exported="false" />
         <activity
             android:name=".CancelationActivity"

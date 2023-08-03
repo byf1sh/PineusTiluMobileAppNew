@@ -70,7 +70,6 @@ public class HomeMainActivity extends AppCompatActivity {
 
         myDialog = new Dialog(this,R.style.dialog);
 
-        tanggal.setText("15-4-2023");
         getData();
 
 
@@ -87,8 +86,9 @@ public class HomeMainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HomeMainActivity.this, BookingPageListActivity.class);
                 String username = NameUser.getText().toString();
+                String tanggalfirst = tanggal.getText().toString();
                 String tanggalend = rangetanggal.getText().toString();
-                intent.putExtra("tanggal",tanggalmulai);
+                intent.putExtra("tanggal",tanggalfirst);
                 intent.putExtra("tanggalakhir",tanggalend);
                 intent.putExtra("username",username);
                 startActivity(intent);
@@ -99,8 +99,9 @@ public class HomeMainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HomeMainActivity.this, BookingPageList2Activity.class);
                 String username = NameUser.getText().toString();
+                String tanggalfirst = tanggal.getText().toString();
                 String tanggalend = rangetanggal.getText().toString();
-                intent.putExtra("tanggal",tanggalmulai);
+                intent.putExtra("tanggal",tanggalfirst);
                 intent.putExtra("tanggalakhir",tanggalend);
                 intent.putExtra("username",username);
                 startActivity(intent);
@@ -111,8 +112,9 @@ public class HomeMainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HomeMainActivity.this, BookingPageList3Activity.class);
                 String username = NameUser.getText().toString();
+                String tanggalfirst = tanggal.getText().toString();
                 String tanggalend = rangetanggal.getText().toString();
-                intent.putExtra("tanggal",tanggalmulai);
+                intent.putExtra("tanggal",tanggalfirst);
                 intent.putExtra("tanggalakhir",tanggalend);
                 intent.putExtra("username",username);
                 startActivity(intent);

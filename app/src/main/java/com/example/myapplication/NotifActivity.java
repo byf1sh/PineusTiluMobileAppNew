@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -29,14 +30,16 @@ import java.util.List;
 public class NotifActivity extends AppCompatActivity {
 
     TextView riwayat, upcoming, namanana;
-    ConstraintLayout cl2, nodata, notifpurchased, notifpurchased2, notification1;
-    LinearLayout cl1;
+    ConstraintLayout nodata, nodatariwayat, notifpurchased2, notification1;
+    LinearLayout cl1,cl2;
     ImageView background;
-    DatabaseReference databaseReference1, childRef1;
+    DatabaseReference databaseReference1, childRef1,databaseReference,childRef;
     String getdata;
     NotifAdapter adapter1;
-    List<NotifClass> dataListNotif;
-    RecyclerView NotifRecyclerview;
+    ScrollView scrollView3;
+    RiwayatAdapter adapter;
+    List<NotifClass> dataListNotif,dataListRiwayat;
+    RecyclerView NotifRecyclerview,NotifRecyclerviewRiwayat;
     ValueEventListener eventListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,14 +55,21 @@ public class NotifActivity extends AppCompatActivity {
         riwayat = findViewById(R.id.riwayat);
         cl1 = findViewById(R.id.cl1);
         cl2 = findViewById(R.id.cl2);
+        scrollView3=findViewById(R.id.scrollView3);
         background = findViewById(R.id.background);
         namanana=findViewById(R.id.namanana);
         NotifRecyclerview=findViewById(R.id.NotifRecyclerview);
         nodata=findViewById(R.id.nodata);
+        nodatariwayat=findViewById(R.id.nodatariwayat);
+        NotifRecyclerviewRiwayat=findViewById(R.id.NotifRecyclerviewRiwayat);
 
         getData();
         LinearLayoutManager linearLayoutManager3 = new LinearLayoutManager(NotifActivity.this,LinearLayoutManager.VERTICAL,false);
         NotifRecyclerview.setLayoutManager(linearLayoutManager3);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(NotifActivity.this,LinearLayoutManager.VERTICAL,false);
+        NotifRecyclerviewRiwayat.setLayoutManager(linearLayoutManager);
+        showDataRVUpcoming();
+        showDataRVRiwayat();
 
         upcoming.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +78,7 @@ public class NotifActivity extends AppCompatActivity {
                 riwayat.setTextColor(abuabu);
                 if (cl1.getVisibility() == View.GONE) {
                     cl1.setVisibility(View.VISIBLE);
-                    cl2.setVisibility(View.GONE);
+                    scrollView3.setVisibility(View.GONE);
                     background.setVisibility(View.VISIBLE);
 
                 } else {
@@ -82,12 +92,12 @@ public class NotifActivity extends AppCompatActivity {
             public void onClick(View view) {
                 riwayat.setTextColor(hijau);
                 upcoming.setTextColor(abuabu);
-                if (cl2.getVisibility() == View.GONE) {
-                    cl2.setVisibility(View.VISIBLE);
+                if (scrollView3.getVisibility() == View.GONE) {
+                    scrollView3.setVisibility(View.VISIBLE);
                     cl1.setVisibility(View.GONE);
                     background.setVisibility(View.GONE);
                 } else {
-                    cl2.setVisibility(View.VISIBLE);
+                    scrollView3.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -120,6 +130,56 @@ public class NotifActivity extends AppCompatActivity {
             }
             return false;
         });
+    }
+
+    public void getData(){
+        Intent intent = getIntent();
+
+        getdata = intent.getStringExtra("username");
+        namanana.setText(getdata);
+
+    }
+    public void dataNotPresent(){
+        nodata.setVisibility(View.VISIBLE);
+        NotifRecyclerview.setVisibility(View.GONE);
+    }
+    public void dataPresent(){
+        nodata.setVisibility(View.GONE);
+        NotifRecyclerview.setVisibility(View.VISIBLE);
+    }
+
+    public void dataNotPresentRiwayat(){
+        nodatariwayat.setVisibility(View.VISIBLE);
+        NotifRecyclerviewRiwayat.setVisibility(View.GONE);
+    }
+    public void dataPresentRiwayat(){
+        nodatariwayat.setVisibility(View.GONE);
+        NotifRecyclerviewRiwayat.setVisibility(View.VISIBLE);
+    }
+    public void showPopupMenuNotif(View view) {
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.inflate(R.menu.popup_menu); // Menu yang ingin ditampilkan di PopupMenu
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                // Tambahkan logika untuk mengatasi setiap item yang dipilih dari menu dropdown
+                switch (item.getItemId()) {
+                    case R.id.menu_item_1:
+                        // Aksi untuk menu item 1
+                        return true;
+                    case R.id.menu_item_2:
+                        // Aksi untuk menu item 2
+                        return true;
+                    // Tambahkan lebih banyak case sesuai dengan kebutuhan Anda
+                    default:
+                        return false;
+                }
+            }
+        });
+        popupMenu.show();
+    }
+
+    public void showDataRVUpcoming(){
         String pathNtf = "users/"+getdata+"/Notif";
         dataListNotif = new ArrayList<>();
         adapter1 = new NotifAdapter(NotifActivity.this,dataListNotif);
@@ -150,41 +210,36 @@ public class NotifActivity extends AppCompatActivity {
             }
         });
     }
-    public void getData(){
-        Intent intent = getIntent();
 
-        getdata = intent.getStringExtra("username");
-        namanana.setText(getdata);
+    public void showDataRVRiwayat(){
+        String pathRwyt = "users/"+getdata+"/Notif";
+        dataListRiwayat = new ArrayList<>();
+        adapter = new RiwayatAdapter(NotifActivity.this,dataListRiwayat);
+        NotifRecyclerviewRiwayat.setAdapter(adapter);
 
-    }
-    public void dataNotPresent(){
-        nodata.setVisibility(View.VISIBLE);
-        NotifRecyclerview.setVisibility(View.GONE);
-    }
-    public void dataPresent(){
-        nodata.setVisibility(View.GONE);
-        NotifRecyclerview.setVisibility(View.VISIBLE);
-    }
-    public void showPopupMenuNotif(View view) {
-        PopupMenu popupMenu = new PopupMenu(this, view);
-        popupMenu.inflate(R.menu.popup_menu); // Menu yang ingin ditampilkan di PopupMenu
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+        databaseReference = FirebaseDatabase.getInstance().getReference(pathRwyt);
+        childRef = databaseReference.child("NotifRiwayat");
+
+        eventListener = childRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                // Tambahkan logika untuk mengatasi setiap item yang dipilih dari menu dropdown
-                switch (item.getItemId()) {
-                    case R.id.menu_item_1:
-                        // Aksi untuk menu item 1
-                        return true;
-                    case R.id.menu_item_2:
-                        // Aksi untuk menu item 2
-                        return true;
-                    // Tambahkan lebih banyak case sesuai dengan kebutuhan Anda
-                    default:
-                        return false;
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                dataListRiwayat.clear();
+                if (snapshot.exists()) {
+                    dataPresentRiwayat();
+                    for (DataSnapshot itemSnapshot : snapshot.getChildren()) {
+                        NotifClass notifClass = itemSnapshot.getValue(NotifClass.class);
+                        dataListRiwayat.add(notifClass);
+                    }
+                    adapter.notifyDataSetChanged();
+                }else {
+                    dataNotPresentRiwayat();
                 }
             }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
         });
-        popupMenu.show();
     }
 }

@@ -49,11 +49,11 @@ public class DetailPemesananActivity extends AppCompatActivity {
 
         String pathNtf = "users/" + Name + "/Notif/NotifPurchased";
         databaseReference1 = FirebaseDatabase.getInstance().getReference(pathNtf);
-        childRef1 = databaseReference1.child("notifP" + destTitle + destLokasi);
+        childRef1 = databaseReference1.child("notifP" + destTitle+" "+ destLokasi);
 
         String pathNtfAdm = "users/" + Name + "/Notif/NotifPurchased";
         databaseReference2 = FirebaseDatabase.getInstance().getReference(pathNtfAdm);
-        childRef2 = databaseReference2.child("notifAd" + destTitle + destLokasi);
+        childRef2 = databaseReference2.child("notifAd" + destTitle+" "+ destLokasi);
 
         /*threedots = findViewById(R.id.threedots_pp);*/
 
@@ -126,8 +126,8 @@ public class DetailPemesananActivity extends AppCompatActivity {
 
         if (Avail.equals("Tersedia")) {
             Avail = "Penuh";
-        } else if (avail.equals("Penuh")) {
-            Avail = "Tersedia";
+        } else if (Avail.equals("Highseason")) {
+            Avail = "Penuh";
         }
 
         DataClass dataClass = new DataClass(destTitle, Avail, image, Name, jml);
@@ -151,12 +151,12 @@ public class DetailPemesananActivity extends AppCompatActivity {
     public void sendNotification() {
         mainNtf = "You've purchased";
         childNtf = "Booking ID 000001";
-        String Lokasi = destLokasi + ", " + destTitle;
+        String Lokasi = destTitle + " " +destLokasi ;
         imageNtf = "";
 
         mainNtfadm = "Guest Loyality Program";
         childNtfadm = "whatever";
-        String Lokasiadm = destLokasi + ", " + destTitle;
+        String Lokasiadm = destTitle + " " +destLokasi ;
         imageNtfadm = "";
         //1
         NotifClass notifClass = new NotifClass(mainNtf, childNtf, imageNtf, tanggalawal, destHarga, Lokasi);
