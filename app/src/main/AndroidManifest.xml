@@ -32,12 +32,11 @@
         <activity
             android:name=".NotifActivity"
             android:exported="false" />
+
         <activity
             android:name=".MakingInstanceActivity"
             android:exported="false" />
-        <activity
-            android:name=".HistoryActivity"
-            android:exported="false" />
+
         <activity
             android:name=".TutorialActivity"
             android:exported="false" />
