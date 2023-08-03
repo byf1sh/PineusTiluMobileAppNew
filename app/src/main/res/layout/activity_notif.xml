@@ -37,8 +37,7 @@
         android:layout_marginEnd="29sp"
         android:background="@drawable/menu"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="showPopupMenuNotif"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/upcoming"
@@ -82,7 +81,6 @@
         android:layout_height="680dp"
         android:fillViewport="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/upcoming">
 
@@ -90,51 +88,48 @@
             android:id="@+id/cl1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:visibility="visible"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/NotifRecyclerview"
+                android:visibility="visible"
                 android:layout_width="match_parent"
                 android:layout_height="600dp"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="200dp"
-                android:paddingBottom="40dp"
-                android:visibility="gone" />
-
+                android:id="@+id/NotifRecyclerview"
+                android:paddingBottom="40dp"/>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/nodata"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="visible">
-
+                android:visibility="gone">
                 <ImageView
                     android:id="@+id/upcomingimg"
                     android:layout_width="350dp"
                     android:layout_height="170dp"
-                    android:layout_marginTop="20dp"
                     android:src="@drawable/notifnodata"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="20dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
                 <TextView
                     android:id="@+id/asd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="83sp"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="70dp"
+                    android:layout_marginTop="10dp"
                     android:fontFamily="@font/raleway_bold"
                     android:text="Hey Romis !"
                     android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/upcomingimg" />
+                    app:layout_constraintTop_toBottomOf="@id/upcomingimg"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <ImageView
                     android:layout_width="20dp"
@@ -157,88 +152,63 @@
                     app:layout_constraintTop_toBottomOf="@id/asd" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
-    </ScrollView>
 
-    <ScrollView
-        android:id="@+id/scrollView3"
-        android:layout_width="match_parent"
-        android:layout_height="680dp"
-        android:fillViewport="true"
+    </ScrollView>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="340dp"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@id/upcoming"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/upcoming">
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <LinearLayout
-            android:id="@+id/cl2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/upcoming"
+        <ImageView
+            android:id="@+id/pemandangan"
+            android:layout_width="400sp"
+            android:layout_height="380sp"
+            android:layout_marginTop="-50sp"
+            android:src="@drawable/pemandangan"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/NotifRecyclerviewRiwayat"
-                android:layout_width="match_parent"
-                android:layout_height="600dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="200dp"
-                android:paddingBottom="40dp"
-                android:visibility="gone" />
+        <TextView
+            android:id="@+id/titledatanone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="83sp"
+            android:layout_marginBottom="70dp"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Hey titledatanone !"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@id/pemandangan"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="visible"
-                android:id="@+id/nodatariwayat">
-                <ImageView
-                    android:id="@+id/pemandangan"
-                    android:layout_width="400sp"
-                    android:layout_height="380sp"
-                    android:layout_marginTop="-50sp"
-                    android:src="@drawable/pemandangan"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-                <TextView
-                    android:id="@+id/titledatanone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="83sp"
-                    android:layout_marginBottom="70dp"
-                    android:fontFamily="@font/raleway_bold"
-                    android:text="Hey titledatanone !"
-                    android:textSize="24sp"
-                    app:layout_constraintBottom_toBottomOf="@id/pemandangan"
-                    app:layout_constraintStart_toStartOf="parent" />
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginStart="220sp"
-                    android:layout_marginTop="7dp"
-                    android:src="@drawable/waving"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/titledatanone" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:fontFamily="@font/raleway"
-                    android:text="Sepertinya kamu belum pernah camping\ndengan kami sejauh ini"
-                    android:textColor="@color/abu"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toStartOf="@id/titledatanone"
-                    app:layout_constraintTop_toBottomOf="@id/titledatanone" />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="220sp"
+            android:layout_marginTop="7dp"
+            android:src="@drawable/waving"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/titledatanone" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
-    </ScrollView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/raleway"
+            android:text="Sepertinya kamu belum pernah camping\ndengan kami sejauh ini"
+            android:textColor="@color/abu"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/titledatanone"
+            app:layout_constraintTop_toBottomOf="@id/titledatanone" />
 
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
