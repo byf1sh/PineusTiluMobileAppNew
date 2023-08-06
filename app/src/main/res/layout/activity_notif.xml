@@ -79,6 +79,7 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="680dp"
+        android:visibility="visible"
         android:fillViewport="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +89,6 @@
             android:id="@+id/cl1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -152,64 +152,85 @@
                     app:layout_constraintTop_toBottomOf="@id/asd" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
-
     </ScrollView>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="340dp"
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="680dp"
+        android:fillViewport="true"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/upcoming"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/upcoming">
 
-        <ImageView
-            android:id="@+id/pemandangan"
-            android:layout_width="400sp"
-            android:layout_height="380sp"
-            android:layout_marginTop="-50sp"
-            android:src="@drawable/pemandangan"
+        <LinearLayout
+            android:id="@+id/cl2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/titledatanone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="83sp"
-            android:layout_marginBottom="70dp"
-            android:fontFamily="@font/raleway_bold"
-            android:text="Hey titledatanone !"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="@id/pemandangan"
-            app:layout_constraintStart_toStartOf="parent" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="200dp"
+                android:id="@+id/RiwayatRecyclerview"
+                android:paddingBottom="40dp"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/nodataRiwayat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+                <ImageView
+                    android:id="@+id/historyimg"
+                    android:layout_width="350dp"
+                    android:layout_height="170dp"
+                    android:src="@drawable/notifnodata"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:id="@+id/ddd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="83sp"
+                    android:layout_marginBottom="70dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/raleway_bold"
+                    android:text="Hey Romis !"
+                    android:textSize="24sp"
+                    app:layout_constraintTop_toBottomOf="@id/historyimg"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="220sp"
-            android:layout_marginTop="7dp"
-            android:src="@drawable/waving"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/titledatanone" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="220sp"
+                    android:layout_marginTop="7dp"
+                    android:src="@drawable/waving"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ddd" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:fontFamily="@font/raleway"
-            android:text="Sepertinya kamu belum pernah camping\ndengan kami sejauh ini"
-            android:textColor="@color/abu"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@id/titledatanone"
-            app:layout_constraintTop_toBottomOf="@id/titledatanone" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/raleway"
+                    android:text="Sepertinya kamu belum pernah camping\ndengan kami sejauh ini"
+                    android:textColor="@color/abu"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@id/ddd"
+                    app:layout_constraintTop_toBottomOf="@id/ddd" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="70dp"

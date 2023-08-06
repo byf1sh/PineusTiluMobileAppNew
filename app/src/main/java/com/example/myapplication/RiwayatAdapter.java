@@ -37,7 +37,7 @@ public class RiwayatAdapter extends RecyclerView.Adapter<MyViewHolderRiwayat> {
     @NonNull
     @Override
     public MyViewHolderRiwayat onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.notif_recycler_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.history_recycler_item,parent,false);
 
         return new MyViewHolderRiwayat(view);
     }
@@ -46,8 +46,7 @@ public class RiwayatAdapter extends RecyclerView.Adapter<MyViewHolderRiwayat> {
     public void onBindViewHolder(@NonNull MyViewHolderRiwayat holder, int position) {
         TextView nama = ((NotifActivity) context).findViewById(R.id.namanana);
         String Nama = nama.getText().toString();
-        holder.mainNotif.setText(dataList.get(position).getDataMain());
-        holder.childNotif.setText(dataList.get(position).getDataChild());
+
         holder.purchasedOnDetails.setText(dataList.get(position).getDataTanggal());
         holder.priceDetailsDetails.setText(dataList.get(position).getDataHarga());
         holder.locationDetails.setText(dataList.get(position).getDataLokasi().trim());
@@ -60,23 +59,16 @@ public class RiwayatAdapter extends RecyclerView.Adapter<MyViewHolderRiwayat> {
 }
 
 class MyViewHolderRiwayat extends RecyclerView.ViewHolder{
-    ImageView notifImg, delete;
+    ImageView Riwayatimg, delete;
     TextView mainNotif, childNotif, purchasedOnDetails, priceDetailsDetails, locationDetails;
-    ConstraintLayout OnClickconstraint, Notification, cancellation;
 
     public MyViewHolderRiwayat(@NonNull View itemView) {
         super(itemView);
 
-        cancellation=itemView.findViewById(R.id.cancellation);
-        Notification = itemView.findViewById(R.id.Notification);
-        OnClickconstraint = itemView.findViewById(R.id.onClickConstraint);
-        notifImg = itemView.findViewById(R.id.notifImg);
-        mainNotif = itemView.findViewById(R.id.mainNotif);
-        childNotif = itemView.findViewById(R.id.childNotif);
         purchasedOnDetails = itemView.findViewById(R.id.purchasedOnDetails);
         priceDetailsDetails = itemView.findViewById(R.id.priceDetailsDetails);
         locationDetails= itemView.findViewById(R.id.locationDetails);
-        delete = itemView.findViewById(R.id.delete);
+        Riwayatimg=itemView.findViewById(R.id.gambardeck);
 
     }
 }

@@ -12,6 +12,12 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".RescheaduleMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminPanelActivity"
+            android:exported="false" />
+        <activity
             android:name=".RescheduleCancellationActivity"
             android:exported="false" />
         <activity
@@ -32,11 +38,9 @@
         <activity
             android:name=".NotifActivity"
             android:exported="false" />
-
         <activity
             android:name=".MakingInstanceActivity"
             android:exported="false" />
-
         <activity
             android:name=".TutorialActivity"
             android:exported="false" />
@@ -86,7 +90,7 @@
             android:name=".ProfileSettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeMainActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".SignupActivity"
@@ -98,7 +102,7 @@
             android:name=".CancelationActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeMainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
