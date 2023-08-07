@@ -52,13 +52,22 @@ public class CancelationActivity extends AppCompatActivity {
         getData();
         asd();
         terserah();
+
+
         String pathNtf = "users/" + Username + "/Rescheadule";
         databaseReference1 = FirebaseDatabase.getInstance().getReference(pathNtf);
         childRef1 = databaseReference1.child("RescheaduleData" + Lokasi+" "+ Deck);
 
+
         stj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Intent intent = new Intent(CancelationActivity.this,RescheduleCancellationActivity.class);
+                startActivity(intent);
+
+
+
                 DataResceaduleDB();
                 Intent intent = new Intent(CancelationActivity.this,RescheduleCancellationActivity.class);
                 intent.putExtra("tanggalawalcancel", tanggalAwalNotf);
@@ -69,6 +78,7 @@ public class CancelationActivity extends AppCompatActivity {
                 intent.putExtra("jumlah", Jumalh);
                 intent.putExtra("name",Username);
                 startActivity(intent);
+
             }
         });
     }

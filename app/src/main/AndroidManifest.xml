@@ -14,6 +14,9 @@
         <activity
             android:name=".RescheaduleMainActivity"
             android:exported="false" />
+      <activity
+            android:name=".DetailRescheduleCharge"
+            android:exported="false" />
         <activity
             android:name=".AdminPanelActivity"
             android:exported="false" />
