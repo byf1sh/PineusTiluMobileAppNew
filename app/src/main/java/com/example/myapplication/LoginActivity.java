@@ -21,6 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 public class LoginActivity extends AppCompatActivity {
 
     EditText loginUsername, loginPassword;
+
+    TextView terms, privacy;
     Button loginButton;
     TextView signupRedirectText;
 
@@ -32,6 +34,26 @@ public class LoginActivity extends AppCompatActivity {
         loginUsername = findViewById(R.id.username);
         loginPassword = findViewById(R.id.pass);
         loginButton = findViewById(R.id.login);
+        terms = findViewById(R.id.terms);
+        privacy = findViewById(R.id.privacy);
+
+
+
+        terms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, SyaratdanKetentuan.class);
+                startActivity(intent);
+            }
+        });
+
+        privacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, SyaratdanKetentuan.class);
+                startActivity(intent);
+            }
+        });
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
