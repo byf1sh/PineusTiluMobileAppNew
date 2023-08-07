@@ -123,7 +123,7 @@ public class ProfileActivity extends AppCompatActivity {
                     String homeName = profileUsername.getText().toString().trim();
                     intent.putExtra("username", homeName);
                     startActivity(intent);
-                    overridePendingTransition(R.anim.top_anim, R.anim.bottom_anim);
+                    overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                     finish();
                     return true;
                 case R.id.bottom_history:
@@ -131,6 +131,7 @@ public class ProfileActivity extends AppCompatActivity {
                     String notifName2 = profileUsername.getText().toString().trim();
                     intent1.putExtra("username", notifName2);
                     startActivity(intent1);
+                    overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                     finish();
                     return true;
                 case R.id.bottom_notif:
@@ -138,6 +139,7 @@ public class ProfileActivity extends AppCompatActivity {
                     String notifName = profileUsername.getText().toString().trim();
                     intent2.putExtra("username", notifName);
                     startActivity(intent2);
+                    overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                     finish();
                     return true;
                 case R.id.bottom_profile:
@@ -228,8 +230,7 @@ public class ProfileActivity extends AppCompatActivity {
                     }else {
                         imgprofileclone.setVisibility(View.VISIBLE);
                     }
-                    // Tampilkan gambar dari URL menggunakan Glide
-                    Glide.with(ProfileActivity.this)
+                    Glide.with(getApplicationContext())
                             .load(helperClass.getImageURL())
                             .into(profilepic);
 

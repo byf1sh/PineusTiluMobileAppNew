@@ -291,10 +291,12 @@
 
         <TextView
             android:id="@+id/fas_dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="blablalba"
             android:fontFamily="@font/raleway"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
             app:layout_constraintTop_toBottomOf="@+id/detail"
             app:layout_constraintStart_toStartOf="@+id/detail"
             />
@@ -305,7 +307,7 @@
             android:layout_height="43dp"
             android:layout_marginEnd="20dp"
             android:text="Kembali"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="30dp"
             android:textSize="16sp"
             android:fontFamily="@font/raleway"
             android:textColor="@color/black"
@@ -314,7 +316,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/btn_book_dp"
             app:cardCornerRadius="10dp"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="60dp">
 
             <TextView
                 android:layout_width="63dp"
@@ -330,27 +332,28 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/btn_book_dp"
             android:layout_width="178dp"
             android:layout_height="43dp"
-            android:id="@+id/btn_book_dp"
-            android:layout_marginBottom="10dp"
-            android:text="Book"
-            android:fontFamily="@font/raleway"
-            android:textSize="16sp"
-            android:backgroundTint="@color/green"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="18dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:cardCornerRadius="10dp">
+            android:backgroundTint="@color/green"
+            android:fontFamily="@font/raleway"
+            android:text="Book"
+            android:textSize="16sp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_kembali_dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btn_kembali_dp">
+
             <TextView
                 android:layout_width="39dp"
                 android:layout_height="24dp"
-                android:text="Book"
-                android:fontFamily="@font/raleway"
-                android:textSize="16sp"
                 android:layout_marginStart="70dp"
                 android:layout_marginTop="10dp"
-                android:textColor="@color/white"/>
+                android:fontFamily="@font/raleway"
+                android:text="Book"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
         </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

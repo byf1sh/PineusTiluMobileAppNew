@@ -2,7 +2,6 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,10 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -29,14 +30,16 @@ import java.util.List;
 public class NotifActivity extends AppCompatActivity {
 
     TextView riwayat, upcoming, namanana;
-    ConstraintLayout cl2, nodata, notifpurchased, notifpurchased2, notification1;
-    LinearLayout cl1;
+    ConstraintLayout nodata, nodataRiwayat, notifpurchased2, notification1;
+    LinearLayout cl1,cl2;
     ImageView background;
-    DatabaseReference databaseReference1, childRef1;
+    DatabaseReference databaseReference1,databaseReference, childRef1,childRef;
     String getdata;
+    ScrollView scrollView,scrollView2;
     NotifAdapter adapter1;
-    List<NotifClass> dataListNotif;
-    RecyclerView NotifRecyclerview;
+    RiwayatAdapter adapter;
+    List<NotifClass> dataListNotif, dayaListRiwayat;
+    RecyclerView NotifRecyclerview,RiwayatRecyclerview;
     ValueEventListener eventListener;
 
 
@@ -55,28 +58,47 @@ public class NotifActivity extends AppCompatActivity {
         riwayat = findViewById(R.id.riwayat);
         cl1 = findViewById(R.id.cl1);
         cl2 = findViewById(R.id.cl2);
+        scrollView2=findViewById(R.id.scrollView2);
+        scrollView=findViewById(R.id.scrollView);
         background = findViewById(R.id.background);
         namanana=findViewById(R.id.namanana);
         NotifRecyclerview=findViewById(R.id.NotifRecyclerview);
         nodata=findViewById(R.id.nodata);
+        RiwayatRecyclerview=findViewById(R.id.RiwayatRecyclerview);
+        nodataRiwayat=findViewById(R.id.nodataRiwayat);
 
 
         getData();
         LinearLayoutManager linearLayoutManager3 = new LinearLayoutManager(NotifActivity.this,LinearLayoutManager.VERTICAL,false);
         NotifRecyclerview.setLayoutManager(linearLayoutManager3);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(NotifActivity.this,LinearLayoutManager.VERTICAL,false);
+        RiwayatRecyclerview.setLayoutManager(linearLayoutManager);
+
+        Animation fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out);
+        Animation fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+
+        fadeInAnimation.setDuration(140);
+        fadeOutAnimation.setDuration(140);
+
+        showDataRVUpcoming();
+        showDataRVRiwayat();
 
         upcoming.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 upcoming.setTextColor(hijau);
                 riwayat.setTextColor(abuabu);
-                if (cl1.getVisibility() == View.GONE) {
-                    cl1.setVisibility(View.VISIBLE);
-                    cl2.setVisibility(View.GONE);
-                    background.setVisibility(View.VISIBLE);
+                if (scrollView2.getVisibility() == View.GONE) {
+                    animateViewVisibility(View.VISIBLE, fadeInAnimation,
+                            scrollView2);
+                    animateViewVisibility(View.GONE, fadeOutAnimation,
+                            scrollView);
+                    animateViewVisibility(View.VISIBLE, fadeInAnimation,
+                            background);
 
                 } else {
-                    cl1.setVisibility(View.VISIBLE);
+                    animateViewVisibility(View.VISIBLE, fadeInAnimation,
+                            cl1);
                 }
             }
         });
@@ -86,12 +108,14 @@ public class NotifActivity extends AppCompatActivity {
             public void onClick(View view) {
                 riwayat.setTextColor(hijau);
                 upcoming.setTextColor(abuabu);
-                if (cl2.getVisibility() == View.GONE) {
-                    cl2.setVisibility(View.VISIBLE);
-                    cl1.setVisibility(View.GONE);
-                    background.setVisibility(View.GONE);
+                if (scrollView.getVisibility() == View.GONE) {
+                    animateViewVisibility(View.GONE, fadeOutAnimation,
+                            scrollView2);
+                    animateViewVisibility(View.VISIBLE, fadeInAnimation,
+                            scrollView);
                 } else {
-                    cl2.setVisibility(View.VISIBLE);
+                    animateViewVisibility(View.VISIBLE, fadeInAnimation,
+                            cl2);
                 }
             }
         });
@@ -103,6 +127,7 @@ public class NotifActivity extends AppCompatActivity {
                     String namantf = namanana.getText().toString();
                     intent.putExtra("username",namantf);
                     startActivity(intent);
+                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                     finish();
                     return true;
                 case R.id.bottom_history:
@@ -110,6 +135,7 @@ public class NotifActivity extends AppCompatActivity {
                     String namantf2 = namanana.getText().toString();
                     intent2.putExtra("username",namantf2);
                     startActivity(intent2);
+                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                     finish();
                     return true;
                 case R.id.bottom_notif:
@@ -119,11 +145,38 @@ public class NotifActivity extends AppCompatActivity {
                     String namantf1 = namanana.getText().toString();
                     intent3.putExtra("username",namantf1);
                     startActivity(intent3);
+                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                     finish();
                     return true;
             }
             return false;
         });
+
+    }
+    public void getData(){
+        Intent intent = getIntent();
+
+        getdata = intent.getStringExtra("username");
+        namanana.setText(getdata);
+
+    }
+    public void dataNotPresent(){
+        nodata.setVisibility(View.VISIBLE);
+        NotifRecyclerview.setVisibility(View.GONE);
+    }
+    public void dataPresent(){
+        nodata.setVisibility(View.GONE);
+        NotifRecyclerview.setVisibility(View.VISIBLE);
+    }
+    public void dataNotPresentRiwayat(){
+        nodataRiwayat.setVisibility(View.VISIBLE);
+        RiwayatRecyclerview.setVisibility(View.GONE);
+    }
+    public void dataPresentRiwayat(){
+        nodataRiwayat.setVisibility(View.GONE);
+        RiwayatRecyclerview.setVisibility(View.VISIBLE);
+    }
+    public void showDataRVUpcoming(){
         String pathNtf = "users/"+getdata+"/Notif";
         dataListNotif = new ArrayList<>();
         adapter1 = new NotifAdapter(NotifActivity.this,dataListNotif);
@@ -154,50 +207,64 @@ public class NotifActivity extends AppCompatActivity {
             }
         });
     }
-    public void getData(){
-        Intent intent = getIntent();
 
-        getdata = intent.getStringExtra("username");
-        namanana.setText(getdata);
+    private void animateViewVisibility(int visibility, Animation animation, View... views) {
+        for (View view : views) {
+            if (view.getVisibility() == visibility) continue;
+            if (visibility == View.VISIBLE) {
+                view.startAnimation(animation);
+                view.setVisibility(visibility);
+            } else {
+                Animation fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out);
+                fadeOutAnimation.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                    }
 
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        view.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+                    }
+                });
+                view.startAnimation(fadeOutAnimation);
+            }
+        }
     }
-    public void dataNotPresent(){
-        nodata.setVisibility(View.VISIBLE);
-        NotifRecyclerview.setVisibility(View.GONE);
-    }
-    public void dataPresent(){
-        nodata.setVisibility(View.GONE);
-        NotifRecyclerview.setVisibility(View.VISIBLE);
-    }
-    public void showPopupMenuNotif(View view) {
-        PopupMenu popupMenu = new PopupMenu(this, view);
-        popupMenu.inflate(R.menu.popup_menu); // Menu yang ingin ditampilkan di PopupMenu
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
 
+    public void showDataRVRiwayat(){
+        String pathRwyt = "users/"+getdata+"/Notif";
+        dayaListRiwayat = new ArrayList<>();
+        adapter = new RiwayatAdapter(NotifActivity.this,dayaListRiwayat);
+        RiwayatRecyclerview.setAdapter(adapter);
 
+        databaseReference = FirebaseDatabase.getInstance().getReference(pathRwyt);
+        childRef = databaseReference.child("NotifRiwayat");
+
+        eventListener = childRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                // Tambahkan logika untuk mengatasi setiap item yang dipilih dari menu dropdown
-                switch (item.getItemId()) {
-                    case R.id.settings:
-                        // Aksi untuk menu item 1
-                        return true;
-                    case R.id.faq:
-                        Intent intent1 = new Intent(NotifActivity.this, FAQActivity.class);
-                        startActivity(intent1);
-                        // Aksi untuk menu item 2
-                        return true;
-                    case R.id.tutorial:
-                        Intent intent2 = new Intent(NotifActivity.this,BookingDateTutorialActivity.class);
-                        startActivity(intent2);
-                        //Aksi untuk Tutorial
-                        return true;
-                    // Tambahkan lebih banyak case sesuai dengan kebutuhan Anda
-                    default:
-                        return false;
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                dayaListRiwayat.clear();
+                if (snapshot.exists()) {
+                    dataPresentRiwayat();
+                    for (DataSnapshot itemSnapshot : snapshot.getChildren()) {
+                        NotifClass notifClass = itemSnapshot.getValue(NotifClass.class);
+                        dayaListRiwayat.add(notifClass);
+                    }
+                    adapter.notifyDataSetChanged();
+                }else {
+                    dataNotPresentRiwayat();
+
                 }
             }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
         });
-        popupMenu.show();
     }
 }

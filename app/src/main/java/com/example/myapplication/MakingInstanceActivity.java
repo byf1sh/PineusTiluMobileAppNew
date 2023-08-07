@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +26,7 @@ public class MakingInstanceActivity extends AppCompatActivity {
 
     TextView textView5;
     Button button;
+    String date;
     private DatabaseReference sourceRef, sourceRef2, sourceRef3;
     private DatabaseReference destinationRef, destinationRef2, destinationRef3;
 
@@ -42,10 +44,12 @@ public class MakingInstanceActivity extends AppCompatActivity {
         destinationRef2 = FirebaseDatabase.getInstance().getReference(textView5.getText().toString()).child("Pineustilu2");
         destinationRef3 = FirebaseDatabase.getInstance().getReference(textView5.getText().toString()).child("Pineustilu3");
 
+        Intent intent = getIntent();
+        date = intent.getStringExtra("date");
         textView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                uploadData();
+                textView5.setText(date);
             }
         });
 

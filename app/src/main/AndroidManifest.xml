@@ -7,11 +7,23 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logopineustilu"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
+        <activity
+            android:name=".RescheaduleMainActivity"
+            android:exported="false" />
+      <activity
+            android:name=".DetailRescheduleCharge"
+            android:exported="false" />
+        <activity
+            android:name=".AdminPanelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RescheduleCancellationActivity"
+            android:exported="false" />
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
@@ -22,7 +34,7 @@
             android:name=".DetailBookingDeckActivity"
             android:exported="false" />
         <activity
-            android:name=".EntertainmentDetailActivity"
+            android:name=".ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".EntertainmentActivity"
@@ -32,9 +44,6 @@
             android:exported="false" />
         <activity
             android:name=".MakingInstanceActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HistoryActivity"
             android:exported="false" />
         <activity
             android:name=".TutorialActivity"
@@ -85,19 +94,19 @@
             android:name=".ProfileSettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeMainActivity"
+            android:name=".EntertainmentDetailActivity"
             android:exported="false" />
         <activity
             android:name=".CancelationActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeMainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
