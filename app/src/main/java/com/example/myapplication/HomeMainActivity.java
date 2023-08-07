@@ -78,6 +78,7 @@ public class HomeMainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HomeMainActivity.this,BookingDateTutorialActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 

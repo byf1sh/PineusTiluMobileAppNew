@@ -146,6 +146,7 @@
                 android:background="@color/hijau2"
                 android:gravity="center_vertical"
                 android:paddingLeft="16dp"
+                android:paddingRight="16dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -158,6 +159,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:background="@drawable/recyler_view_gradient_fade"
                     android:id="@+id/view_deck1"/>
 
 
@@ -181,6 +183,7 @@
                 android:background="@color/hijau2"
                 android:gravity="center_vertical"
                 android:paddingLeft="16dp"
+                android:paddingRight="16dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -193,6 +196,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:background="@drawable/recyler_view_gradient_fade"
                     android:id="@+id/view_deck2"/>
 
             </LinearLayout>
@@ -215,6 +219,7 @@
                 android:background="@color/hijau2"
                 android:gravity="center_vertical"
                 android:paddingLeft="16dp"
+                android:paddingRight="16dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -229,6 +234,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/recyler_view_gradient_fade"
                     android:id="@+id/view_deck3"/>
 
             </LinearLayout>
