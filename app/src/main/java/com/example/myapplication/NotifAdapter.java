@@ -58,8 +58,14 @@ public class NotifAdapter extends RecyclerView.Adapter<MyViewHolderNotification>
             @Override
             public void onClick(View view) {
                 String tanggalnotf = dataList.get(holder.getAdapterPosition()).getDataTanggal();
+                String purchased = dataList.get(holder.getAdapterPosition()).getDataTanggal();
+                String price =dataList.get(holder.getAdapterPosition()).getDataHarga();
+                String loc =dataList.get(holder.getAdapterPosition()).getDataLokasi();
                 Intent intent = new Intent(context, CancelationActivity.class);
                 intent.putExtra("tanggal", tanggalnotf);
+                intent.putExtra("loc",loc );
+                intent.putExtra("purchased",purchased );
+                intent.putExtra("price",price );
                 context.startActivity(intent);
             }
         });
