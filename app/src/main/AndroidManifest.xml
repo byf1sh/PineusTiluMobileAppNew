@@ -18,14 +18,14 @@
             android:name=".MainActivity2"
             android:exported="false" />
         <activity
-            android:name=".DetailBookingDeckActivity"
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeMainActivity"
             android:exported="false" />
         <activity
             android:name=".EntertainmentDetailActivity"
             android:exported="false" />
-        <activity
-            android:name=".EntertainmentActivity"
-            android:exported="true" />
         <activity
             android:name=".NotifActivity"
             android:exported="false" />
@@ -90,13 +90,13 @@
             android:name=".SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeMainActivity"
+            android:name=".DetailBookingDeckActivity"
             android:exported="false" />
         <activity
             android:name=".CancelationActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".EntertainmentActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

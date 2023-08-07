@@ -114,11 +114,11 @@ class MyViewHolderEntertain extends RecyclerView.ViewHolder{
     public MyViewHolderEntertain(@NonNull View itemView) {
         super(itemView);
 
-            card = itemView.findViewById(R.id.availabledeck);
-            picImg = itemView.findViewById(R.id.pic_en);
-            colordeck = itemView.findViewById(R.id.deck_color);
-            Title = itemView.findViewById(R.id.title_deck);
-            Avail = itemView.findViewById(R.id.price_deck);
+        card = itemView.findViewById(R.id.availabledeck);
+        picImg = itemView.findViewById(R.id.pic_en);
+        colordeck = itemView.findViewById(R.id.deck_color);
+        Title = itemView.findViewById(R.id.title_deck);
+        Avail = itemView.findViewById(R.id.price_deck);
 
     }
 }
