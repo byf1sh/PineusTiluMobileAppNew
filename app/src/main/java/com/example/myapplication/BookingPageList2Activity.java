@@ -2,11 +2,14 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -90,5 +93,32 @@ public class BookingPageList2Activity extends AppCompatActivity {
 
             }
         });
+    }
+    public void showPopupMenuEntertainDet(View view) {
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.inflate(R.menu.popup_menu); // Menu yang ingin ditampilkan di PopupMenu
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                // Tambahkan logika untuk mengatasi setiap item yang dipilih dari menu dropdown
+                switch (item.getItemId()) {
+                    case R.id.settings:
+                        // Aksi untuk menu item 1
+                        return true;
+                    case R.id.faq:
+                        Intent intent1 = new Intent(BookingPageList2Activity.this, FAQActivity.class);
+                        startActivity(intent1);
+                        // Aksi untuk menu item 2
+                        return true;
+                    case R.id.tutorial:
+                        Intent intent2 = new Intent(BookingPageList2Activity.this, BookingDateTutorialActivity.class);
+                        startActivity(intent2);
+                        // Tambahkan lebih banyak case sesuai dengan kebutuhan Anda
+                    default:
+                        return false;
+                }
+            }
+        });
+        popupMenu.show();
     }
 }

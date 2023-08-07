@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailRescheduleCharge">
+
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="14dp"
+        android:src="@drawable/back_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:layout_marginBottom="56dp"
+        android:src="@drawable/bg"
+        android:alpha="0.8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/line"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="56dp"
+        android:src="@drawable/line_bookingpage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_back"
+        />
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:fontFamily="@font/raleway"
+        android:text="Detail Kekurangan Biaya"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/hitam"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_back"
+        app:layout_constraintStart_toEndOf="@+id/btn_back"
+        app:layout_constraintTop_toTopOf="@+id/btn_back" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout_price"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginStart="10dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@id/line"
+        app:layout_constraintTop_toBottomOf="@id/line">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Tenda 4.0"
+            android:textColor="@color/hitam2"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:lineSpacingExtra="2sp"
+            android:text="Pineus Tilu 1 (Deck 2A, 2B, 3, 4, 5, 6, 7)\nPineus Tilu 2 (Deck 1, 2, 3, 4, 5, 6)"
+            android:textColor="@color/abu"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Tenda 4.2"
+            android:textColor="@color/hitam2"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:lineSpacingExtra="2sp"
+            android:text="Pineus Tilu 1 (Deck 1A, 1B, 8, 9)\nPineus Tilu 2 (Deck 7, 8, 9)"
+            android:textColor="@color/abu"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Tenda 5.2"
+            android:textColor="@color/hitam2"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:lineSpacingExtra="2sp"
+            android:text="Semua Deck di Pineus Tilu 3"
+            android:textColor="@color/abu"
+            android:textSize="14sp"/>
+
+        <ImageView
+            android:layout_width="280dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/line"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+
+            android:fontFamily="@font/raleway_bold"
+            android:text="Weekdays ke Weekdays"
+            android:textColor="@color/hitam2"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:lineSpacingExtra="2sp"
+            android:text="Tent 4.0 ke Tent 4.2 = Kurang 50.000\nTent 4.0 ke Tent 5.2 = Kurang 850.000\nTent 4.2 ke Tent 5.2 = Kurang 800.000"
+            android:textColor="@color/abu"
+            android:textSize="14sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Weekend ke Weekend"
+            android:textColor="@color/hitam2"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:lineSpacingExtra="2sp"
+            android:text="Tent 4.0 ke Tent 4.2 = Kurang 50.000
+            \nTent 4.0 ke Tent 5.2 = Kurang 950.000
+            \nTent 4.2 ke Tent 5.2 = Kurang 900.000"
+            android:textColor="@color/abu"
+            android:textSize="14sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Weekdays ke Weekend"
+            android:textColor="@color/hitam2"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:lineSpacingExtra="2sp"
+            android:text="Tent 4.0 ke Tent 4.0 = Kurang 200.000
+            \nTent 4.2 ke Tent 4.2 = Kurang 200.000
+            \nTent 4.0 ke Tent 4.2 = Kurang 250.000
+            \nTent 4.0 ke Tent 5.2 = Kurang 1.150.000
+            \nTent 4.2 ke Tent 5.2 = Kurang 1.100.000"
+            android:textColor="@color/abu"
+            android:textSize="14sp"/>
+
+
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
