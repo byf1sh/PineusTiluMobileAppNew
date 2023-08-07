@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -43,6 +44,16 @@ public class CancelationActivity extends AppCompatActivity {
         getData();
         asd();
         terserah();
+
+        stj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CancelationActivity.this,RescheduleCancellationActivity.class);
+                startActivity(intent);
+
+
+            }
+        });
     }
 
 
