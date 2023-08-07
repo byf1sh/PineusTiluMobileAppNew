@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SignupActivity extends AppCompatActivity {
 
     EditText signupName, getSignupEmail, signupUsername, signupPassword;
-    TextView loginRedirectText;
+    TextView loginRedirectText, terms, privacy;
     Button signupButton;
     FirebaseDatabase database;
     DatabaseReference reference;
@@ -33,13 +33,32 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
         firebaseAuth = FirebaseAuth.getInstance();
 
-
+        terms = findViewById(R.id.terms);
+        privacy = findViewById(R.id.privacy);
         signupName = findViewById(R.id.contact);
         getSignupEmail = findViewById(R.id.emailasd);
         signupUsername = findViewById(R.id.username);
         signupPassword = findViewById(R.id.password);
         signupButton = findViewById(R.id.signup_button);
         loginRedirectText = findViewById(R.id.textView);
+
+
+
+        terms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignupActivity.this, SyaratdanKetentuan.class);
+                startActivity(intent);
+            }
+        });
+
+        privacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignupActivity.this, SyaratdanKetentuan.class);
+                startActivity(intent);
+            }
+        });
 
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
