@@ -38,6 +38,8 @@ public class NotifActivity extends AppCompatActivity {
     List<NotifClass> dataListNotif;
     RecyclerView NotifRecyclerview;
     ValueEventListener eventListener;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +50,7 @@ public class NotifActivity extends AppCompatActivity {
         int hijau = ContextCompat.getColor(getApplicationContext(), R.color.green);
         int abuabu = ContextCompat.getColor(getApplicationContext(), R.color.abu3);
 
+
         upcoming = findViewById(R.id.upcoming);
         riwayat = findViewById(R.id.riwayat);
         cl1 = findViewById(R.id.cl1);
@@ -56,6 +59,7 @@ public class NotifActivity extends AppCompatActivity {
         namanana=findViewById(R.id.namanana);
         NotifRecyclerview=findViewById(R.id.NotifRecyclerview);
         nodata=findViewById(R.id.nodata);
+
 
         getData();
         LinearLayoutManager linearLayoutManager3 = new LinearLayoutManager(NotifActivity.this,LinearLayoutManager.VERTICAL,false);
@@ -169,15 +173,24 @@ public class NotifActivity extends AppCompatActivity {
         PopupMenu popupMenu = new PopupMenu(this, view);
         popupMenu.inflate(R.menu.popup_menu); // Menu yang ingin ditampilkan di PopupMenu
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
+
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 // Tambahkan logika untuk mengatasi setiap item yang dipilih dari menu dropdown
                 switch (item.getItemId()) {
-                    case R.id.menu_item_1:
+                    case R.id.settings:
                         // Aksi untuk menu item 1
                         return true;
-                    case R.id.menu_item_2:
+                    case R.id.faq:
+                        Intent intent1 = new Intent(NotifActivity.this, FAQActivity.class);
+                        startActivity(intent1);
                         // Aksi untuk menu item 2
+                        return true;
+                    case R.id.tutorial:
+                        Intent intent2 = new Intent(NotifActivity.this,BookingDateTutorialActivity.class);
+                        startActivity(intent2);
+                        //Aksi untuk Tutorial
                         return true;
                     // Tambahkan lebih banyak case sesuai dengan kebutuhan Anda
                     default:

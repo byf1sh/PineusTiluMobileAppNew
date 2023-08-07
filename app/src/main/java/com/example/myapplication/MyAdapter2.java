@@ -15,8 +15,11 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.List;
 
@@ -143,6 +146,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyViewHolder2> {
     public int getItemCount() {
         return dataList.size();
     }
+
 }
 
 class MyViewHolder2 extends RecyclerView.ViewHolder{
@@ -162,4 +166,9 @@ class MyViewHolder2 extends RecyclerView.ViewHolder{
         highSeason = itemView.findViewById(R.id.highSeason);
         highSeasonTV = itemView.findViewById(R.id.highSeasonTV);
     }
+
+    String imageUrl = "gs://pineustiludb.appspot.com/Pinus Tilu Component/Pinus Tilu 2/DSC06167.jpg";
+
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageRef = storage.getReferenceFromUrl(imageUrl);
 }

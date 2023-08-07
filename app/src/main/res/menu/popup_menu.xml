@@ -1,10 +1,13 @@
 <!-- popup_menu.xml -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/menu_item_1"
-        android:title="Menu Item 1" />
+        android:id="@+id/settings"
+        android:title="Settings" />
     <item
-        android:id="@+id/menu_item_2"
-        android:title="Menu Item 2" />
+        android:id="@+id/faq"
+        android:title="FAQ" />
+    <item
+        android:id="@+id/tutorial"
+        android:title="Tutorial" />
     <!-- Tambahkan lebih banyak item menu sesuai kebutuhan Anda -->
 </menu>
