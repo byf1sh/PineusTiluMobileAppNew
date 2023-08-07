@@ -75,8 +75,7 @@ public class DetailPemesananActivity extends AppCompatActivity {
                     intent.putExtra("resHarga",destHarga);
                     intent.putExtra("resJumlah",jmlah);
                     intent.putExtra("userRes",userRess);
-                    updateData();
-                    sendNotification();
+                    intent.putExtra("availRes",Avail);
                     startActivity(intent);
                 }else {
                     Intent intent = new Intent(DetailPemesananActivity.this, HomeMainActivity.class);

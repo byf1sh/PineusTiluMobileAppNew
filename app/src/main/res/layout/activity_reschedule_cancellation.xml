@@ -179,7 +179,7 @@
                 android:layout_height="34dp"
                 android:text="Reschedule"
                 android:fontFamily="@font/poppinsbold"
-                android:checked="true"
+                android:checked="false"
                 android:buttonTint="@color/hijau"
                 />
 
@@ -225,6 +225,7 @@
             app:layout_constraintTop_toBottomOf="@+id/text_alasan" />
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/text_tanggalpindah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -237,6 +238,7 @@
             app:layout_constraintTop_toBottomOf="@+id/edittext_alasan" />
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/text_tanggal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -250,6 +252,7 @@
             app:layout_constraintTop_toBottomOf="@+id/text_tanggalpindah" />
 
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/btn_pilihtanggal"
             android:layout_width="355dp"
             android:layout_height="wrap_content"
@@ -271,6 +274,7 @@
         </LinearLayout>
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/text_deck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -284,6 +288,7 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_pilihtanggal" />
 
         <LinearLayout
+            android:visibility="visible"
             android:id="@+id/btn_pilihdek"
             android:layout_width="355dp"
             android:layout_height="wrap_content"
@@ -351,6 +356,7 @@
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:visibility="gone"
             android:layout_width="355dp"
             android:layout_height="wrap_content"
             android:id="@+id/layout_biayatambahan"

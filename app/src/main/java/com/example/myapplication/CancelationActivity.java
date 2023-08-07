@@ -70,7 +70,7 @@ public class CancelationActivity extends AppCompatActivity {
                 intent.putExtra("harga", Harga);
                 intent.putExtra("lokasi", Lokasi);
                 intent.putExtra("jumlah", Jumalh);
-                intent.putExtra("name",Username);
+                intent.putExtra("username",Username);
                 startActivity(intent);
 
             }

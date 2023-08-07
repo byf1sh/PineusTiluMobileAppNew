@@ -151,6 +151,8 @@ public class MyAdapterR2 extends RecyclerView.Adapter<MyViewHolderR2> {
                     Toast.makeText(context, "Penuh", Toast.LENGTH_SHORT).show();
                 }else {
                     TextView tanggal = ((RescheaduleMainActivity) context).findViewById(R.id.tanggal);
+                    TextView res = ((RescheaduleMainActivity) context).findViewById(R.id.userRes);
+                    String userRes = res.getText().toString();
                     String Tanggalawal = tanggal.getText().toString();
                     TextView name = ((RescheaduleMainActivity) context).findViewById(R.id.completed);
                     TextView rangetanggal = ((RescheaduleMainActivity)context).findViewById(R.id.rangetanggal);
@@ -176,6 +178,7 @@ public class MyAdapterR2 extends RecyclerView.Adapter<MyViewHolderR2> {
                     intent.putExtra("name", Name);
                     intent.putExtra("harga", harga);
                     intent.putExtra("parameter", rescheadule);
+                    intent.putExtra("userRes",userRes);
 
                     context.startActivity(intent);
                 }
