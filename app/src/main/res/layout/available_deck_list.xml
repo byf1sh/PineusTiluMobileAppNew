@@ -41,7 +41,7 @@
             android:id="@+id/pic_deck"
             android:layout_width="300dp"
             android:layout_height="92dp"
-            android:background="@drawable/fotodeklist_availdecklist"
+            android:src="@drawable/fotodeklist_availdecklist"
             app:layout_constraintStart_toStartOf="@id/deck_color"
             app:layout_constraintTop_toTopOf="@id/deck_color" />
 

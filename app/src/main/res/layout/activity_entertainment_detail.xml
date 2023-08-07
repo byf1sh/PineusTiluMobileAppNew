@@ -25,6 +25,19 @@
         app:layout_constraintTop_toTopOf="parent"
         android:textColor="@color/hitam"/>
 
+    <TextView
+        android:id="@+id/username_12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:fontFamily="@font/raleway_bold"
+        android:text="Rafting Pineus Tilu"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@id/header_dbd"
+        app:layout_constraintTop_toTopOf="@id/header_dbd"
+        app:layout_constraintBottom_toBottomOf="@id/header_dbd"
+        android:textColor="@color/hitam"/>
+
     <ImageView
         android:id="@+id/threedots_pp"
         android:layout_width="wrap_content"

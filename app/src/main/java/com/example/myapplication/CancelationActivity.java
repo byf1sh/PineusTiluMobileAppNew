@@ -1,14 +1,23 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -25,8 +34,15 @@ public class CancelationActivity extends AppCompatActivity {
 
     int daysDifference;
     CardView stj;
-    String tanggalAwalNotf;
+    String tanggalAwalNotf, tanggalAkhirNotf, Deck, Harga, Lokasi, Jumalh, Username;
     ImageView centang1, centang2, centang3, centang4, centang5, centang6, centang7;
+    DatabaseReference childRef1,databaseReference1;
+
+    TextView purchased_on;
+    TextView location;
+    TextView price_detail;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +56,37 @@ public class CancelationActivity extends AppCompatActivity {
         centang5=findViewById(R.id.centang5);
         centang6=findViewById(R.id.centang6);
         centang7=findViewById(R.id.centang7);
+        purchased_on= findViewById(R.id.purchased_on);
+        location= findViewById(R.id.location);
+        price_detail=findViewById(R.id.price_detail);
         getData();
         asd();
         terserah();
+
+
+        String pathNtf = "users/" + Username + "/Rescheadule";
+        databaseReference1 = FirebaseDatabase.getInstance().getReference(pathNtf);
+        childRef1 = databaseReference1.child("RescheaduleData" + Lokasi+" "+ Deck);
+
+
+        stj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DataResceaduleDB();
+                Intent intent = new Intent(CancelationActivity.this,RescheduleCancellationActivity.class);
+                intent.putExtra("tanggalawalcancel", tanggalAwalNotf);
+                intent.putExtra("tanggalakhircancel", tanggalAkhirNotf);
+                intent.putExtra("deck", Deck);
+                intent.putExtra("harga", Harga);
+                intent.putExtra("lokasi", Lokasi);
+                intent.putExtra("jumlah", Jumalh);
+                intent.putExtra("username",Username);
+                startActivity(intent);
+
+            }
+        });
     }
+
 
 
     public void asd(){
@@ -118,6 +161,41 @@ public class CancelationActivity extends AppCompatActivity {
     public void getData(){
         Intent intent = getIntent();
         tanggalAwalNotf = intent.getStringExtra("tanggal");
+        tanggalAkhirNotf=intent.getStringExtra("tanggalakhir");
+        Deck=intent.getStringExtra("deck");
+        Harga=intent.getStringExtra("harga");
+        Lokasi=intent.getStringExtra("lokasi");
+        Jumalh=intent.getStringExtra("jumlah");
+        Username=intent.getStringExtra("name");
+        
+        purchased_on.setText(tanggalAwalNotf);
+        price_detail.setText(Harga);
+        location.setText(Harga);
+    }
+
+    public void DataResceaduleDB() {
+        String destTitle="";
+        String tanggalakhir="";
+        String jml="";
+
+        long timestamp = System.currentTimeMillis();
+        //1
+        NotifClass notifClass = new NotifClass(destTitle, tanggalakhir,jml ,tanggalAwalNotf , Harga,Lokasi , timestamp, Deck, tanggalAkhirNotf, Jumalh);
+
+        childRef1.setValue(notifClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(CancelationActivity.this, "Updated", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(CancelationActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
 

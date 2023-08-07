@@ -9,15 +9,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 
 public class EntertainmentDetailActivity extends AppCompatActivity {
 
-    TextView title, price, desc, facility;
+    TextView title,price,desc,facility, username_12;
     Button kembali;
     ImageView mainpic_dbd, potoslide1, potoslide2, potoslide3, potoslide4, potoslide5;
+    String usernameENT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,8 @@ public class EntertainmentDetailActivity extends AppCompatActivity {
         price = findViewById(R.id.harga);
         desc = findViewById(R.id.deskripsi);
         facility = findViewById(R.id.fasilitas);
-        mainpic_dbd = findViewById(R.id.mainpic_dbd);
+        mainpic_dbd=findViewById(R.id.mainpic_dbd);
+        username_12=findViewById(R.id.username_12);
         potoslide1 = findViewById(R.id.fotoslide1);
         potoslide2 = findViewById(R.id.fotoslide2);
         potoslide3 = findViewById(R.id.fotoslide3);
@@ -42,6 +44,16 @@ public class EntertainmentDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(EntertainmentDetailActivity.this, EntertainmentActivity.class);
+                intent.putExtra("username",usernameENT);
+                startActivity(intent);
+            }
+        });
+
+        mainpic_dbd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EntertainmentDetailActivity.this, FullScreenSliderImageActivity.class);
+                intent.putExtra("username",usernameENT);
                 startActivity(intent);
             }
         });
@@ -54,6 +66,7 @@ public class EntertainmentDetailActivity extends AppCompatActivity {
         String Pricesrc = intent.getStringExtra("Price");
         String Descsrc = intent.getStringExtra("Desc");
         String Faciltysrc = intent.getStringExtra("Facility");
+        usernameENT = intent.getStringExtra("username");
 
         if (Titlesrc.contains("Rafting 4 Orang/1 Perahu") || Titlesrc.contains("Rafting 5 Orang/1 Perahu")) {
             String imageURL1 = "https://firebasestorage.googleapis.com/v0/b/pineustiludb.appspot.com/o/Users%20profile%20pic%2FRafting.png?alt=media&token=4dd028d4-621e-4594-a456-7fd41a7d3c3e";
@@ -145,6 +158,7 @@ public class EntertainmentDetailActivity extends AppCompatActivity {
         desc.setText(Descsrc);
         title.setText(Titlesrc);
         price.setText(Pricesrc);
+        username_12.setText(usernameENT);
     }
 
     public void showPopupMenuEntertainDet(View view) {
@@ -155,12 +169,17 @@ public class EntertainmentDetailActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 // Tambahkan logika untuk mengatasi setiap item yang dipilih dari menu dropdown
                 switch (item.getItemId()) {
-                    case R.id.menu_item_1:
+                    case R.id.settings:
                         // Aksi untuk menu item 1
                         return true;
-                    case R.id.menu_item_2:
+                    case R.id.faq:
+                        Intent intent1 = new Intent(EntertainmentDetailActivity.this, FAQActivity.class);
+                        startActivity(intent1);
                         // Aksi untuk menu item 2
                         return true;
+                    case R.id.tutorial:
+                        Intent intent2 = new Intent(EntertainmentDetailActivity.this,BookingDateTutorialActivity.class);
+                        startActivity(intent2);
                     // Tambahkan lebih banyak case sesuai dengan kebutuhan Anda
                     default:
                         return false;
