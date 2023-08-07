@@ -55,6 +55,7 @@ public class EntertainmentActivity extends AppCompatActivity {
                     String namantf = namanana.getText().toString();
                     intent.putExtra("username",namantf);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                     finish();
                     return true;
                 case R.id.bottom_history:
@@ -64,6 +65,7 @@ public class EntertainmentActivity extends AppCompatActivity {
                     String namantf2 = namanana.getText().toString();
                     intent2.putExtra("username",namantf2);
                     startActivity(intent2);
+                    overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                     finish();
                     return true;
                 case R.id.bottom_profile:
@@ -71,6 +73,7 @@ public class EntertainmentActivity extends AppCompatActivity {
                     String namantf1 = namanana.getText().toString();
                     intent3.putExtra("username",namantf1);
                     startActivity(intent3);
+                    overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                     finish();
                     return true;
             }
