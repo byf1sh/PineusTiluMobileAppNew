@@ -41,6 +41,8 @@ public class NotifActivity extends AppCompatActivity {
     List<NotifClass> dataListNotif, dayaListRiwayat;
     RecyclerView NotifRecyclerview,RiwayatRecyclerview;
     ValueEventListener eventListener;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +52,7 @@ public class NotifActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.bottom_notif);
         int hijau = ContextCompat.getColor(getApplicationContext(), R.color.green);
         int abuabu = ContextCompat.getColor(getApplicationContext(), R.color.abu3);
+
 
         upcoming = findViewById(R.id.upcoming);
         riwayat = findViewById(R.id.riwayat);
@@ -63,6 +66,7 @@ public class NotifActivity extends AppCompatActivity {
         nodata=findViewById(R.id.nodata);
         RiwayatRecyclerview=findViewById(R.id.RiwayatRecyclerview);
         nodataRiwayat=findViewById(R.id.nodataRiwayat);
+
 
         getData();
         LinearLayoutManager linearLayoutManager3 = new LinearLayoutManager(NotifActivity.this,LinearLayoutManager.VERTICAL,false);
@@ -123,7 +127,7 @@ public class NotifActivity extends AppCompatActivity {
                     String namantf = namanana.getText().toString();
                     intent.putExtra("username",namantf);
                     startActivity(intent);
-                    overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                     finish();
                     return true;
                 case R.id.bottom_history:
@@ -131,7 +135,7 @@ public class NotifActivity extends AppCompatActivity {
                     String namantf2 = namanana.getText().toString();
                     intent2.putExtra("username",namantf2);
                     startActivity(intent2);
-                    overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                     finish();
                     return true;
                 case R.id.bottom_notif:
@@ -141,7 +145,7 @@ public class NotifActivity extends AppCompatActivity {
                     String namantf1 = namanana.getText().toString();
                     intent3.putExtra("username",namantf1);
                     startActivity(intent3);
-                    overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                     finish();
                     return true;
             }
@@ -230,6 +234,7 @@ public class NotifActivity extends AppCompatActivity {
             }
         }
     }
+
     public void showDataRVRiwayat(){
         String pathRwyt = "users/"+getdata+"/Notif";
         dayaListRiwayat = new ArrayList<>();
@@ -252,6 +257,7 @@ public class NotifActivity extends AppCompatActivity {
                     adapter.notifyDataSetChanged();
                 }else {
                     dataNotPresentRiwayat();
+
                 }
             }
 

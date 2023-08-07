@@ -146,11 +146,17 @@ public class EntertainmentActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 // Tambahkan logika untuk mengatasi setiap item yang dipilih dari menu dropdown
                 switch (item.getItemId()) {
-                    case R.id.menu_item_1:
+                    case R.id.settings:
                         // Aksi untuk menu item 1
                         return true;
-                    case R.id.menu_item_2:
+                    case R.id.faq:
+                        Intent intent1 = new Intent(EntertainmentActivity.this, FAQActivity.class);
+                        startActivity(intent1);
                         // Aksi untuk menu item 2
+                        return true;
+                    case R.id.tutorial:
+                        Intent intent2 = new Intent(EntertainmentActivity.this,BookingDateTutorialActivity.class);
+                        startActivity(intent2);
                         return true;
                     // Tambahkan lebih banyak case sesuai dengan kebutuhan Anda
                     default:

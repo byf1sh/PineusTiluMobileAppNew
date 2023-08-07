@@ -35,8 +35,7 @@ public class NotifAdapter extends RecyclerView.Adapter<MyViewHolderNotification>
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolderNotification holder, int position) {
-        TextView nama = ((NotifActivity) context).findViewById(R.id.namanana);
-        String Nama = nama.getText().toString();
+        
         holder.mainNotif.setText(dataList.get(position).getDataMain());
         holder.childNotif.setText(dataList.get(position).getDataChild());
         holder.purchasedOnDetails.setText(dataList.get(position).getDataTanggal());
