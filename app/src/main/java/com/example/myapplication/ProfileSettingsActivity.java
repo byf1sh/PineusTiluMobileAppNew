@@ -23,6 +23,7 @@ import com.google.firebase.database.core.view.Change;
 public class ProfileSettingsActivity extends AppCompatActivity {
 
     TextView editName, editPassword, editUsername, editEmail;
+    Button btn_signout;
     ConstraintLayout clNumber, clemail, btncostumersupport, btnFAQ, clPassword, btnName;
 
     @SuppressLint("MissingInflatedId")
@@ -31,6 +32,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_settings);
 
+        btn_signout = findViewById(R.id.btnsignout);
         editName = findViewById(R.id.editContact);
         editEmail = findViewById(R.id.editEmail);
         editUsername = findViewById(R.id.editName);
@@ -41,6 +43,13 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         btncostumersupport = findViewById(R.id.btncustomersupport);
         btnFAQ = findViewById(R.id.btnFAQ);
         btnName = findViewById(R.id.btnName);
+
+        btnName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                passUserDataName();
+            }
+        });
 
         btnName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +92,13 @@ public class ProfileSettingsActivity extends AppCompatActivity {
             }
         });
 
+        btn_signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProfileSettingsActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
         showData();
 

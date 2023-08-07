@@ -136,6 +136,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="end"
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -146,6 +147,7 @@
                 android:background="@color/hijau2"
                 android:gravity="center_vertical"
                 android:paddingLeft="16dp"
+                android:paddingRight="16dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -158,6 +160,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:background="@drawable/recyler_view_gradient_fade"
                     android:id="@+id/view_deck1"/>
 
 
@@ -166,21 +169,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:id="@+id/lihatsemua1"
-                android:background="@color/transparent"
                 android:hint="Lihat Semua >"
+                android:background="@color/transparent"
                 android:fontFamily="@font/raleway_bold"
                 android:textColorHint="@color/hijau"
-                app:layout_constraintEnd_toEndOf="@id/layoutdek1"
-                app:layout_constraintTop_toTopOf="@id/layoutdek1"/>
+                />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:id="@+id/layoutdek2"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="22dp"
                 app:layout_constraintTop_toBottomOf="@id/layoutdek1"
                 android:background="@color/hijau2"
                 android:gravity="center_vertical"
                 android:paddingLeft="16dp"
+                android:paddingRight="16dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -193,6 +196,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:background="@drawable/recyler_view_gradient_fade"
                     android:id="@+id/view_deck2"/>
 
             </LinearLayout>
@@ -210,11 +214,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:id="@+id/layoutdek3"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="22dp"
                 app:layout_constraintTop_toBottomOf="@id/layoutdek2"
                 android:background="@color/hijau2"
                 android:gravity="center_vertical"
                 android:paddingLeft="16dp"
+                android:paddingRight="16dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -229,6 +234,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/recyler_view_gradient_fade"
                     android:id="@+id/view_deck3"/>
 
             </LinearLayout>
