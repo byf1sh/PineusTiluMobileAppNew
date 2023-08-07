@@ -56,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:background="@drawable/detailpic_entertaindetail"
+        android:src="@drawable/detailpic_entertaindetail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header_dbd" />
 
@@ -75,32 +75,37 @@
           android:gravity="center"
           android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="108dp"
-            android:layout_height="55dp"
-            android:background="@drawable/detailpic_entertaindetail"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="5dp"/>
-        <ImageView
-            android:layout_width="108dp"
-            android:layout_height="55dp"
-            android:background="@drawable/detailpic_entertaindetail"
-            android:layout_marginRight="5dp"/>
-        <ImageView
-            android:layout_width="108dp"
-            android:layout_height="55dp"
-            android:background="@drawable/detailpic_entertaindetail"
-            android:layout_marginRight="5dp"/>
-        <ImageView
-            android:layout_width="108dp"
-            android:layout_height="55dp"
-            android:background="@drawable/detailpic_entertaindetail"
-            android:layout_marginRight="5dp"/>
-        <ImageView
-            android:layout_width="108dp"
-            android:layout_height="55dp"
-            android:background="@drawable/detailpic_entertaindetail"
-            android:layout_marginRight="5dp"/>
+          <ImageView
+              android:id="@+id/fotoslide1"
+              android:layout_width="108dp"
+              android:layout_height="55dp"
+              android:src="@drawable/detailpic_entertaindetail"
+              android:layout_marginLeft="4dp"
+              android:layout_marginRight="5dp"/>
+          <ImageView
+              android:id="@+id/fotoslide2"
+              android:layout_width="108dp"
+              android:layout_height="55dp"
+              android:src="@drawable/detailpic_entertaindetail"
+              android:layout_marginRight="5dp"/>
+          <ImageView
+              android:id="@+id/fotoslide3"
+              android:layout_width="108dp"
+              android:layout_height="55dp"
+              android:src="@drawable/detailpic_entertaindetail"
+              android:layout_marginRight="5dp"/>
+          <ImageView
+              android:id="@+id/fotoslide4"
+              android:layout_width="108dp"
+              android:layout_height="55dp"
+              android:src="@drawable/detailpic_entertaindetail"
+              android:layout_marginRight="5dp"/>
+          <ImageView
+              android:id="@+id/fotoslide5"
+              android:layout_width="108dp"
+              android:layout_height="55dp"
+              android:src="@drawable/detailpic_entertaindetail"
+              android:layout_marginRight="5dp"/>
 
       </LinearLayout>
 
@@ -109,7 +114,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:background="#28000000"
+        android:src="#28000000"
         app:layout_constraintBottom_toBottomOf="@id/horizontalscr"
         app:layout_constraintEnd_toEndOf="@id/horizontalscr"
         app:layout_constraintHorizontal_bias="1.0"

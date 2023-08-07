@@ -56,10 +56,11 @@
         <ImageView
             android:id="@+id/mainpic_dbd"
             android:layout_width="match_parent"
-            android:layout_height="270dp"
+            android:layout_height="wrap_content"
             android:src="@drawable/mainpic_dbd"
             app:layout_constraintTop_toBottomOf="@+id/header_dbd"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="30dp">
         </ImageView>
 
@@ -81,28 +82,28 @@
                 <ImageView
                     android:layout_width="130dp"
                     android:layout_height="130dp"
-                    android:src="@drawable/mainpic_dbd"
+                    android:src="@drawable/camp1_pineustilu1"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"/>
                 <ImageView
                     android:layout_width="130dp"
                     android:layout_height="130dp"
-                    android:src="@drawable/mainpic_dbd"
+                    android:src="@drawable/camp2_pineustilu1"
                     android:layout_marginRight="5dp"/>
                 <ImageView
                     android:layout_width="130dp"
                     android:layout_height="130dp"
-                    android:src="@drawable/mainpic_dbd"
+                    android:src="@drawable/camp3_pineustilu1"
                     android:layout_marginRight="5dp"/>
                 <ImageView
                     android:layout_width="130dp"
                     android:layout_height="130dp"
-                    android:src="@drawable/mainpic_dbd"
+                    android:src="@drawable/camp4_pineustilu1"
                     android:layout_marginRight="5dp"/>
                 <ImageView
                     android:layout_width="130dp"
                     android:layout_height="130dp"
-                    android:src="@drawable/mainpic_dbd"
+                    android:src="@drawable/camp5_pineustilu1"
                     android:layout_marginRight="5dp"/>
 
             </LinearLayout>

@@ -1,14 +1,10 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -29,6 +25,7 @@ public class DetailBookingDeckActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_booking_deck);
 
+
         header_dbd = findViewById(R.id.header_dbd);
         h2_dbd = findViewById(R.id.h2_dbd);
         b2_dbd = findViewById(R.id.b2_dbd);
@@ -37,24 +34,20 @@ public class DetailBookingDeckActivity extends AppCompatActivity {
         btn_kemabali_dbd = findViewById(R.id.btn_kembali_dbd);
         harga = findViewById(R.id.harga);
         avail_dbd=findViewById(R.id.avail_dbd);
-        threedot = findViewById(R.id.threedots_pp);
         mainpic_dbd=findViewById(R.id.mainpic_dbd);
-
         showData();
-
-        if (Lokasi.equals("Pineustilu1")){
-            String imageURL1 = "https://th.bing.com/th/id/OIP.5sJtK0gClZzNtKV7nlUkqAHaEK?pid=ImgDet&rs=1";
+        if(Lokasi.contains("Pineustilu1")){
+            String imageURL1 = "https://firebasestorage.googleapis.com/v0/b/pineustiludb.appspot.com/o/Users%20profile%20pic%2FDSC06099.jpg?alt=media&token=377943e1-f43d-4bbd-b873-3c7978d629d2";
 
             Glide.with(this).load(imageURL1).into(mainpic_dbd);
         } else if (Lokasi.contains("Pineustilu2")) {
-            String imageURL1 = "https://th.bing.com/th/id/OIP.22zeQqg6aP_7WZRpQzPsTAHaE8?w=253&h=180&c=7&r=0&o=5&pid=1.7";
+            String imageURL1 = "https://firebasestorage.googleapis.com/v0/b/pineustiludb.appspot.com/o/Users%20profile%20pic%2FDSC06169.jpg?alt=media&token=d989a2cd-d6c2-4816-b67e-83d7e91fd321";
 
-            Glide.with(this).load(imageURL1)
-                    .apply(new RequestOptions()
-                            .override(mainpic_dbd.getWidth(),mainpic_dbd.getHeight())
-                            .diskCacheStrategy(DiskCacheStrategy.NONE)
-                            .skipMemoryCache(true))
-                    .into(mainpic_dbd);
+            Glide.with(this).load(imageURL1).into(mainpic_dbd);
+        }else if (Lokasi.contains("Pineustilu3")){
+            String imageURL1 = "https://firebasestorage.googleapis.com/v0/b/pineustiludb.appspot.com/o/Users%20profile%20pic%2FDSC06198.jpg?alt=media&token=29e07ee6-4f51-4fa7-9fa8-2e5c6901c715";
+
+            Glide.with(this).load(imageURL1).into(mainpic_dbd);
         }
 
         btn_book_dbd.setOnClickListener(new View.OnClickListener() {
@@ -106,6 +99,7 @@ public class DetailBookingDeckActivity extends AppCompatActivity {
         b2_dbd.setText(textFas);
         avail_dbd.setText(Avail);
     }
+  
     public void showPopupMenu(View view) {
         PopupMenu popupMenu = new PopupMenu(this, view);
         popupMenu.inflate(R.menu.popup_menu); // Menu yang ingin ditampilkan di PopupMenu
