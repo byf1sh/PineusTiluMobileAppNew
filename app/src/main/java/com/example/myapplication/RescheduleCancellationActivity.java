@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -14,33 +16,11 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
-
-public class RescheduleCancellationActivity extends AppCompatActivity {
-
-    RadioButton reschedulebtn,cancellationbtn;
-    Button btnBack;
-    RadioGroup radioGroup;
-    LinearLayout btnDeck,btnDate;
-    EditText editTextAlasan;
-    TextView txtDeck,txtDate,txtAlasan,txtReschedule;
-    ConstraintLayout layoutExtraCharge;
-
-    private Animation fadeInAnimation;
-    private Animation fadeOutAnimation;
-
-import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -53,12 +33,21 @@ import java.util.Calendar;
 
 public class RescheduleCancellationActivity extends AppCompatActivity {
 
+    RadioButton reschedulebtn, cancellationbtn;
+    Button btnBack;
+    RadioGroup radioGroup;
+    LinearLayout btnDeck, btn_pilihtanggal;
+    EditText editTextAlasan;
+    TextView txtDeck, text_tanggal, txtAlasan, txtReschedule;
+    ConstraintLayout layoutExtraCharge;
+
+    private Animation fadeInAnimation;
+    private Animation fadeOutAnimation;
     String tglawal, tglakhir, deck, harga, lokasi, jumalh, userName, userRes, userResTangkap;
     String tanggalawalNew, tanggalakhirNew, deckNew, lokasiNew, hargaNew, jumlahNew;
-    TextView deck_sebelumnya, harga_pilihandeck, rangetanggal, jumlah_orang,jumlah_reschedule;
+    TextView deck_sebelumnya, harga_pilihandeck, rangetanggal, jumlah_orang, jumlah_reschedule;
 
-    TextView close_btn, Date, Date1, header_dp, text_tanggal,deck_reschedule,harga_reschedule;
-    LinearLayout btn_pilihtanggal;
+    TextView close_btn, Date, Date1, header_dp, deck_reschedule, harga_reschedule;
     Dialog myDialog;
     Button Btn;
     DatabaseReference databaseReference, childRef;
@@ -74,14 +63,24 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
         cancellationbtn = findViewById(R.id.cancellationButton);
         radioGroup = findViewById(R.id.buttonGroup);
         btnDeck = findViewById(R.id.btn_pilihdek);
-        btnDate = findViewById(R.id.btn_pilihtanggal);
         txtDeck = findViewById(R.id.text_deck);
-        txtDate = findViewById(R.id.text_tanggal);
         txtAlasan = findViewById(R.id.text_alasan);
         btnBack = findViewById(R.id.btn_kembali);
         editTextAlasan = findViewById(R.id.edittext_alasan);
         txtReschedule = findViewById(R.id.text_tanggalpindah);
         layoutExtraCharge = findViewById(R.id.layout_biayatambahan);
+        deck_sebelumnya = findViewById(R.id.deck_sebelumnya);
+        harga_pilihandeck = findViewById(R.id.harga_pilihandeck);
+        rangetanggal = findViewById(R.id.rangetanggal);
+        jumlah_orang = findViewById(R.id.jumlah_orang);
+        btn_pilihtanggal = findViewById(R.id.btn_pilihtanggal);
+        header_dp = findViewById(R.id.header_dp);
+        text_tanggal = findViewById(R.id.text_tanggal);
+        deck_reschedule = findViewById(R.id.deck_reschedule);
+        harga_reschedule = findViewById(R.id.harga_reschedule);
+        jumlah_reschedule = findViewById(R.id.jumlah_reschedule);
+
+        getData();
 
         editTextAlasan.setText("");
 
@@ -108,14 +107,14 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
                 if (radioButton != null) {
                     if (radioButton.getId() == R.id.rescheduleButton) {
                         animateViewVisibility(View.VISIBLE, fadeInAnimation,
-                                btnDeck, btnDate, txtDate, txtDeck, txtReschedule, layoutExtraCharge);
+                                btnDeck, btn_pilihtanggal, text_tanggal, txtDeck, txtReschedule, layoutExtraCharge);
                         reschedulebtn.setTextColor(radioButtonColors);
                         cancellationbtn.setTextColor(radioButtonColors);
                         editTextAlasan.setText("");
                         txtAlasan.setText("Alasan Reschedule");
                     } else if (radioButton.getId() == R.id.cancellationButton) {
                         animateViewVisibility(View.GONE, fadeOutAnimation,
-                                btnDeck, btnDate, txtDate, txtDeck, txtReschedule, layoutExtraCharge);
+                                btnDeck, btn_pilihtanggal, text_tanggal, txtDeck, txtReschedule, layoutExtraCharge);
                         cancellationbtn.setTextColor(radioButtonColors);
                         reschedulebtn.setTextColor(radioButtonColors);
                         editTextAlasan.setText("");
@@ -152,7 +151,8 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
                 Animation fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out);
                 fadeOutAnimation.setAnimationListener(new Animation.AnimationListener() {
                     @Override
-                    public void onAnimationStart(Animation animation) {}
+                    public void onAnimationStart(Animation animation) {
+                    }
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
@@ -160,24 +160,12 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onAnimationRepeat(Animation animation) {}
+                    public void onAnimationRepeat(Animation animation) {
+                    }
                 });
                 view.startAnimation(fadeOutAnimation);
             }
         }
-
-        deck_sebelumnya = findViewById(R.id.deck_sebelumnya);
-        harga_pilihandeck = findViewById(R.id.harga_pilihandeck);
-        rangetanggal = findViewById(R.id.rangetanggal);
-        jumlah_orang = findViewById(R.id.jumlah_orang);
-        btn_pilihtanggal = findViewById(R.id.btn_pilihtanggal);
-        header_dp = findViewById(R.id.header_dp);
-        text_tanggal = findViewById(R.id.text_tanggal);
-        deck_reschedule=findViewById(R.id.deck_reschedule);
-        harga_reschedule=findViewById(R.id.harga_reschedule);
-        jumlah_reschedule=findViewById(R.id.jumlah_reschedule);
-
-        getData();
 
         myDialog = new Dialog(this, R.style.dialog);
 
@@ -201,25 +189,22 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
         jumalh = intent.getStringExtra("jumlah");
         userName = intent.getStringExtra("name");
 
-        //dataRescheadule
-        tanggalawalNew = intent.getStringExtra("tanggalawal");
-        tanggalakhirNew = intent.getStringExtra("tanggalakhir");
-        deckNew = intent.getStringExtra("resDeck");
-        lokasiNew = intent.getStringExtra("resLokasi");
-        hargaNew = intent.getStringExtra("resHarga");
-        jumlahNew = intent.getStringExtra("resJumlah");
-        text_tanggal.setText("Date = "+tanggalawalNew+" s/d "+tanggalakhirNew);
-        deck_reschedule.setText(deckNew+" "+lokasiNew);
-        harga_reschedule.setText(hargaNew);
-        jumlah_reschedule.setText(jumlahNew+" Orang");
-
-
         userRes = "users/" + userName + "/Rescheadule/RescheaduleData" + lokasi + " " + deck;
         userResTangkap = intent.getStringExtra("userRes");
 
         if (userResTangkap != null) {
             databaseReference = FirebaseDatabase.getInstance().getReference().child(userResTangkap);
-
+            //dataRescheadule
+            tanggalawalNew = intent.getStringExtra("tanggalawal");
+            tanggalakhirNew = intent.getStringExtra("tanggalakhir");
+            deckNew = intent.getStringExtra("resDeck");
+            lokasiNew = intent.getStringExtra("resLokasi");
+            hargaNew = intent.getStringExtra("resHarga");
+            jumlahNew = intent.getStringExtra("resJumlah");
+            text_tanggal.setText("Date = " + tanggalawalNew + " s/d " + tanggalakhirNew);
+            deck_reschedule.setText(deckNew + " " + lokasiNew);
+            harga_reschedule.setText(hargaNew);
+            jumlah_reschedule.setText(jumlahNew + " Orang");
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -252,6 +237,11 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
             harga_pilihandeck.setText(harga);
             rangetanggal.setText(tglawal + "\n s/d \n" + tglakhir);
             jumlah_orang.setText(jumalh);
+            //dataRescheadule
+            text_tanggal.setText("Date = DD/MM/YYYY");
+            deck_reschedule.setText("belum memilih Deck");
+            harga_reschedule.setText("Rp. 0");
+            jumlah_reschedule.setText("0 Orang");
         }
     }
 
@@ -336,4 +326,5 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
         });
         myDialog.show();
     }
+
 }

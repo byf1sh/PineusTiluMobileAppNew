@@ -62,12 +62,6 @@ public class CancelationActivity extends AppCompatActivity {
         stj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent intent = new Intent(CancelationActivity.this,RescheduleCancellationActivity.class);
-                startActivity(intent);
-
-
-
                 DataResceaduleDB();
                 Intent intent = new Intent(CancelationActivity.this,RescheduleCancellationActivity.class);
                 intent.putExtra("tanggalawalcancel", tanggalAwalNotf);
