@@ -7,16 +7,9 @@
         4. Gift Cards or Vouchers: If you have a gift card or voucher for the specific merchant or platform, you can often use it to pay for your order. Look for the option to redeem a gift card during the checkout process and follow the instructions provided.
         5. Cash on Delivery (COD): In some cases, particularly for local or regional purchases, you may have the option to pay in cash when the order is delivered to your doorstep. This method allows you to pay the delivery person directly when you receive your order.
         Its important to note that the available payment methods may vary depending on the specific merchant, country, or region. Always ensure that you are using a secure payment method and trusted platform to protect your financial information.</string>
-    <string name="DetailFasilitasPt1Pt2">DETAIL FASILITAS PINEUS TILU 1 &amp; 2</string>
-    <string name="PineusTilu1Fasilitas">FASILITAS PRIVAT:\n
-- 4 Pax Amenities (Foam Matras + Bantal, Sleeping Bag, Default Sarapan)\n
-- Colokan listrik di dalam tenda\n
-- Lampu dalam tenda\n
-- Meja privat dining setiap tenda\n
-- Coffee table di dalam tenda\n
-- Alat BBQ tiap tenda (belum termasuk arang, capitan,\n
-  alat makan &amp; minum)</string>
-    <string name="faspub">FASILITAS PUBLIK :</string>
+    <string name="DetailFasilitasPt1">DETAIL FASILITAS PINEUS TILU 1</string>
+    <string name="DetailFasilitasPt2">DETAIL FASILITAS PINEUS TILU 2</string>
+    <string name="DetailFasilitasPt3">DETAIL FASILITAS PINEUS TILU 3</string>
     <string name="b1_atv_entertainment">Lorem Ipsum sir dolor Lorem Ipsum sir dolor  Lorem\nIpsum sir dolor Lorem Ipsum sir dolor Lorem Ipsum\nsir dolor Lorem Ipsum sir dolor  Lorem Ipsum sir dolor\nLorem Ipsum sir dolor Lorem Ipsum sir dolor Lorem\nIpsum sir dolor</string>
     <string name="b2_atv_entertainment">- Unit ATV\n- Helm\n- Instruktur\n- P3k / Safety Equipments\n-Asuransi\n- Local Transport\n- Tiket Jalur</string>
     <string name="h_atv1">ATV (Single)</string>
@@ -39,4 +32,34 @@
     <string name="header3_dbd">(*Pemesanan untuk saat ini hanya via admin/resepsionis.\n Laman ini untuk saat ini hanya sebagai media informasi)</string>
     <string name="body2.1_dbd">&#8226; Safety EquipmentsP3K\n&#8226; Perahu Karet Berisi 5 Orang\n&#8226; Dayung\n&#8226; Guide Rafting\n&#8226; Pemandu\n&#8226; Tempat Bilas\n&#8226; Locacl Transport dan instruktur\n
     </string>
+    <string name="des_pineustilu1">FASILITAS PRIVAT:\n
+- 4 Pax Amenities (Foam Matras + Bantal, Sleeping Bag, Default Sarapan)\n
+- Colokan listrik di dalam tenda\n
+- Lampu dalam tenda\n
+- Meja privat dining setiap tenda\n
+- Coffee table di dalam tenda\n
+- Alat BBQ tiap tenda (belum termasuk arang, capitan,\n
+  alat makan &amp; minum)</string>
+    <string name="des_pineustilu2">FASILITAS PRIVAT:\n
+- 4 Pax Amenities (Foam Matras + Bantal, Sleeping Bag, Default Sarapan)\n
+- Colokan listrik di dalam tenda\n
+- Lampu dalam tenda\n
+- Meja privat dining setiap tenda\n
+- Coffee table di dalam tenda\n
+- Alat BBQ tiap tenda (belum termasuk arang, capitan,\n
+  alat makan &amp; minum)</string>
+    <string name="des_pineustilu3">FASILITAS PRIVAT:\n
+- 4 Pax Amenities (Foam Matras + Bantal, Sleeping Bag, Default Sarapan)\n
+- Colokan listrik di dalam tenda\n
+- Lampu dalam tenda\n
+- Meja privat dining setiap tenda\n
+- Coffee table di dalam tenda\n
+- Alat BBQ tiap tenda (belum termasuk arang, capitan,\n
+  alat makan &amp; minum)</string>
+    <string name="des_rafting">werrrsdsdfffsesesttsssddssffewer</string>
+    <string name="des_ATV">hhxdxfggddggg</string>
+    <string name="des_offroad">ddgdrgrrggsss</string>
+    <string name="des_flyingfox">fsfgbbffbg</string>
+    <string name="des_paintball">sstttesdsdggsdsggwrrrgr</string>
+    <string name="des_teambuilding">gssggrsrsgeefffddsss</string>
 </resources>

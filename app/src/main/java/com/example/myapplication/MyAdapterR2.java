@@ -165,8 +165,8 @@ public class MyAdapterR2 extends RecyclerView.Adapter<MyViewHolderR2> {
                     String rescheadule = "Rescheadule";
 
                     Intent intent = new Intent(context, DetailBookingDeckActivity.class);
-                    String fasilities = context.getResources().getString(R.string.DetailFasilitasPt1Pt2);
-                    String fasilitiesText = context.getResources().getString(R.string.PineusTilu1Fasilitas);
+                    String fasilities = context.getResources().getString(R.string.DetailFasilitasPt2);
+                    String fasilitiesText = context.getResources().getString(R.string.des_pineustilu2);
                     intent.putExtra("deck", dataTitle2);
                     intent.putExtra("lokasi", additionalLokasi);
                     intent.putExtra("title", title);

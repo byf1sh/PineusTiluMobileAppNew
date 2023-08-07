@@ -17,7 +17,7 @@
             android:id="@+id/panah"
             android:layout_width="20dp"
             android:layout_height="30dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="20dp"
             android:src="@drawable/panah"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -31,19 +31,19 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/hitam"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="@id/panah"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:text="Welcome. How we can help you?"
             android:textSize="20dp"
             app:layout_constraintBottom_toTopOf="@+id/edit_text"
             app:layout_constraintStart_toStartOf="@+id/edit_text"
-            app:layout_constraintTop_toTopOf="@id/panah" />
+            app:layout_constraintTop_toTopOf="@id/tex1" />
 
         <EditText
             android:id="@+id/edit_text"
@@ -58,7 +58,7 @@
             android:text="Type here to search for answer"
             android:textSize="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tex1" />
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
             android:id="@+id/question"
@@ -204,8 +204,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.909"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_text"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_text" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

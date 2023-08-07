@@ -57,6 +57,12 @@ public class MyAdapterEntertain extends RecyclerView.Adapter<MyViewHolderEnterta
                 String faciltyteambuilding = holder.card.getResources().getString(R.string.fasilitas_teambuilding);
                 String faciltypaintball = holder.card.getResources().getString(R.string.fasilitas_paintball);
                 String faciltyflyingfox = holder.card.getResources().getString(R.string.fasilitas_flyingfox);
+                String des_rafting = holder.card.getResources().getString(R.string.des_rafting);
+                String des_ATV = holder.card.getResources().getString(R.string.des_ATV);
+                String des_offroad = holder.card.getResources().getString(R.string.des_offroad);
+                String des_flyingfox = holder.card.getResources().getString(R.string.des_flyingfox);
+                String des_paintball = holder.card.getResources().getString(R.string.des_paintball);
+                String des_teambuilding = holder.card.getResources().getString(R.string.des_teambuilding);
                 TextView name = ((EntertainmentActivity) holder.card.getContext()).findViewById(R.id.namanana);
                 String Name = name.getText().toString();
 
@@ -64,43 +70,36 @@ public class MyAdapterEntertain extends RecyclerView.Adapter<MyViewHolderEnterta
                 if (dataTitle.equals("4 Orang/1 Perahu") || dataTitle.equals("5 Orang/1 Perahu")){
                     intent.putExtra("Desc",dataDesc);
                     intent.putExtra("Facility",faciltyrafting);
-                    intent.putExtra("username", Name);
                     dataTitle = "Rafting "+dataTitle;
                 }
                 if (dataTitle.equals("Single") || dataTitle.equals("Tandem")){
                     intent.putExtra("Desc",dataDesc);
                     intent.putExtra("Facility",faciltyatv);
-                    intent.putExtra("username", Name);
                     dataTitle = "ATV "+dataTitle;
                 }
                 if (dataTitle.equals("1 Jeep") || dataTitle.equals("2 Jeep")){
                     intent.putExtra("Desc",dataDesc);
                     intent.putExtra("Facility",faciltyoffroad);
-                    intent.putExtra("username", Name);
                     dataTitle = "Offroad "+dataTitle;
                 }
                 if (dataTitle.equals("4 Orang")){
                     intent.putExtra("Desc",dataDesc);
                     intent.putExtra("Facility",faciltyflyingfox);
-                    intent.putExtra("username", Name);
                     dataTitle = "Flying Fox "+dataTitle;
                 }
                 if (dataTitle.equals("6 Orang")){
                     intent.putExtra("Desc",dataDesc);
                     intent.putExtra("Facility",faciltypaintball);
-                    intent.putExtra("username", Name);
                     dataTitle = "Paintball "+dataTitle;
                 }
                 if (dataTitle.equals("10 Orang")){
                     intent.putExtra("Desc",dataDesc);
                     intent.putExtra("Facility",faciltyteambuilding);
-                    intent.putExtra("username", Name);
                     dataTitle = "Team Building "+dataTitle;
                 }
 
                 intent.putExtra("Title",dataTitle);
                 intent.putExtra("Price",dataPrice);
-                intent.putExtra("username", Name);
 
                 holder.card.getContext().startActivity(intent);
             }

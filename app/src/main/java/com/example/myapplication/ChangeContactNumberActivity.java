@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ public class ChangeContactNumberActivity extends AppCompatActivity {
     DatabaseReference reference;
     String usernameUser;
     Button saveButton;
+    ImageView panah;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,17 @@ public class ChangeContactNumberActivity extends AppCompatActivity {
         saveButton = findViewById(R.id.saveButton);
 
         showData();
+
+        panah = findViewById(R.id.panah);
+
+        panah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChangeContactNumberActivity.this, ProfileSettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override

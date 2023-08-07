@@ -146,12 +146,12 @@
         app:layout_constraintTop_toBottomOf="@+id/h2_dbd" />
 
     <TextView
-        android:text="@string/faspub"
         android:fontFamily="@font/raleway_bold"
         android:id="@+id/fpub_dbd"
         android:textSize="14sp"
         android:textColor="@color/hitam"
         android:layout_width="wrap_content"
+        android:text="FAILTT"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/deskripsi"
         app:layout_constraintStart_toStartOf="parent"

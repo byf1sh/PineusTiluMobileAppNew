@@ -25,39 +25,36 @@
         android:text="Change Number"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@id/panah"
+        app:layout_constraintTop_toTopOf="@id/panah"/>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:text="Enter your phone number."
         android:textSize="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/changeNumContact"
-        app:layout_constraintStart_toStartOf="@+id/changeNumContact"
-        app:layout_constraintTop_toTopOf="@id/panah" />
+        app:layout_constraintStart_toStartOf="@+id/panah"
+        app:layout_constraintTop_toTopOf="@id/tex1" />
 
     <EditText
         android:id="@+id/changeNumContact"
         android:layout_width="370dp"
         android:layout_height="40dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/white_bg"
         android:text="New Phone Number."
         android:paddingLeft="16dp"
         android:textSize="12dp"
         android:elevation="4dp"
         android:layout_marginStart="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tex1" />
+        app:layout_constraintStart_toStartOf="@id/panah"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageView
         android:layout_width="400dp"
         android:layout_height="wrap_content"
-
         android:src="@drawable/gambar1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,12 +65,12 @@
         android:id="@+id/saveButton"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="45dp"
         android:layout_marginBottom="10dp"
         android:backgroundTint="#008746"
         android:text="save"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/panah"
         app:layout_constraintTop_toBottomOf="@+id/changeNumContact" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

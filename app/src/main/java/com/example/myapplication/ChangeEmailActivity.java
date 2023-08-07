@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -17,6 +18,8 @@ public class ChangeEmailActivity extends AppCompatActivity {
     String stringEmail,usernameUser;
     DatabaseReference reference;
     Button saveEmail;
+    ImageView panah;
+
 
 
     @Override
@@ -30,6 +33,17 @@ public class ChangeEmailActivity extends AppCompatActivity {
         saveEmail=findViewById(R.id.saveEmail);
 
         showDataEmail();
+
+        panah = findViewById(R.id.panah);
+
+        panah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChangeEmailActivity.this, ProfileSettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         saveEmail.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -18,6 +19,7 @@ public class ChangeNameActivity extends AppCompatActivity {
     Button saveName;
     DatabaseReference reference;
     String usernameUser, stringName;
+    ImageView panah;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,16 @@ public class ChangeNameActivity extends AppCompatActivity {
         saveName = findViewById(R.id.saveName);
 
         showDataName();
+
+        panah = findViewById(R.id.panah);
+
+        panah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChangeNameActivity.this, ProfileSettingsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         saveName.setOnClickListener(new View.OnClickListener() {
             @Override

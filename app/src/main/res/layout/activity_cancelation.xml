@@ -8,6 +8,7 @@
     tools:context=".CancelationActivity">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/lane"
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:backgroundTint="@color/green"
@@ -47,17 +48,18 @@
             android:layout_marginStart="7dp"/>
     </androidx.cardview.widget.CardView>
 
+
     <androidx.cardview.widget.CardView
         android:id="@+id/policy"
         android:layout_width="170dp"
         android:layout_height="210dp"
+        android:layout_marginTop="108dp"
         android:backgroundTint="@color/krem"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:cardCornerRadius="10dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginStart="25dp"
-        app:cardElevation="8dp">
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/lane">
 
 
         <TextView
@@ -83,23 +85,23 @@
                 android:id="@+id/centang5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginBottom="7sp"
                 android:src="@drawable/baseline_check_24"
                 android:visibility="gone"
-                android:layout_marginBottom="7sp"
-                android:layout_marginStart="3dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Before H-7 free"
-            android:textSize="15sp"
             android:layout_marginStart="45dp"
-            android:layout_marginTop="69dp"/>
-
+            android:layout_marginTop="69dp"
+            android:text="Before H-7 free"
+            android:textSize="15sp" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -114,10 +116,10 @@
                 android:id="@+id/centang6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginBottom="7sp"
                 android:src="@drawable/baseline_check_24"
                 android:visibility="gone"
-                android:layout_marginBottom="7sp"
-                android:layout_marginStart="3dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -127,10 +129,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="H-7 to H-3 150k"
-            android:textSize="15sp"
             android:layout_marginStart="45dp"
-            android:layout_marginTop="100dp"/>
+            android:layout_marginTop="100dp"
+            android:text="H-7 to H-3 150k"
+            android:textSize="15sp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/kotakpink7"
@@ -144,10 +146,10 @@
                 android:id="@+id/centang7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginBottom="7sp"
                 android:src="@drawable/baseline_check_24"
                 android:visibility="gone"
-                android:layout_marginBottom="7sp"
-                android:layout_marginStart="3dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -157,29 +159,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="H-2 to H-1 250K"
-            android:textSize="15sp"
             android:layout_marginStart="45dp"
-            android:layout_marginTop="130dp"/>
-
-
+            android:layout_marginTop="130dp"
+            android:text="H-2 to H-1 250K"
+            android:textSize="15sp" />
 
 
     </androidx.cardview.widget.CardView>
-
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="170dp"
         android:layout_height="210dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="25dp"
+        android:layout_marginTop="110dp"
         android:background="@drawable/buttonshape"
         android:backgroundTint="@color/youngred"
         app:cardCornerRadius="10dp"
         app:cardElevation="8dp"
+        app:layout_constraintStart_toEndOf="@id/policy"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@id/lane">
 
         <TextView
             android:id="@+id/cancelationpolicy"
@@ -316,49 +315,48 @@
 
     </androidx.cardview.widget.CardView>
 
-
     <androidx.cardview.widget.CardView
         android:layout_width="150dp"
         android:layout_height="43dp"
+        android:layout_marginTop="35dp"
         android:backgroundTint="@color/white"
-        android:layout_marginBottom="150dp"
-        android:layout_marginStart="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:cardCornerRadius="10dp"
-        app:cardElevation="8dp">
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/policy"
+        app:layout_constraintTop_toBottomOf="@+id/policy">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kembali"
-            android:textSize="15sp"
-            android:paddingStart="50dp"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/ralewaybold"/>
+            android:fontFamily="@font/ralewaybold"
+            android:paddingStart="50dp"
+            android:text="Kembali"
+            android:textSize="15sp" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/stj"
         android:layout_width="150dp"
         android:layout_height="43dp"
+        android:layout_marginTop="35dp"
         android:backgroundTint="@color/green"
-        android:layout_marginBottom="150dp"
-        android:layout_marginEnd="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:cardCornerRadius="10dp"
-        app:cardElevation="8dp">
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Setuju"
-            android:textSize="15sp"
-            android:textColor="@color/white"
-            android:paddingStart="50dp"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/ralewaybold"/>
+            android:fontFamily="@font/ralewaybold"
+            android:paddingStart="50dp"
+            android:text="Setuju"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

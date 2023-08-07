@@ -80,6 +80,7 @@
         android:layout_width="match_parent"
         android:layout_height="680dp"
         android:visibility="visible"
+        android:layout_marginTop="12dp"
         android:fillViewport="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,6 +90,7 @@
             android:id="@+id/cl1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:visibility="visible"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -152,7 +154,10 @@
                     app:layout_constraintTop_toBottomOf="@id/asd" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
+
     </ScrollView>
+
+
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -230,7 +235,8 @@
                     app:layout_constraintTop_toBottomOf="@id/ddd" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
-    </ScrollView>    <com.google.android.material.bottomnavigation.BottomNavigationView
+    </ScrollView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="70dp"

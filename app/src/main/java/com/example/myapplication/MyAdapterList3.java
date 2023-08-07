@@ -80,8 +80,8 @@ public class MyAdapterList3 extends RecyclerView.Adapter<MyViewHolderList3> {
                 String title = dataTitle + additionalText;
 
                 Intent intent = new Intent(context, DetailBookingDeckActivity.class);
-                String fasilities = context.getResources().getString(R.string.DetailFasilitasPt1Pt2);
-                String fasilitiesText = context.getResources().getString(R.string.PineusTilu1Fasilitas);
+                String fasilities = context.getResources().getString(R.string.DetailFasilitasPt3);
+                String fasilitiesText = context.getResources().getString(R.string.des_pineustilu1);
                 intent.putExtra("deck", dataTitle);
                 intent.putExtra("lokasi", additionalText);
                 intent.putExtra("title", title);

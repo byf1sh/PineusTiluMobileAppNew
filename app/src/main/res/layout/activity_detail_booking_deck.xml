@@ -130,14 +130,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/poppins"
-            android:text="FASILITAS PRIVAT:\n
-- 4 Pax Amenities (Foam Matras + Bantal, Sleeping Bag, Default Sarapan)\n
-- Colokan listrik di dalam tenda\n
-- Lampu dalam tenda\n
-- Meja privat dining setiap tenda\n
-- Coffee table di dalam tenda\n
-- Alat BBQ tiap tenda (belum termasuk arang, capitan,\n
-  alat makan &amp; minum)"
+            android:text="wwteertrdd"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@id/h2_dbd"
             app:layout_constraintTop_toBottomOf="@+id/h2_dbd" />
