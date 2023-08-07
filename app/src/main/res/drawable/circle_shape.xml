@@ -6,11 +6,10 @@
         <shape
             android:shape="rectangle">
 
-            <solid
-                android:color="@color/hijau"/>
+
 
             <corners
-                android:radius="10dp"
+                android:radius="18dp"
                 android:bottomLeftRadius="0dp"
                 />
 
