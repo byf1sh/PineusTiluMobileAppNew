@@ -5,8 +5,10 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -36,19 +38,19 @@ public class DetailBookingDeckActivity extends AppCompatActivity {
         avail_dbd=findViewById(R.id.avail_dbd);
         mainpic_dbd=findViewById(R.id.mainpic_dbd);
         showData();
-        if(Lokasi.contains("Pineustilu1")){
-            String imageURL1 = "https://firebasestorage.googleapis.com/v0/b/pineustiludb.appspot.com/o/Users%20profile%20pic%2FDSC06099.jpg?alt=media&token=377943e1-f43d-4bbd-b873-3c7978d629d2";
-
-            Glide.with(this).load(imageURL1).into(mainpic_dbd);
-        } else if (Lokasi.contains("Pineustilu2")) {
-            String imageURL1 = "https://firebasestorage.googleapis.com/v0/b/pineustiludb.appspot.com/o/Users%20profile%20pic%2FDSC06169.jpg?alt=media&token=d989a2cd-d6c2-4816-b67e-83d7e91fd321";
-
-            Glide.with(this).load(imageURL1).into(mainpic_dbd);
-        }else if (Lokasi.contains("Pineustilu3")){
-            String imageURL1 = "https://firebasestorage.googleapis.com/v0/b/pineustiludb.appspot.com/o/Users%20profile%20pic%2FDSC06198.jpg?alt=media&token=29e07ee6-4f51-4fa7-9fa8-2e5c6901c715";
-
-            Glide.with(this).load(imageURL1).into(mainpic_dbd);
-        }
+//        if(Lokasi.contains("Pineustilu1")){
+//            String imageURL1 = "https://firebasestorage.googleapis.com/v0/b/pineustiludb.appspot.com/o/Users%20profile%20pic%2FDSC06099.jpg?alt=media&token=377943e1-f43d-4bbd-b873-3c7978d629d2";
+//
+//            Glide.with(this).load(imageURL1).into(mainpic_dbd);
+//        } else if (Lokasi.contains("Pineustilu2")) {
+//            String imageURL1 = "https://firebasestorage.googleapis.com/v0/b/pineustiludb.appspot.com/o/Users%20profile%20pic%2FDSC06169.jpg?alt=media&token=d989a2cd-d6c2-4816-b67e-83d7e91fd321";
+//
+//            Glide.with(this).load(imageURL1).into(mainpic_dbd);
+//        }else if (Lokasi.contains("Pineustilu3")){
+//            String imageURL1 = "https://firebasestorage.googleapis.com/v0/b/pineustiludb.appspot.com/o/Users%20profile%20pic%2FDSC06198.jpg?alt=media&token=29e07ee6-4f51-4fa7-9fa8-2e5c6901c715";
+//
+//            Glide.with(this).load(imageURL1).into(mainpic_dbd);
+//        }
 
         btn_book_dbd.setOnClickListener(new View.OnClickListener() {
             @Override

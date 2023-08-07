@@ -47,7 +47,7 @@ public class SignupActivity extends AppCompatActivity {
         terms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SignupActivity.this, SyaratdanKetentuan.class);
+                Intent intent = new Intent(SignupActivity.this, FAQActivity.class);
                 startActivity(intent);
             }
         });
@@ -55,7 +55,7 @@ public class SignupActivity extends AppCompatActivity {
         privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SignupActivity.this, SyaratdanKetentuan.class);
+                Intent intent = new Intent(SignupActivity.this, FAQActivity.class);
                 startActivity(intent);
             }
         });

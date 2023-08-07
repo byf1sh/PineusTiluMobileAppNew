@@ -170,7 +170,7 @@ public class CancelationActivity extends AppCompatActivity {
         
         purchased_on.setText(tanggalAwalNotf);
         price_detail.setText(Harga);
-        location.setText(Harga);
+        location.setText(Deck+" "+Lokasi);
     }
 
     public void DataResceaduleDB() {

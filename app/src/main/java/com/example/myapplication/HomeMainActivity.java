@@ -147,7 +147,7 @@ public class HomeMainActivity extends AppCompatActivity {
                     intent.putExtra("username", notifName2);
 
                     startActivity(intent);
-                    overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                     finish();
                     return true;
                 case R.id.bottom_notif:
@@ -155,7 +155,7 @@ public class HomeMainActivity extends AppCompatActivity {
                     String notifName = NameUser.getText().toString().trim();
                     intent2.putExtra("username", notifName);
                     startActivity(intent2);
-                    overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                     finish();
                     return true;
                 case R.id.bottom_profile:
@@ -163,7 +163,7 @@ public class HomeMainActivity extends AppCompatActivity {
                     String profileName = NameUser.getText().toString().trim();
                     intent3.putExtra("username", profileName);
                     startActivity(intent3);
-                    overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                     finish();
                     return true;
             }

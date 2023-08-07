@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         terms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, SyaratdanKetentuan.class);
+                Intent intent = new Intent(LoginActivity.this, FAQActivity.class);
                 startActivity(intent);
             }
         });
@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, SyaratdanKetentuan.class);
+                Intent intent = new Intent(LoginActivity.this, FAQActivity.class);
                 startActivity(intent);
             }
         });
