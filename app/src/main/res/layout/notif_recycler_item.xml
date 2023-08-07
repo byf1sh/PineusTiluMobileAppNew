@@ -48,7 +48,7 @@
             android:layout_marginTop="20sp"
             android:text="You've purchased"
             android:textColor="@color/black"
-            android:textSize="19sp"
+            android:textSize="14sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/notifImg" />
 
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24sp"
             android:text="Booking ID 000001"
-            android:textSize="19sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@id/mainNotif"
             app:layout_constraintTop_toTopOf="@id/mainNotif" />
         <androidx.constraintlayout.widget.ConstraintLayout

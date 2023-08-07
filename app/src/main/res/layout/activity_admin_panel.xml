@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    tools:context=".AdminPanelActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/rectangle2"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/boobs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Harga Pineustilu1 Normal"
+            />
+        <TextView
+            android:id="@+id/boobs2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp. 750.500"
+            android:layout_marginLeft="40dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/rectangle2"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/boobs3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Harga Pineustilu1 Highseason"
+            />
+        <TextView
+            android:id="@+id/boobs4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp. 750.500"
+            android:layout_marginLeft="40dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/rectangle2"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/boobs14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Harga Pineustilu2 Normal"
+            />
+        <TextView
+            android:id="@+id/boobs6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp. 750.500"
+            android:layout_marginLeft="40dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle2"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/boobs7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Harga Pineustilu2 Highseason"
+            />
+        <TextView
+            android:id="@+id/boobs8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp. 750.500"
+            android:layout_marginLeft="40dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/rectangle2"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/boobs18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Harga Pineustilu3 Normal"
+            />
+        <TextView
+            android:id="@+id/boobs10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp. 750.500"
+            android:layout_marginLeft="40dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/rectangle2"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/boobs11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Harga Pineustilu3 Highseason"
+            />
+        <TextView
+            android:id="@+id/boobs12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp. 750.500"
+            android:layout_marginLeft="40dp"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

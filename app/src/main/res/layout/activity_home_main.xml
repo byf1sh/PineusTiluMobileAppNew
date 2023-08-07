@@ -31,6 +31,28 @@
         app:layout_constraintStart_toEndOf="@id/rangetanggal"
         app:layout_constraintTop_toTopOf="@id/rangetanggal"/>
 
+    <LinearLayout
+        android:id="@+id/adminPanel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/adminnotifrectangel"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintStart_toStartOf="@id/NameUser"
+        app:layout_constraintEnd_toEndOf="@id/NameUser"
+        app:layout_constraintBottom_toTopOf="@id/NameUser">
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="admin panel"
+            android:gravity="center"
+            android:textColor="@color/green"
+            android:fontFamily="@font/raleway_bold"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+    </LinearLayout>
+
     <ImageButton
         android:id="@+id/btnbantuan"
         android:layout_width="38dp"

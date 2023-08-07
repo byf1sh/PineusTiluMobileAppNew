@@ -55,28 +55,7 @@ public class NotifAdapter extends RecyclerView.Adapter<MyViewHolderNotification>
         if ("Guest Loyality Program".equals(dataList.get(position).getDataMain())) {
             holder.Notification.setBackgroundResource(R.drawable.adminnotifrectangel);
             holder.notifImg.setImageResource(R.drawable.adminnotification);
-            holder.delete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String pathdelete1 = "users/"+Nama+"/Notif/NotifPurchased";
-                    String Lokdelete1 = dataList.get(holder.getAdapterPosition()).getDataLokasi();
-                    databaseReference1 = FirebaseDatabase.getInstance().getReference(pathdelete1);
-                    childRef1 = databaseReference1.child("notifAd"+Lokdelete1.trim());
 
-                    childRef1.removeValue(new DatabaseReference.CompletionListener() {
-                        @Override
-                        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                            if (databaseError != null) {
-                                // Jika terjadi kesalahan saat menghapus data, tampilkan pesan error
-                                Toast.makeText(context, "Gagal menghapus data", Toast.LENGTH_SHORT).show();
-                            } else {
-                                // Jika penghapusan berhasil, tampilkan pesan berhasil
-                                Toast.makeText(context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                }
-            });
         } else {
             holder.Notification.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -91,32 +70,23 @@ public class NotifAdapter extends RecyclerView.Adapter<MyViewHolderNotification>
             holder.cancellation.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    TextView name = ((NotifActivity) context).findViewById(R.id.namanana);
+                    String Name = name.getText().toString();
                     String tanggalnotf = dataList.get(holder.getAdapterPosition()).getDataTanggal();
+                    String tanggalakhir = dataList.get(holder.getAdapterPosition()).getDataTanggalakhir();
+                    String Deck = dataList.get(holder.getAdapterPosition()).getDataDeck();
+                    String Harga = dataList.get(holder.getAdapterPosition()).getDataHarga();
+                    String Lokasi = dataList.get(holder.getAdapterPosition()).getDataLokasi();
+                    String Jumlah = dataList.get(holder.getAdapterPosition()).getDataJml();
                     Intent intent = new Intent(context, CancelationActivity.class);
                     intent.putExtra("tanggal", tanggalnotf);
+                    intent.putExtra("tanggalakhir", tanggalakhir);
+                    intent.putExtra("deck", Deck);
+                    intent.putExtra("harga", Harga);
+                    intent.putExtra("lokasi", Lokasi);
+                    intent.putExtra("jumlah", Jumlah);
+                    intent.putExtra("name",Name);
                     context.startActivity(intent);
-                }
-            });
-            holder.delete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String pathdelete = "users/"+Nama+"/Notif/NotifPurchased";
-                    String Lokdelete = dataList.get(holder.getAdapterPosition()).getDataLokasi();
-                    databaseReference = FirebaseDatabase.getInstance().getReference(pathdelete);
-                    childRef = databaseReference.child("notifP"+Lokdelete.trim());
-
-                    childRef.removeValue(new DatabaseReference.CompletionListener() {
-                        @Override
-                        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                            if (databaseError != null) {
-                                // Jika terjadi kesalahan saat menghapus data, tampilkan pesan error
-                                Toast.makeText(context, "Gagal menghapus data", Toast.LENGTH_SHORT).show();
-                            } else {
-                                // Jika penghapusan berhasil, tampilkan pesan berhasil
-                                Toast.makeText(context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
                 }
             });
         }
