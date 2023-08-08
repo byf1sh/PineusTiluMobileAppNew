@@ -179,7 +179,7 @@ public class HomeMainActivity extends AppCompatActivity {
         String destName = intent.getStringExtra("username");
         String tanggalfirst = intent.getStringExtra("tanggalawal");
         String tanggalend = intent.getStringExtra("tanggalakhir");
-        NameUser.setText("admin");
+        NameUser.setText(destName);
 
         if (tanggalfirst != null) {
             // Jalankan fungsi showData() karena tanggalfirst memiliki isinya

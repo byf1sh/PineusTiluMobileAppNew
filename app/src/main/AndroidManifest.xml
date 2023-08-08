@@ -28,7 +28,7 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".HomeMainActivity"
             android:exported="false" />
         <activity
             android:name=".DetailBookingDeckActivity"
@@ -91,7 +91,7 @@
             android:name=".ProfileSettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivity2"
             android:exported="false" />
         <activity
             android:name=".SignupActivity"
@@ -103,7 +103,7 @@
             android:name=".CancelationActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeMainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
