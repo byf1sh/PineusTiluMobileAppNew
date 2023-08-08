@@ -2,23 +2,17 @@ package com.example.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -26,8 +20,6 @@ public class NotifAdapter extends RecyclerView.Adapter<MyViewHolderNotification>
 
     private Context context;
     private List<NotifClass> dataList;
-    DatabaseReference databaseReference,databaseReference1, childRef,childRef1;
-
 
     public NotifAdapter(Context context, List<NotifClass> dataList) {
         this.context = context;
@@ -37,36 +29,40 @@ public class NotifAdapter extends RecyclerView.Adapter<MyViewHolderNotification>
     @NonNull
     @Override
     public MyViewHolderNotification onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.notif_recycler_item,parent,false);
-
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.notif_recycler_item, parent, false);
         return new MyViewHolderNotification(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolderNotification holder, int position) {
-        TextView nama = ((NotifActivity) context).findViewById(R.id.namanana);
-        String Nama = nama.getText().toString();
+        
         holder.mainNotif.setText(dataList.get(position).getDataMain());
         holder.childNotif.setText(dataList.get(position).getDataChild());
         holder.purchasedOnDetails.setText(dataList.get(position).getDataTanggal());
         holder.priceDetailsDetails.setText(dataList.get(position).getDataHarga());
         holder.locationDetails.setText(dataList.get(position).getDataLokasi().trim());
 
+        Animation fadeInAnimation = AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.fade_in);
+        Animation fadeOutAnimation = AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.fade_out);
+        fadeInAnimation.setDuration(300);
+        fadeOutAnimation.setDuration(300);
+        holder.itemView.startAnimation(fadeInAnimation);
+
         if ("Guest Loyality Program".equals(dataList.get(position).getDataMain())) {
             holder.Notification.setBackgroundResource(R.drawable.adminnotifrectangel);
             holder.notifImg.setImageResource(R.drawable.adminnotification);
-
         } else {
             holder.Notification.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (holder.OnClickconstraint.getVisibility() == View.GONE){
-                        holder.OnClickconstraint.setVisibility(View.VISIBLE);
-                    }else {
-                        holder.OnClickconstraint.setVisibility(View.GONE);
+                    if (holder.OnClickconstraint.getVisibility() == View.GONE) {
+                        animateViewVisibility(View.VISIBLE, fadeInAnimation, holder.OnClickconstraint);
+                    } else {
+                        animateViewVisibility(View.GONE, fadeOutAnimation, holder.OnClickconstraint);
                     }
                 }
             });
+
             holder.cancellation.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -90,24 +86,49 @@ public class NotifAdapter extends RecyclerView.Adapter<MyViewHolderNotification>
                 }
             });
         }
-
     }
 
     @Override
     public int getItemCount() {
         return dataList.size();
     }
+
+    private void animateViewVisibility(int visibility, Animation animation, View... views) {
+        for (View view : views) {
+            if (view.getVisibility() == visibility) continue;
+            if (visibility == View.VISIBLE) {
+                view.startAnimation(animation);
+                view.setVisibility(visibility);
+            } else {
+                Animation fadeOutAnimation = AnimationUtils.loadAnimation(view.getContext(), R.anim.fade_out);
+                fadeOutAnimation.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        view.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+                    }
+                });
+                view.startAnimation(fadeOutAnimation);
+            }
+        }
+    }
 }
 
-class MyViewHolderNotification extends RecyclerView.ViewHolder{
+class MyViewHolderNotification extends RecyclerView.ViewHolder {
     ImageView notifImg, delete;
     TextView mainNotif, childNotif, purchasedOnDetails, priceDetailsDetails, locationDetails;
     ConstraintLayout OnClickconstraint, Notification, cancellation;
 
     public MyViewHolderNotification(@NonNull View itemView) {
         super(itemView);
-
-        cancellation=itemView.findViewById(R.id.cancellation);
+        cancellation = itemView.findViewById(R.id.cancellation);
         Notification = itemView.findViewById(R.id.Notification);
         OnClickconstraint = itemView.findViewById(R.id.onClickConstraint);
         notifImg = itemView.findViewById(R.id.notifImg);
@@ -115,8 +136,7 @@ class MyViewHolderNotification extends RecyclerView.ViewHolder{
         childNotif = itemView.findViewById(R.id.childNotif);
         purchasedOnDetails = itemView.findViewById(R.id.purchasedOnDetails);
         priceDetailsDetails = itemView.findViewById(R.id.priceDetailsDetails);
-        locationDetails= itemView.findViewById(R.id.locationDetails);
+        locationDetails = itemView.findViewById(R.id.locationDetails);
         delete = itemView.findViewById(R.id.delete);
-
     }
 }

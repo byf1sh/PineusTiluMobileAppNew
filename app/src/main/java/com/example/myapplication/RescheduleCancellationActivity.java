@@ -22,7 +22,12 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -40,17 +45,20 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
     EditText editTextAlasan;
     TextView txtDeck, text_tanggal, txtAlasan, txtReschedule;
     ConstraintLayout layoutExtraCharge;
+    Button btn_book_dp;
+    DatabaseReference databaseReferenceNotifp, childRefNotifp, databaseReferenceNotifad, childRefNotifad;
 
     private Animation fadeInAnimation;
     private Animation fadeOutAnimation;
-    String tglawal, tglakhir, deck, harga, lokasi, jumalh, userName, userRes, userResTangkap;
-    String tanggalawalNew, tanggalakhirNew, deckNew, lokasiNew, hargaNew, jumlahNew;
+    String dataDeck, dataLokasi, tglawal, tglakhir, deck, harga, lokasi, jumalh, userName, userRes, userResTangkap, Avail, dataHarga;
+    String dataTanggal, tanggalawalNew, tanggalakhirNew, deckNew, lokasiNew, hargaNew, jumlahNew, image, jml,dataTanggalakhir;
     TextView deck_sebelumnya, harga_pilihandeck, rangetanggal, jumlah_orang, jumlah_reschedule;
 
     TextView close_btn, Date, Date1, header_dp, deck_reschedule, harga_reschedule;
     Dialog myDialog;
     Button Btn;
-    DatabaseReference databaseReference, childRef;
+    DatabaseReference databaseReference2, childRef2, databaseReference, childRef, databaseReference1, childRef1, databaseReferenceDelete,
+            databaseReferenceDeleteRes, getChildRefDelete,getChildRefDeleteRes, getChildRefDelete2, databaseReferenceDeleteCanc2,databaseReferenceDeleteCanc,getChildRefDeleteCanc,getChildRefDeleteCanc2,getChildRefDeleteCanc3;
 
 
     @Override
@@ -79,8 +87,18 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
         deck_reschedule = findViewById(R.id.deck_reschedule);
         harga_reschedule = findViewById(R.id.harga_reschedule);
         jumlah_reschedule = findViewById(R.id.jumlah_reschedule);
+        btn_book_dp = findViewById(R.id.btn_book_dp);
 
         getData();
+
+        String pathNtf = "users/" + userName + "/Notif/NotifPurchased";
+        databaseReferenceNotifp = FirebaseDatabase.getInstance().getReference(pathNtf);
+        childRefNotifp = databaseReferenceNotifp.child("notifP" + deckNew + " " + lokasiNew);
+
+        String pathNtfAdm = "users/" + userName + "/Notif/NotifPurchased";
+        databaseReferenceNotifad = FirebaseDatabase.getInstance().getReference(pathNtfAdm);
+        childRefNotifad = databaseReferenceNotifad.child("notifAd" + deckNew + " " + lokasiNew);
+        myDialog = new Dialog(this, R.style.dialog);
 
         editTextAlasan.setText("");
 
@@ -111,7 +129,27 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
                         reschedulebtn.setTextColor(radioButtonColors);
                         cancellationbtn.setTextColor(radioButtonColors);
                         editTextAlasan.setText("");
+                        btn_book_dp.setHint("Book");
+                        btn_book_dp.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.hijau)));
                         txtAlasan.setText("Alasan Reschedule");
+                        btn_pilihtanggal.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                show_DialogRescheadule();
+                            }
+                        });
+
+                        btn_book_dp.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(RescheduleCancellationActivity.this, HomeMainActivity.class);
+                                updateData();
+                                deleteDataDeckSebelumnya();
+                                deletedataNotifRes();
+                                sendNotification();
+                                startActivity(intent);
+                            }
+                        });
                     } else if (radioButton.getId() == R.id.cancellationButton) {
                         animateViewVisibility(View.GONE, fadeOutAnimation,
                                 btnDeck, btn_pilihtanggal, text_tanggal, txtDeck, txtReschedule, layoutExtraCharge);
@@ -119,6 +157,17 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
                         reschedulebtn.setTextColor(radioButtonColors);
                         editTextAlasan.setText("");
                         txtAlasan.setText("Alasan Membatalkan");
+                        btn_book_dp.setHint("Cancel");
+                        btn_book_dp.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.merah)));
+                        btn_book_dp.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(RescheduleCancellationActivity.this, HomeMainActivity.class);
+                                deleteDataCancellation();
+                                deletedataNotifCancel();
+                                startActivity(intent);
+                            }
+                        });
                     }
                 }
             }
@@ -167,14 +216,7 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
             }
         }
 
-        myDialog = new Dialog(this, R.style.dialog);
 
-        btn_pilihtanggal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                show_DialogRescheadule();
-            }
-        });
     }
 
     public void getData() {
@@ -187,7 +229,7 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
         harga = intent.getStringExtra("harga");
         lokasi = intent.getStringExtra("lokasi");
         jumalh = intent.getStringExtra("jumlah");
-        userName = intent.getStringExtra("name");
+        userName = intent.getStringExtra("username");
 
         userRes = "users/" + userName + "/Rescheadule/RescheaduleData" + lokasi + " " + deck;
         userResTangkap = intent.getStringExtra("userRes");
@@ -201,6 +243,7 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
             lokasiNew = intent.getStringExtra("resLokasi");
             hargaNew = intent.getStringExtra("resHarga");
             jumlahNew = intent.getStringExtra("resJumlah");
+            Avail = intent.getStringExtra("availRes");
             text_tanggal.setText("Date = " + tanggalawalNew + " s/d " + tanggalakhirNew);
             deck_reschedule.setText(deckNew + " " + lokasiNew);
             harga_reschedule.setText(hargaNew);
@@ -210,14 +253,14 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.exists()) {
                         // Ambil nilai dari tiap field di Firebase dan tampilkan ke TextView
-                        String dataLokasi = dataSnapshot.child("dataLokasi").getValue(String.class);
-                        String dataDeck = dataSnapshot.child("dataDeck").getValue(String.class);
-                        String dataHarga = dataSnapshot.child("dataHarga").getValue(String.class);
-                        String dataTanggal = dataSnapshot.child("dataTanggal").getValue(String.class);
-                        String dataTanggalakhir = dataSnapshot.child("dataTanggalakhir").getValue(String.class);
+                        dataLokasi = dataSnapshot.child("dataLokasi").getValue(String.class);
+                        dataDeck = dataSnapshot.child("dataDeck").getValue(String.class);
+                        dataHarga = dataSnapshot.child("dataHarga").getValue(String.class);
+                        dataTanggal = dataSnapshot.child("dataTanggal").getValue(String.class);
+                        dataTanggalakhir = dataSnapshot.child("dataTanggalakhir").getValue(String.class);
                         String dataJumlah = dataSnapshot.child("dataJml").getValue(String.class);
 
-                        // Set nilai ke TextView
+                        // Data Deck sblmnya
                         deck_sebelumnya.setText(dataDeck + " " + dataLokasi);
                         harga_pilihandeck.setText(dataHarga);
                         rangetanggal.setText(dataTanggal + "\n s/d \n" + dataTanggalakhir);
@@ -243,6 +286,91 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
             harga_reschedule.setText("Rp. 0");
             jumlah_reschedule.setText("0 Orang");
         }
+    }
+
+    public void deleteDataCancellation() {
+        image = " ";
+        String availDelete = "Tersedia";
+        String jumlahDelete = " ";
+        String nameDelete = " ";
+
+        String pathcn = tglawal + "/" + lokasi.trim();
+        databaseReference2 = FirebaseDatabase.getInstance().getReference(pathcn);
+        childRef2 = databaseReference2.child(deck);
+
+        DataClass dataClass = new DataClass(deck, availDelete, image, nameDelete, jumlahDelete);
+
+        childRef2.setValue(dataClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(RescheduleCancellationActivity.this, "Updated", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(RescheduleCancellationActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    public void deletedataNotifCancel() {
+        String pathDelete = "users/" + userName + "/Notif/NotifPurchased";
+        String pathDeleteRes = "users/" + userName + "/Rescheadule";
+        databaseReferenceDeleteCanc2 = FirebaseDatabase.getInstance().getReference().child(pathDeleteRes);
+        databaseReferenceDeleteCanc = FirebaseDatabase.getInstance().getReference().child(pathDelete);
+        getChildRefDeleteCanc = databaseReferenceDeleteCanc.child("notifP" + deck + " " + lokasi);
+        getChildRefDeleteCanc2 = databaseReferenceDeleteCanc.child("notifAd" + deck + " " + lokasi);
+        getChildRefDeleteCanc3 = databaseReferenceDeleteCanc2.child("RescheaduleData" + lokasi + " " + deck);
+
+        getChildRefDeleteCanc.removeValue()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        // Data berhasil dihapus
+                        Toast.makeText(RescheduleCancellationActivity.this, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Gagal menghapus data
+                        Toast.makeText(RescheduleCancellationActivity.this, "Gagal menghapus data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        getChildRefDeleteCanc2.removeValue()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        // Data berhasil dihapus
+                        Toast.makeText(RescheduleCancellationActivity.this, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Gagal menghapus data
+                        Toast.makeText(RescheduleCancellationActivity.this, "Gagal menghapus data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        getChildRefDeleteCanc3.removeValue()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        // Data berhasil dihapus
+                        Toast.makeText(RescheduleCancellationActivity.this, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Gagal menghapus data
+                        Toast.makeText(RescheduleCancellationActivity.this, "Gagal menghapus data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     public void show_DialogRescheadule() {
@@ -325,6 +453,175 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
             }
         });
         myDialog.show();
+    }
+
+    public void updateData() {
+        image = " ";
+
+        if (Avail.equals("Tersedia")) {
+            Avail = "Penuh";
+        } else if (Avail.equals("Highseason")) {
+            Avail = "Penuh";
+        }
+        String path = tanggalawalNew + "/" + lokasiNew.trim();
+        databaseReference1 = FirebaseDatabase.getInstance().getReference(path);
+        childRef1 = databaseReference1.child(deckNew);
+
+        DataClass dataClass = new DataClass(deckNew, Avail, image, userName, jumlahNew);
+
+        childRef1.setValue(dataClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(RescheduleCancellationActivity.this, "Updated", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(RescheduleCancellationActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void deleteDataDeckSebelumnya() {
+        image = " ";
+        String availDelete = "Tersedia";
+        String jumlahDelete = " ";
+        String nameDelete = " ";
+
+        if (Avail.equals("Tersedia")) {
+            Avail = "Penuh";
+        } else if (Avail.equals("Highseason")) {
+            Avail = "Penuh";
+        }
+        String path = dataTanggal + "/" + dataLokasi.trim();
+        databaseReference1 = FirebaseDatabase.getInstance().getReference(path);
+        childRef1 = databaseReference1.child(dataDeck);
+
+        DataClass dataClass = new DataClass(dataDeck, availDelete, image, nameDelete, jumlahDelete);
+
+        childRef1.setValue(dataClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(RescheduleCancellationActivity.this, "Updated", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(RescheduleCancellationActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    public void deletedataNotifRes() {
+        String pathDelete = "users/" + userName + "/Notif/NotifPurchased";
+        String pathDeleteRes = "users/" + userName + "/Rescheadule";
+        databaseReferenceDeleteRes = FirebaseDatabase.getInstance().getReference().child(pathDeleteRes);
+        databaseReferenceDelete = FirebaseDatabase.getInstance().getReference().child(pathDelete);
+        getChildRefDelete = databaseReferenceDelete.child("notifP" + dataDeck + " " + dataLokasi);
+        getChildRefDelete2 = databaseReferenceDelete.child("notifAd" + dataDeck + " " + dataLokasi);
+        getChildRefDeleteRes = databaseReferenceDeleteRes.child("RescheaduleData" + dataLokasi + " " + dataDeck);
+
+        getChildRefDelete.removeValue()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        // Data berhasil dihapus
+                        Toast.makeText(RescheduleCancellationActivity.this, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Gagal menghapus data
+                        Toast.makeText(RescheduleCancellationActivity.this, "Gagal menghapus data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        getChildRefDelete2.removeValue()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        // Data berhasil dihapus
+                        Toast.makeText(RescheduleCancellationActivity.this, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Gagal menghapus data
+                        Toast.makeText(RescheduleCancellationActivity.this, "Gagal menghapus data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        getChildRefDeleteRes.removeValue()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        // Data berhasil dihapus
+                        Toast.makeText(RescheduleCancellationActivity.this, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Gagal menghapus data
+                        Toast.makeText(RescheduleCancellationActivity.this, "Gagal menghapus data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    public void sendNotification() {
+
+        String mainNtf = "Rescheadule Berhasil";
+        String childNtf = "Booking ID 000001";
+        String imageNtf = "";
+
+        String mainNtfadm = "Rescheadule Charge";
+        String childNtfadm = "whatever";
+        String imageNtfadm = "";
+
+        long timestamp = System.currentTimeMillis();
+        //1
+        NotifClass notifClass = new NotifClass(mainNtf, childNtf, imageNtf, tanggalawalNew, hargaNew, lokasiNew, timestamp, deckNew, tanggalakhirNew, jumlahNew);
+
+        childRefNotifp.setValue(notifClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(RescheduleCancellationActivity.this, "Updated", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(RescheduleCancellationActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //2
+        NotifClass notifClass2 = new NotifClass(mainNtfadm, childNtfadm, imageNtfadm, tanggalawalNew, hargaNew, lokasiNew, timestamp, deckNew, tanggalakhirNew, jumlahNew);
+
+        childRefNotifad.setValue(notifClass2).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(RescheduleCancellationActivity.this, "Updated", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(RescheduleCancellationActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
 }

@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -39,6 +41,8 @@ public class NotifActivity extends AppCompatActivity {
     List<NotifClass> dataListNotif, dayaListRiwayat;
     RecyclerView NotifRecyclerview,RiwayatRecyclerview;
     ValueEventListener eventListener;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +52,7 @@ public class NotifActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.bottom_notif);
         int hijau = ContextCompat.getColor(getApplicationContext(), R.color.green);
         int abuabu = ContextCompat.getColor(getApplicationContext(), R.color.abu3);
+
 
         upcoming = findViewById(R.id.upcoming);
         riwayat = findViewById(R.id.riwayat);
@@ -62,11 +67,18 @@ public class NotifActivity extends AppCompatActivity {
         RiwayatRecyclerview=findViewById(R.id.RiwayatRecyclerview);
         nodataRiwayat=findViewById(R.id.nodataRiwayat);
 
+
         getData();
         LinearLayoutManager linearLayoutManager3 = new LinearLayoutManager(NotifActivity.this,LinearLayoutManager.VERTICAL,false);
         NotifRecyclerview.setLayoutManager(linearLayoutManager3);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(NotifActivity.this,LinearLayoutManager.VERTICAL,false);
         RiwayatRecyclerview.setLayoutManager(linearLayoutManager);
+
+        Animation fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out);
+        Animation fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+
+        fadeInAnimation.setDuration(140);
+        fadeOutAnimation.setDuration(140);
 
         showDataRVUpcoming();
         showDataRVRiwayat();
@@ -77,12 +89,16 @@ public class NotifActivity extends AppCompatActivity {
                 upcoming.setTextColor(hijau);
                 riwayat.setTextColor(abuabu);
                 if (scrollView2.getVisibility() == View.GONE) {
-                    scrollView2.setVisibility(View.VISIBLE);
-                    scrollView.setVisibility(View.GONE);
-                    background.setVisibility(View.VISIBLE);
+                    animateViewVisibility(View.VISIBLE, fadeInAnimation,
+                            scrollView2);
+                    animateViewVisibility(View.GONE, fadeOutAnimation,
+                            scrollView);
+                    animateViewVisibility(View.VISIBLE, fadeInAnimation,
+                            background);
 
                 } else {
-                    cl1.setVisibility(View.VISIBLE);
+                    animateViewVisibility(View.VISIBLE, fadeInAnimation,
+                            cl1);
                 }
             }
         });
@@ -93,11 +109,13 @@ public class NotifActivity extends AppCompatActivity {
                 riwayat.setTextColor(hijau);
                 upcoming.setTextColor(abuabu);
                 if (scrollView.getVisibility() == View.GONE) {
-                    scrollView.setVisibility(View.VISIBLE);
-                    scrollView2.setVisibility(View.GONE);
-                    background.setVisibility(View.GONE);
+                    animateViewVisibility(View.GONE, fadeOutAnimation,
+                            scrollView2);
+                    animateViewVisibility(View.VISIBLE, fadeInAnimation,
+                            scrollView);
                 } else {
-                    cl2.setVisibility(View.VISIBLE);
+                    animateViewVisibility(View.VISIBLE, fadeInAnimation,
+                            cl2);
                 }
             }
         });
@@ -109,6 +127,7 @@ public class NotifActivity extends AppCompatActivity {
                     String namantf = namanana.getText().toString();
                     intent.putExtra("username",namantf);
                     startActivity(intent);
+                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                     finish();
                     return true;
                 case R.id.bottom_history:
@@ -116,6 +135,7 @@ public class NotifActivity extends AppCompatActivity {
                     String namantf2 = namanana.getText().toString();
                     intent2.putExtra("username",namantf2);
                     startActivity(intent2);
+                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                     finish();
                     return true;
                 case R.id.bottom_notif:
@@ -125,6 +145,7 @@ public class NotifActivity extends AppCompatActivity {
                     String namantf1 = namanana.getText().toString();
                     intent3.putExtra("username",namantf1);
                     startActivity(intent3);
+                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                     finish();
                     return true;
             }
@@ -186,6 +207,34 @@ public class NotifActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void animateViewVisibility(int visibility, Animation animation, View... views) {
+        for (View view : views) {
+            if (view.getVisibility() == visibility) continue;
+            if (visibility == View.VISIBLE) {
+                view.startAnimation(animation);
+                view.setVisibility(visibility);
+            } else {
+                Animation fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out);
+                fadeOutAnimation.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        view.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+                    }
+                });
+                view.startAnimation(fadeOutAnimation);
+            }
+        }
+    }
+
     public void showDataRVRiwayat(){
         String pathRwyt = "users/"+getdata+"/Notif";
         dayaListRiwayat = new ArrayList<>();
@@ -208,6 +257,7 @@ public class NotifActivity extends AppCompatActivity {
                     adapter.notifyDataSetChanged();
                 }else {
                     dataNotPresentRiwayat();
+
                 }
             }
 

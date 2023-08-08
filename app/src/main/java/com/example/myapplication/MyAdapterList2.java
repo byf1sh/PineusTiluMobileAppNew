@@ -15,6 +15,8 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class MyAdapterList2 extends RecyclerView.Adapter<MyViewHolderList2> {
@@ -40,6 +42,7 @@ public class MyAdapterList2 extends RecyclerView.Adapter<MyViewHolderList2> {
     public void onBindViewHolder(@NonNull MyViewHolderList2 holder, int position) {
         holder.Title.setText(dataList.get(position).getDataTitle());
         holder.Avail.setText(dataList.get(position).getDataAvail());
+        Glide.with(context).load(dataList.get(position).getDataImage()).into(holder.picImg);
 
         int hijau = ContextCompat.getColor(holder.itemView.getContext(), R.color.hijau);
         int merah = ContextCompat.getColor(holder.itemView.getContext(), R.color.merah);

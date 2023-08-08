@@ -55,6 +55,7 @@ public class EntertainmentActivity extends AppCompatActivity {
                     String namantf = namanana.getText().toString();
                     intent.putExtra("username",namantf);
                     startActivity(intent);
+                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                     finish();
                     return true;
                 case R.id.bottom_history:
@@ -64,6 +65,7 @@ public class EntertainmentActivity extends AppCompatActivity {
                     String namantf2 = namanana.getText().toString();
                     intent2.putExtra("username",namantf2);
                     startActivity(intent2);
+                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                     finish();
                     return true;
                 case R.id.bottom_profile:
@@ -71,6 +73,7 @@ public class EntertainmentActivity extends AppCompatActivity {
                     String namantf1 = namanana.getText().toString();
                     intent3.putExtra("username",namantf1);
                     startActivity(intent3);
+                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                     finish();
                     return true;
             }
@@ -143,11 +146,17 @@ public class EntertainmentActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 // Tambahkan logika untuk mengatasi setiap item yang dipilih dari menu dropdown
                 switch (item.getItemId()) {
-                    case R.id.menu_item_1:
+                    case R.id.settings:
                         // Aksi untuk menu item 1
                         return true;
-                    case R.id.menu_item_2:
+                    case R.id.faq:
+                        Intent intent1 = new Intent(EntertainmentActivity.this, FAQActivity.class);
+                        startActivity(intent1);
                         // Aksi untuk menu item 2
+                        return true;
+                    case R.id.tutorial:
+                        Intent intent2 = new Intent(EntertainmentActivity.this,BookingDateTutorialActivity.class);
+                        startActivity(intent2);
                         return true;
                     // Tambahkan lebih banyak case sesuai dengan kebutuhan Anda
                     default:
