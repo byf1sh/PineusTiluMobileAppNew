@@ -96,7 +96,7 @@ public class DetailBookingDeckActivity extends AppCompatActivity {
 
 
         harga.setText("Harga : Rp. "+Harga);
-        textViewTanggal.setText(tanggalAwal + " || " + tanggalAkhir);
+        textViewTanggal.setText(tanggalAwal + " s/d " + tanggalAkhir);
         header_dbd.setText(Title);
         h2_dbd.setText(headFas);
         b2_dbd.setText(textFas);
