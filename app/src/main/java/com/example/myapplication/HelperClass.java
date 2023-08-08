@@ -1,7 +1,15 @@
 package com.example.myapplication;
 public class HelperClass {
 
-    String name, email, username, password,imageURL;
+    String name, email, username, password, imageURL, address;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -43,12 +51,13 @@ public class HelperClass {
         return imageURL;
     }
 
-    public HelperClass(String name, String email, String username, String password, String imageURL) {
+    public HelperClass(String name, String email, String username, String password, String imageURL, String address) {
         this.name = name;
         this.email = email;
         this.username = username;
         this.password = password;
         this.imageURL = imageURL;
+        this.address = address;
     }
 
     public HelperClass() {

@@ -76,6 +76,15 @@ public class DetailBookingDeckActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btn_kemabali_dbd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(DetailBookingDeckActivity.this, HomeMainActivity.class);
+                intent.putExtra("username",Name);
+                startActivity(intent);
+            }
+        });
     }
     public void showData(){
         Intent intent = getIntent();

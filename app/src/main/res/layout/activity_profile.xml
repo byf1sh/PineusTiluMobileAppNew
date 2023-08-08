@@ -120,11 +120,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePiclyly"
         app:layout_constraintBottom_toTopOf="@id/btnAddress">
+
         <ImageView
             android:id="@+id/profileicon"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/name_icon"
+            android:src="@drawable/profileicon_activityprofile"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -164,122 +165,149 @@
         android:id="@+id/btnAddress"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/home_light22"
-        android:padding="16dp"
         android:background="@drawable/buttonshape"
-        android:textAlignment="viewStart"
-        android:textColor="@color/abu"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnName">
+
         <ImageView
             android:id="@+id/addressicon"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/home_light22"
+            android:src="@drawable/homeicon_activityprofile"
+            android:layout_marginStart="24.41dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
         <TextView
+            android:id="@+id/h_address_activityprofile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password"
-            android:textColor="@color/black"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="-50dp"
-            app:layout_constraintTop_toBottomOf="@id/btnAddress"
-            app:layout_constraintStart_toStartOf="@id/btnAddress"
+            android:text="Address"
+            android:textSize="18sp"
+            android:fontFamily="@font/ralewaysemibold"
+            android:textColor="#263238"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/addressicon"
+            app:layout_constraintBottom_toTopOf="@id/profilePassword"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12.5dp"
             />
         <TextView
             android:id="@+id/profilePassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Jalan Mars Dirgahayu no.28"
-            android:textColor="@color/black"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="-30dp"
-            app:layout_constraintTop_toBottomOf="@id/btnAddress"
-            app:layout_constraintStart_toStartOf="@id/btnAddress"
+            android:textColor="#63767E"
+            android:paddingBottom="12.5dp"
+            android:fontFamily="@font/ralewaymedium"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/h_address_activityprofile"
+            app:layout_constraintStart_toEndOf="@id/addressicon"
+            android:layout_marginStart="12dp"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/btnnumber"
-        android:layout_width="246dp"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/putih"
-        android:drawableLeft="@drawable/dial_icon"
-        android:padding="16dp"
-        android:background="@drawable/buttonshape"
-        android:textAlignment="viewStart"
-        android:textColor="@color/abu"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAddress"
-        />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/btnnumber"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:text="Contact Number"
-        android:layout_marginStart="55dp"
-        android:textColor="@color/black"
-        android:layout_marginTop="-50dp"
-        app:layout_constraintTop_toBottomOf="@id/btnnumber"
-        app:layout_constraintStart_toStartOf="@id/btnnumber"
-        />
-    <TextView
-        android:id="@+id/contact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+62 82215437001"
-        android:textColor="@color/black"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="-30dp"
-        app:layout_constraintTop_toBottomOf="@id/btnnumber"
-        app:layout_constraintStart_toStartOf="@id/btnnumber"
-        />
+        android:background="@drawable/buttonshape"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+        <ImageView
+            android:id="@+id/phoneicon_activityprofile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/phoneicon_activityprofile"
+            android:layout_marginStart="24.41dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <TextView
+            android:id="@+id/h_number_activityprofile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact Number"
+            android:textSize="18sp"
+            android:fontFamily="@font/ralewaysemibold"
+            android:textColor="#263238"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/phoneicon_activityprofile"
+            app:layout_constraintBottom_toTopOf="@id/contact"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12.5dp"
+            />
+        <TextView
+            android:id="@+id/contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+62 82215437001"
+            android:textColor="#63767E"
+            android:paddingBottom="12.5dp"
+            android:fontFamily="@font/ralewaymedium"
+            android:textSize="16sp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toEndOf="@id/phoneicon_activityprofile"
+            app:layout_constraintTop_toBottomOf="@id/h_number_activityprofile"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/btnemail"
-        android:layout_width="246dp"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/putih"
-        android:drawableLeft="@drawable/message_icon"
-        android:padding="16dp"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/buttonshape"
-        android:textAlignment="viewStart"
-        android:textColor="@color/abu"
         android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintTop_toBottomOf="@+id/btnnumber"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnnumber"/>
+        app:layout_constraintEnd_toEndOf="parent">
+        <ImageView
+            android:id="@+id/emailicon_activityprofile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/emailicon_activityprofile"
+            android:layout_marginStart="24.41dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:textColor="@color/black"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="-50dp"
-        app:layout_constraintTop_toBottomOf="@id/btnemail"
-        app:layout_constraintStart_toStartOf="@id/btnemail"
-        />
-    <TextView
-        android:id="@+id/profileEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="rxmys@outlook.com"
-        android:textColor="@color/black"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="-30dp"
-        app:layout_constraintTop_toBottomOf="@id/btnemail"
-        app:layout_constraintStart_toStartOf="@id/btnemail"
-        />
+        <TextView
+            android:id="@+id/h_email_activityprofile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="18sp"
+            android:fontFamily="@font/ralewaysemibold"
+            android:textColor="#263238"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/emailicon_activityprofile"
+            app:layout_constraintBottom_toTopOf="@id/email_activityprofile"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12.5dp"/>
+        <TextView
+            android:id="@+id/email_activityprofile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="rxmys@outlook.com"
+            android:textColor="#63767E"
+            android:paddingBottom="12.5dp"
+            android:fontFamily="@font/ralewaymedium"
+            android:textSize="16sp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintTop_toBottomOf="@id/h_email_activityprofile"
+            app:layout_constraintStart_toEndOf="@id/emailicon_activityprofile"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"

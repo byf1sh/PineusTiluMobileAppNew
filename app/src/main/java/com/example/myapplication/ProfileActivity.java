@@ -64,7 +64,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         profileName = findViewById(R.id.contact);
-        profileEmail = findViewById(R.id.profileEmail);
+        profileEmail = findViewById(R.id.email_activityprofile);
         profilepic = findViewById(R.id.profilePic);
         profileUsername = findViewById(R.id.profileName);
         profilePassword = findViewById(R.id.profilePassword);
@@ -184,8 +184,9 @@ public class ProfileActivity extends AppCompatActivity {
         String email = profileEmail.getText().toString();
         String username = profileUsername.getText().toString();
         String password = profilePassword.getText().toString();
+        String address = "Jl Mars Dirgahayu no.28";
 
-        HelperClass helperClass = new HelperClass(name, email, username, password,imageURL);
+        HelperClass helperClass = new HelperClass(name, email, username, password, imageURL, address);
 
         FirebaseDatabase.getInstance().getReference("users").child(username).setValue(helperClass)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -223,7 +224,7 @@ public class ProfileActivity extends AppCompatActivity {
                     profileEmail.setText(helperClass.getEmail());
                     profileUsername.setText(helperClass.getUsername());
                     profileName.setText(helperClass.getName());
-                    profilePassword.setText(helperClass.getPassword());
+                    profilePassword.setText(helperClass.getAddress());
 
                     if (helperClass.getImageURL() != null && !helperClass.getImageURL().isEmpty()) {
                         imgprofileclone.setVisibility(View.GONE);
