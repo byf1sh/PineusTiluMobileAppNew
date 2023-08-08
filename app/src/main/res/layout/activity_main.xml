@@ -8,6 +8,16 @@
     tools:context=".MainActivity"
     android:background="@drawable/bgmalem">
 
+    <ImageView
+        android:id="@+id/orgkemping"
+        android:layout_width="350dp"
+        android:layout_height="300dp"
+        android:src="@drawable/orgkemping"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/qnez"
+        app:layout_constraintTop_toBottomOf="@+id/now" />
 
     <TextView
         android:id="@+id/Camp"
@@ -20,7 +30,7 @@
         android:textSize="35sp"
         android:fontFamily="@font/poppinbold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/now"
+        app:layout_constraintBottom_toTopOf="@id/orgkemping"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
@@ -33,20 +43,8 @@
         android:textColor="@color/biru"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="@id/Camp"
-        app:layout_constraintBottom_toTopOf="@id/orgkemping"
-        app:layout_constraintTop_toBottomOf="@+id/Camp" />
-
-
-    <ImageView
-        android:id="@+id/orgkemping"
-        android:layout_width="350dp"
-        android:layout_height="300dp"
-        android:src="@drawable/orgkemping"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/qnez"
-        app:layout_constraintTop_toBottomOf="@+id/now" />
+        app:layout_constraintTop_toBottomOf="@+id/Camp"
+        app:layout_constraintStart_toStartOf="@id/Camp"/>
 
     <TextView
         android:id="@+id/qnez"
