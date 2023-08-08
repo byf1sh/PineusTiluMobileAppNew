@@ -14,20 +14,22 @@
         android:layout_marginTop="36sp"
         android:fontFamily="@font/poppinsbold"
         android:text="History"
+        android:textColor="@color/hitam"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/namanana"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="23sp"
-        android:layout_marginTop="36sp"
         android:fontFamily="@font/poppinsbold"
-        android:text="History"
-        android:textSize="24sp"
+        android:layout_marginEnd="10dp"
+        android:text="Username"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/dot"
         app:layout_constraintEnd_toStartOf="@id/dot"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/dot" />
 
     <ImageButton
         android:id="@+id/dot"
@@ -60,7 +62,7 @@
         android:layout_marginEnd="45sp"
         android:fontFamily="@font/poppinsbold"
         android:text="Riwayat"
-        android:textColor="@color/abu"
+        android:textColor="@color/abu3"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
