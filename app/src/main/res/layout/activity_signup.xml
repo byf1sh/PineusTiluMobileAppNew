@@ -47,7 +47,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toBottomOf="@id/orgkemping" />
 
 
@@ -127,16 +126,16 @@
         android:id="@+id/signup_button"
         android:layout_width="160sp"
         android:layout_height="50sp"
-        android:layout_marginTop="12dp"
         android:backgroundTint="@color/green"
         android:fontFamily="@font/poppinbold"
         android:gravity="center"
         android:hint="Sign Up"
+        android:layout_marginTop="10dp"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -18,6 +19,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
     EditText currentPassword, newPassword;
     Button btnChangePassword;
     DatabaseReference reference;
+    TextView btnforgetpassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +31,17 @@ public class ChangePasswordActivity extends AppCompatActivity {
         currentPassword = findViewById(R.id.currentPassword);
         btnChangePassword = findViewById(R.id.btnChangePasword);
         newPassword = findViewById(R.id.newPassword);
+        btnforgetpassword = findViewById(R.id.btnforgetpassword);
 
         showDataPassword();
+
+        btnforgetpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChangePasswordActivity.this, ChangePassword12Activity.class);
+                startActivity(intent);
+            }
+        });
 
         btnChangePassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +70,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
         Intent intent = getIntent();
         usernameUser = intent.getStringExtra("username");
         stringPassword = intent.getStringExtra("password");
-
         currentPassword.setText(stringPassword);
     }
 }

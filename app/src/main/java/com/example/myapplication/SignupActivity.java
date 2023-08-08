@@ -11,8 +11,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -23,17 +25,14 @@ public class SignupActivity extends AppCompatActivity {
     EditText signupName, getSignupEmail, signupUsername, signupPassword;
     TextView loginRedirectText;
     Button signupButton;
-    FirebaseDatabase database;
-    DatabaseReference reference;
-    FirebaseAuth firebaseAuth;
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        firebaseAuth = FirebaseAuth.getInstance();
 
-
+        auth = FirebaseAuth.getInstance();
         signupName = findViewById(R.id.contact);
         getSignupEmail = findViewById(R.id.emailasd);
         signupUsername = findViewById(R.id.username);
@@ -44,38 +43,34 @@ public class SignupActivity extends AppCompatActivity {
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                database = FirebaseDatabase.getInstance();
-                reference = database.getReference("users");
-
-                String name = signupName.getText().toString();
-                String email = getSignupEmail.getText().toString();
-                String username = signupUsername.getText().toString();
-                String password = signupPassword.getText().toString();
-
-                firebaseAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                            @Override
-                            public void onSuccess(AuthResult authResult) {
-
-                                HelperClass helperClass = new HelperClass(name, email, username, password,"");
-                                reference.child(username).setValue(helperClass);
-
-                                Toast.makeText(SignupActivity.this, "You have signup successfully!", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(SignupActivity.this, MainActivity.class);
-                                startActivity(intent);
+                String name = signupName.getText().toString().trim(); //Nambahin trim
+                String email = getSignupEmail.getText().toString().trim(); //Nambahin trim
+                String username = signupUsername.getText().toString().trim(); //Nambahin trim
+                String password = signupPassword.getText().toString().trim(); //Nambahin trim
+                //Nambahin if, else
+                if (username.isEmpty()) {
+                    getSignupEmail.setError("Email cannot be Empty");
+                }
+                else if (password.isEmpty()) {
+                    signupPassword.setError("Passwword cannot be Empty");
+                } else {
+                    auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(SignupActivity.this, "SignUp Successful", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(SignupActivity.this, LoginActivity.class));
+                            } else {
+                                Toast.makeText(SignupActivity.this, "SignUp Failed" + task.getException().getMessage(), Toast.LENGTH_SHORT);
                             }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(SignupActivity.this, "Eror", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+
+                        }
+                    });
+                }
             }
+
         });
-
-
+        //Test
         loginRedirectText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,5 +78,6 @@ public class SignupActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }

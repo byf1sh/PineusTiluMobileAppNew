@@ -93,7 +93,7 @@
             android:name=".ProfileSettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeMainActivity"
             android:exported="false" />
         <activity
             android:name=".SignupActivity"
@@ -104,8 +104,19 @@
         <activity
             android:name=".CancelationActivity"
             android:exported="false" />
-        <activity
-            android:name=".HomeMainActivity"
+      <activity
+          android:name=".ChangePassword12Activity"
+          android:exported="false"
+          />
+      <activity
+          android:name=".ChangePassword13Activity"
+          android:exported="false"
+          />
+      <activity
+          android:name=".ChangePassword14Activity"
+          android:exported="false" />
+      <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
