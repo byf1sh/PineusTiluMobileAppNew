@@ -83,8 +83,8 @@ public class EntertainmentActivity extends AppCompatActivity {
 
     private void initRecycleView1(){
         ArrayList<EntertainmentDataClass> items = new ArrayList<>();
-        items.add(new EntertainmentDataClass("4 Orang/1 Perahu","600.000",""));
-        items.add(new EntertainmentDataClass("5 Orang/1 Perahu","750.000",""));
+        items.add(new EntertainmentDataClass("4 Orang/1 Perahu","600.000","https://firebasestorage.googleapis.com/v0/b/pineustiludb.appspot.com/o/Users%20profile%20pic%2FRafting.png?alt=media&token=4dd028d4-621e-4594-a456-7fd41a7d3c3e"));
+        items.add(new EntertainmentDataClass("5 Orang/1 Perahu","750.000","https://firebasestorage.googleapis.com/v0/b/pineustiludb.appspot.com/o/Users%20profile%20pic%2Frafting4.jpeg?alt=media&token=45dec8f2-65a7-4613-97b8-c6302e0d4821"));
 
         card1.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         adaptercard = new MyAdapterEntertain(items);
@@ -92,8 +92,8 @@ public class EntertainmentActivity extends AppCompatActivity {
     }
     private void initRecycleView2(){
         ArrayList<EntertainmentDataClass> items = new ArrayList<>();
-        items.add(new EntertainmentDataClass("Single","175.000",""));
-        items.add(new EntertainmentDataClass("Tandem","225.000",""));
+        items.add(new EntertainmentDataClass("Single","175.000","https://firebasestorage.googleapis.com/v0/b/pineustiludb.appspot.com/o/Users%20profile%20pic%2FATV%20(1).png?alt=media&token=2069f5cb-8f63-4afc-827a-55ba7a347f2d"));
+        items.add(new EntertainmentDataClass("Tandem","225.000","https://firebasestorage.googleapis.com/v0/b/pineustiludb.appspot.com/o/Users%20profile%20pic%2FATV2.webp?alt=media&token=836ed0d3-9b61-4a7f-8421-605ecf4d0dcc"));
 
         card2.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         adaptercard = new MyAdapterEntertain(items);
@@ -101,8 +101,8 @@ public class EntertainmentActivity extends AppCompatActivity {
     }
     private void initRecycleView3(){
         ArrayList<EntertainmentDataClass> items = new ArrayList<>();
-        items.add(new EntertainmentDataClass("1 Jeep","1.500.000",""));
-        items.add(new EntertainmentDataClass("2 Jeep","3.000.000",""));
+        items.add(new EntertainmentDataClass("1 Jeep","1.500.000","https://firebasestorage.googleapis.com/v0/b/pineustiludb.appspot.com/o/Users%20profile%20pic%2FOffroad.jpeg?alt=media&token=e9ee3b5e-d40b-48ed-b213-84841e337704"));
+        items.add(new EntertainmentDataClass("2 Jeep","3.000.000","https://firebasestorage.googleapis.com/v0/b/pineustiludb.appspot.com/o/Users%20profile%20pic%2Foffroad%201.jpg?alt=media&token=10baa5fc-5e99-4086-b36c-4bca54882a51"));
 
         card3.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         adaptercard = new MyAdapterEntertain(items);
@@ -110,7 +110,7 @@ public class EntertainmentActivity extends AppCompatActivity {
     }
     private void initRecycleView4(){
         ArrayList<EntertainmentDataClass> items = new ArrayList<>();
-        items.add(new EntertainmentDataClass("4 Orang","140.000",""));
+        items.add(new EntertainmentDataClass("4 Orang","140.000","https://firebasestorage.googleapis.com/v0/b/pineustiludb.appspot.com/o/Users%20profile%20pic%2Fflyngfox.jpeg?alt=media&token=10bd1282-7522-4a09-980f-8fc31d28fa86"));
 
         card4.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         adaptercard = new MyAdapterEntertain(items);
@@ -118,7 +118,7 @@ public class EntertainmentActivity extends AppCompatActivity {
     }
     private void initRecycleView5(){
         ArrayList<EntertainmentDataClass> items = new ArrayList<>();
-        items.add(new EntertainmentDataClass("6 Orang","360.000",""));
+        items.add(new EntertainmentDataClass("6 Orang","360.000","https://firebasestorage.googleapis.com/v0/b/pineustiludb.appspot.com/o/Users%20profile%20pic%2Fpaintball.jpeg?alt=media&token=a66b0c5b-6b40-4056-b44a-be05ee48867a"));
 
         card5.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         adaptercard = new MyAdapterEntertain(items);
@@ -126,7 +126,7 @@ public class EntertainmentActivity extends AppCompatActivity {
     }
     private void initRecycleView6(){
         ArrayList<EntertainmentDataClass> items = new ArrayList<>();
-        items.add(new EntertainmentDataClass("10 Orang","800.000",""));
+        items.add(new EntertainmentDataClass("10 Orang","800.000","https://firebasestorage.googleapis.com/v0/b/pineustiludb.appspot.com/o/Users%20profile%20pic%2Fteambuilding.jpeg?alt=media&token=541b02ed-be78-4292-82a2-a651aac388d5"));
 
         card6.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         adaptercard = new MyAdapterEntertain(items);
