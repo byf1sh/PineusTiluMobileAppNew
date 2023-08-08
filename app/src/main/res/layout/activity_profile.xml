@@ -109,12 +109,9 @@
         app:layout_constraintTop_toBottomOf="@+id/titleUsername" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-
         android:id="@+id/btnName"
-        android:layout_width="246dp"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/putih"
-        android:drawableLeft="@drawable/name_icon"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
         android:textAlignment="viewStart"
         android:background="@drawable/buttonshape"
         android:layout_marginTop="90dp"
@@ -122,34 +119,51 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePiclyly"
-        />
+        app:layout_constraintBottom_toTopOf="@id/btnAddress">
+        <ImageView
+            android:id="@+id/profileicon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/name_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="24.41dp"/>
+        <TextView
+            android:id="@+id/name_activityprofile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textColor="#263238"
+            android:textSize="18sp"
+            android:fontFamily="@font/ralewaysemibold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/profileicon"
+            app:layout_constraintBottom_toTopOf="@id/profileName"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            />
+        <TextView
+            android:id="@+id/profileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Muhammad Ismail"
+            android:textColor="#63767E"
+            android:layout_marginStart="12.5dp"
+            android:paddingBottom="12.5dp"
+            android:fontFamily="@font/ralewaymedium"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/name_activityprofile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/profileicon"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name"
-        android:textColor="@color/black"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="-50dp"
-        app:layout_constraintTop_toBottomOf="@id/btnName"
-        app:layout_constraintStart_toStartOf="@id/btnName"
-        />
-    <TextView
-        android:id="@+id/profileName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Muhammad Ismail"
-        android:textColor="@color/black"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="-30dp"
-        app:layout_constraintTop_toBottomOf="@id/btnName"
-        app:layout_constraintStart_toStartOf="@id/btnName"
-        />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/btnAddress"
-        android:layout_width="246dp"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/putih"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
         android:drawableLeft="@drawable/home_light22"
         android:padding="16dp"
         android:background="@drawable/buttonshape"
@@ -159,31 +173,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnName"
-
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Password"
-        android:textColor="@color/black"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="-50dp"
-        app:layout_constraintTop_toBottomOf="@id/btnAddress"
-        app:layout_constraintStart_toStartOf="@id/btnAddress"
-        />
-    <TextView
-        android:id="@+id/profilePassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Jalan Mars Dirgahayu no.28"
-        android:textColor="@color/black"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="-30dp"
-        app:layout_constraintTop_toBottomOf="@id/btnAddress"
-        app:layout_constraintStart_toStartOf="@id/btnAddress"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/btnName">
+        <ImageView
+            android:id="@+id/addressicon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/home_light22"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textColor="@color/black"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="-50dp"
+            app:layout_constraintTop_toBottomOf="@id/btnAddress"
+            app:layout_constraintStart_toStartOf="@id/btnAddress"
+            />
+        <TextView
+            android:id="@+id/profilePassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jalan Mars Dirgahayu no.28"
+            android:textColor="@color/black"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="-30dp"
+            app:layout_constraintTop_toBottomOf="@id/btnAddress"
+            app:layout_constraintStart_toStartOf="@id/btnAddress"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/btnnumber"
         android:layout_width="246dp"
