@@ -242,7 +242,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public void passUserData() {
-        Intent intent = new Intent(ProfileActivity.this, ProfileSettingsActivity.class);
+        Intent intent = new Intent(ProfileActivity.this, SettingWindowsPageActivity.class);
 
         String Contactstg = titleName.getText().toString();
         String Usernamestg = titleUsername.getText().toString();

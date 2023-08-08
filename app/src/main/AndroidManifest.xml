@@ -116,6 +116,10 @@
           android:name=".ChangePassword14Activity"
           android:exported="false" />
       <activity
+          android:name=".SettingWindowsPageActivity"
+          android:exported="false" />
+
+      <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

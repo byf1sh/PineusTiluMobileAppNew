@@ -2,7 +2,5 @@
     <solid android:color="@color/putih" /> <!-- Warna latar belakang -->
     <corners android:radius="10dp" />
     <stroke android:width="0.8dp"
-        android:color="@color/abu" />
-
-    <!-- Jari-jari radius yang diinginkan -->
+        android:color="@color/merah"/>    <!-- Jari-jari radius yang diinginkan -->
 </shape>
