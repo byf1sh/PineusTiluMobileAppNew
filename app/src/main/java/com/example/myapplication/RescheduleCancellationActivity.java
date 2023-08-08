@@ -289,7 +289,7 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
     }
 
     public void deleteDataCancellation() {
-        image = " ";
+        image = "https://www.selera.id/wp-content/uploads/2022/07/shutterstock_358158596_3.jpg";
         String availDelete = "Tersedia";
         String jumlahDelete = " ";
         String nameDelete = " ";
@@ -456,7 +456,7 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
     }
 
     public void updateData() {
-        image = " ";
+        image = "https://www.selera.id/wp-content/uploads/2022/07/shutterstock_358158596_3.jpg";
 
         if (Avail.equals("Tersedia")) {
             Avail = "Penuh";
@@ -486,7 +486,7 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
     }
 
     public void deleteDataDeckSebelumnya() {
-        image = " ";
+        image = "https://www.selera.id/wp-content/uploads/2022/07/shutterstock_358158596_3.jpg";
         String availDelete = "Tersedia";
         String jumlahDelete = " ";
         String nameDelete = " ";
@@ -577,7 +577,7 @@ public class RescheduleCancellationActivity extends AppCompatActivity {
 
     public void sendNotification() {
 
-        String mainNtf = "Rescheadule Berhasil";
+        String mainNtf = "Rescheadule Berhasil"+deckNew+" "+lokasiNew;
         String childNtf = "Booking ID 000001";
         String imageNtf = "";
 

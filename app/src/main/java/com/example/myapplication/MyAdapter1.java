@@ -18,6 +18,7 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -51,7 +52,8 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyViewHolder1> {
     public void onBindViewHolder(@NonNull MyViewHolder1 holder, int position) {
         holder.Title.setText(dataList.get(position).getDataTitle());
         holder.Avail.setText(dataList.get(position).getDataAvail());
-        Glide.with(context).load(dataList.get(position).getDataImage()).into(holder.picImg);
+        Glide.with(context).load(dataList.get(position).getDataImage())
+                .diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.picImg);
         /////Membuat highseason button muncul jika user adalah admin
         TextView name = ((HomeMainActivity) context).findViewById(R.id.NameUser);
         String Name = name.getText().toString();
