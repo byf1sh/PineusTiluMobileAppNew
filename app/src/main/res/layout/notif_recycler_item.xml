@@ -14,18 +14,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/Notification"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:elevation="15dp"
+        android:paddingBottom="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/notifImg"
-            android:layout_width="65sp"
-            android:layout_height="70sp"
-            android:layout_marginStart="30sp"
-            android:layout_marginTop="9sp"
+            android:layout_width="48dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="18sp"
             android:src="@drawable/checklist"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,40 +35,49 @@
             android:id="@+id/delete"
             android:layout_width="30sp"
             android:layout_height="30sp"
-            android:src="@drawable/baseline_delete_24"
             android:layout_marginEnd="10dp"
+            android:src="@drawable/baseline_delete_24"
+            app:layout_constraintBottom_toBottomOf="@+id/notifImg"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/notifImg" />
 
-        <TextView
-            android:id="@+id/mainNotif"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/lineartext"
+            android:layout_width="190dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="13sp"
-            android:layout_marginTop="20sp"
-            android:text="You've purchased"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/notifImg" />
+            android:gravity="start"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/delete"
+            app:layout_constraintStart_toEndOf="@+id/notifImg"
+            app:layout_constraintTop_toTopOf="@id/notifImg">
 
-        <TextView
-            android:id="@+id/childNotif"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24sp"
-            android:text="Booking ID 000001"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@id/mainNotif"
-            app:layout_constraintTop_toTopOf="@id/mainNotif" />
+            <TextView
+                android:id="@+id/mainNotif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="You've purchased"
+                android:fontFamily="@font/raleway_bold"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/childNotif"
+                android:fontFamily="@font/raleway"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Booking ID 000001"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/onClickConstraint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/childNotif"
+            app:layout_constraintTop_toBottomOf="@id/lineartext"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -77,6 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Purchased On"
+                android:fontFamily="@font/raleway"
                 android:layout_marginStart="25dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
@@ -86,6 +97,8 @@
                 android:layout_height="wrap_content"
                 android:text="Purchased On"
                 android:textStyle="bold"
+                android:textColor="@color/hitam"
+                android:fontFamily="@font/raleway"
                 android:layout_marginStart="25dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="25dp"
@@ -96,6 +109,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Paymeny Method"
+                android:fontFamily="@font/raleway"
                 app:layout_constraintTop_toBottomOf="@+id/purchasedOn"
                 app:layout_constraintStart_toStartOf="@id/purchasedOn"
                 android:layout_marginTop="14dp"/>
@@ -104,7 +118,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Paymeny Method"
-                android:textStyle="bold"
+                android:fontFamily="@font/raleway"
+                android:textColor="@color/hitam"
                 android:layout_marginEnd="25dp"
                 app:layout_constraintTop_toBottomOf="@+id/purchasedOn"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -114,6 +129,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Price Details"
+                android:fontFamily="@font/raleway"
                 app:layout_constraintTop_toBottomOf="@+id/paymentMethod"
                 app:layout_constraintStart_toStartOf="@id/paymentMethod"
                 android:layout_marginTop="14dp"/>
@@ -122,7 +138,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Price Details"
-                android:textStyle="bold"
+                android:fontFamily="@font/raleway"
+                android:textColor="@color/hitam"
                 android:layout_marginEnd="25dp"
                 app:layout_constraintTop_toBottomOf="@+id/paymentMethod"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -132,6 +149,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Location"
+                android:fontFamily="@font/raleway"
                 app:layout_constraintTop_toBottomOf="@+id/priceDetails"
                 app:layout_constraintStart_toStartOf="@id/priceDetails"
                 android:layout_marginTop="14dp"
@@ -141,7 +159,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Location"
-                android:textStyle="bold"
+                android:fontFamily="@font/raleway"
+                android:textColor="@color/hitam"
                 android:layout_marginEnd="25dp"
                 app:layout_constraintTop_toBottomOf="@+id/priceDetails"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -164,13 +183,12 @@
                 android:layout_height="40dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:background="@drawable/rectangle2"
-                android:backgroundTint="@color/abumuda"
+                android:background="@drawable/rectangle3"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="8dp"
                 android:layout_marginTop="20dp"
-                android:elevation="10dp"
+                android:elevation="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/notifimgitem">
                 <TextView

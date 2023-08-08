@@ -50,7 +50,18 @@ public class NotifAdapter extends RecyclerView.Adapter<MyViewHolderNotification>
 
         if ("Guest Loyality Program".equals(dataList.get(position).getDataMain())) {
             holder.Notification.setBackgroundResource(R.drawable.adminnotifrectangel);
+
+            int imgwidth = 128;
+            int imgheight = 136;
+            ViewGroup.LayoutParams layoutParams = holder.notifImg.getLayoutParams();
+            layoutParams.width = imgwidth;
+            layoutParams.height = imgheight;
+            holder.notifImg.setLayoutParams(layoutParams);
+
             holder.notifImg.setImageResource(R.drawable.adminnotification);
+
+
+
         } else {
             holder.Notification.setOnClickListener(new View.OnClickListener() {
                 @Override
